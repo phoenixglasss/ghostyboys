@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d08qr2iy5nxoe"]
+
+[ext_resource type="Script" uid="uid://jia4bddc7j82" path="res://battle/ui/target_menu.gd" id="1_25lkp"]
+
+[node name="TargetMenu" type="VBoxContainer" unique_id=1403061479]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_25lkp")

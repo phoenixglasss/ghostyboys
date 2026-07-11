@@ -17,3 +17,7 @@ func display_moves(moveset: Array[AttackData]) -> void:
 		
 func _on_move_button_pressed(attack: AttackData) -> void:
 	action_chosen.emit(attack)
+	
+func clear() -> void:
+	for child in get_children():
+		child.queue_free()
