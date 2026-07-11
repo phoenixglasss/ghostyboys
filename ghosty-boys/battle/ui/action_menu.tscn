@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bibl3yot1i7jt"]
+
+[ext_resource type="Script" uid="uid://cmwvbps0bqto6" path="res://battle/ui/action_menu.gd" id="1_50sv2"]
+
+[node name="ActionMenu" type="VBoxContainer" unique_id=299728398]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_50sv2")
