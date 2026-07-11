@@ -11,7 +11,7 @@ var current_measure_beat = 0
 
 var _last_raw_beat : float = 0.0
 
-@onready var audio_player = $AudioStreamPlayer
+@onready var audio_player = $BackgroundMusicPlayer
 
 signal measure_hit
 signal beat_hit
@@ -21,6 +21,9 @@ func _ready() -> void:
 	loop_length = _get_song_length_in_beats(audio_player.stream)
 	# print("Song is " + str(loop_length) + " beats long!")
 	audio_player.play()
+	# gotta hit on the first beat, too
+	beat_hit.emit()
+	measure_hit.emit()
 
 
 func _process(_delta: float) -> void:
