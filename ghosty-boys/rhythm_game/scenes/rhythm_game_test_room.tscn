@@ -2,97 +2,42 @@
 
 [ext_resource type="Script" uid="uid://ca71pn5oc546g" path="res://rhythm_game/scripts/Conductor.gd" id="1_hw0jn"]
 [ext_resource type="AudioStream" uid="uid://b6inbdjy51w8s" path="res://rhythm_game/test_files/audio/click_8mm.ogg" id="2_yyu3g"]
-[ext_resource type="Script" uid="uid://cbwpn11qctu1p" path="res://rhythm_game/scripts/chart_display.gd" id="3_qnuma"]
-[ext_resource type="Texture2D" uid="uid://difbybu4wdn1l" path="res://rhythm_game/art/arrow_outline.png" id="4_o2s18"]
-[ext_resource type="Resource" uid="uid://umdv83j48ki5" path="res://rhythm_game/charts/chart_01.tres" id="4_yyu3g"]
-[ext_resource type="PackedScene" uid="uid://cy2k516h3rmmq" path="res://rhythm_game/scenes/lane_judge.tscn" id="6_qnuma"]
+[ext_resource type="PackedScene" uid="uid://be84blq6a53wc" path="res://rhythm_game/scenes/chart_display.tscn" id="3_00ogi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
-size = Vector2(51, 90)
+[sub_resource type="Theme" id="Theme_o2s18"]
+default_font_size = 7
 
 [node name="Node2D" type="Node2D" unique_id=2046574851]
 
 [node name="Conductor" type="Node" parent="." unique_id=814417007]
 script = ExtResource("1_hw0jn")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Conductor" unique_id=912589107]
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="Conductor" unique_id=912589107]
 stream = ExtResource("2_yyu3g")
 
-[node name="ChartDisplay" type="Node2D" parent="." unique_id=677731201 node_paths=PackedStringArray("conductor", "lanes")]
-script = ExtResource("3_qnuma")
-conductor = NodePath("../Conductor")
-lanes = [NodePath("HitLine/Lane_Left"), NodePath("HitLine/Lane_Down"), NodePath("HitLine/Lane_Up"), NodePath("HitLine/Lane_Right")]
-my_chart = ExtResource("4_yyu3g")
+[node name="ActionMusicPlayer" type="AudioStreamPlayer" parent="Conductor" unique_id=1636531407]
 
-[node name="HitLine" type="Node2D" parent="ChartDisplay" unique_id=1038878901]
-position = Vector2(20, 20)
+[node name="ChartDisplay" parent="." unique_id=642866271 instance=ExtResource("3_00ogi")]
 
-[node name="Lane_Left" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1171813667]
+[node name="UI Nodes" type="CanvasLayer" parent="." unique_id=428757032]
 
-[node name="Sprite2D" type="Sprite2D" parent="ChartDisplay/HitLine/Lane_Left" unique_id=759602501]
-modulate = Color(1, 0.51025575, 0.44386888, 1)
-texture = ExtResource("4_o2s18")
+[node name="Debug UI" type="Control" parent="UI Nodes" unique_id=1595497434]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o2s18")
 
-[node name="ColorRect" type="ColorRect" parent="ChartDisplay/HitLine/Lane_Left" unique_id=1470791556]
-offset_top = -8.0
-offset_right = 300.0
-offset_bottom = 8.0
-color = Color(1, 0.827451, 0.8, 0.10980392)
-
-[node name="LaneJudge" parent="ChartDisplay/HitLine/Lane_Left" unique_id=63747081 instance=ExtResource("6_qnuma")]
-
-[node name="Lane_Down" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1770243530]
-position = Vector2(0, 16)
-
-[node name="Sprite2D" type="Sprite2D" parent="ChartDisplay/HitLine/Lane_Down" unique_id=349190926]
-modulate = Color(0.51466656, 0.44, 1, 1)
-rotation = -1.5707964
-texture = ExtResource("4_o2s18")
-
-[node name="ColorRect" type="ColorRect" parent="ChartDisplay/HitLine/Lane_Down" unique_id=1707287160]
-offset_top = -8.0
-offset_right = 300.0
-offset_bottom = 8.0
-color = Color(0.82666665, 0.8, 1, 0.10980392)
-
-[node name="LaneJudge" parent="ChartDisplay/HitLine/Lane_Down" unique_id=565009870 instance=ExtResource("6_qnuma")]
-
-[node name="Lane_Up" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1179777212]
-position = Vector2(0, 32)
-
-[node name="Sprite2D" type="Sprite2D" parent="ChartDisplay/HitLine/Lane_Up" unique_id=1982364805]
-modulate = Color(0.4392157, 1, 0.93333334, 1)
-rotation = 1.5707964
-texture = ExtResource("4_o2s18")
-
-[node name="ColorRect" type="ColorRect" parent="ChartDisplay/HitLine/Lane_Up" unique_id=1986759303]
-offset_top = -8.0
-offset_right = 300.0
-offset_bottom = 8.0
-color = Color(0.8, 1, 0.99333334, 0.10980392)
-
-[node name="LaneJudge" parent="ChartDisplay/HitLine/Lane_Up" unique_id=1335332852 instance=ExtResource("6_qnuma")]
-
-[node name="Lane_Right" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1517811816]
-position = Vector2(0, 48)
-
-[node name="Sprite2D" type="Sprite2D" parent="ChartDisplay/HitLine/Lane_Right" unique_id=351094682]
-modulate = Color(0.4509804, 1, 0.4392157, 1)
-rotation = -3.1415927
-texture = ExtResource("4_o2s18")
-
-[node name="ColorRect" type="ColorRect" parent="ChartDisplay/HitLine/Lane_Right" unique_id=1591058251]
-offset_top = -8.0
-offset_right = 300.0
-offset_bottom = 8.0
-color = Color(0.80333334, 1, 0.8, 0.10980392)
-
-[node name="LaneJudge" parent="ChartDisplay/HitLine/Lane_Right" unique_id=1297496270 instance=ExtResource("6_qnuma")]
-
-[node name="Notes" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1049932427]
-
-[node name="NoteDespawner" type="Area2D" parent="ChartDisplay/HitLine" unique_id=1927949575]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ChartDisplay/HitLine/NoteDespawner" unique_id=460717831]
-position = Vector2(-46, 24)
-shape = SubResource("RectangleShape2D_1jsb8")
+[node name="Button" type="Button" parent="UI Nodes/Debug UI" unique_id=282390038]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -19.0
+offset_right = 65.0
+offset_bottom = -8.0
+grow_vertical = 0
+text = "4 Note Sequence"

@@ -4,20 +4,20 @@
 [ext_resource type="Script" uid="uid://b50ngybjhb1ux" path="res://rhythm_game/scripts/note_data.gd" id="1_eyaa3"]
 [ext_resource type="Script" uid="uid://0q7tw24newak" path="res://rhythm_game/scripts/Chart.gd" id="1_o33bf"]
 
-[sub_resource type="Resource" id="Resource_w8ue2"]
+[sub_resource type="Resource" id="Resource_1gy8k"]
 script = ExtResource("1_eyaa3")
 
-[sub_resource type="Resource" id="Resource_x7am7"]
+[sub_resource type="Resource" id="Resource_w8ue2"]
 script = ExtResource("1_eyaa3")
 beat = 0.5
 lane = 1
 
-[sub_resource type="Resource" id="Resource_qb4t8"]
+[sub_resource type="Resource" id="Resource_x7am7"]
 script = ExtResource("1_eyaa3")
 beat = 1.0
 lane = 2
 
-[sub_resource type="Resource" id="Resource_wuou4"]
+[sub_resource type="Resource" id="Resource_qb4t8"]
 script = ExtResource("1_eyaa3")
 beat = 1.5
 lane = 3
@@ -33,5 +33,5 @@ parser_string = "1000
 0000
 0000"
 audio = ExtResource("1_1gy8k")
-notes = Array[ExtResource("1_eyaa3")]([SubResource("Resource_w8ue2"), SubResource("Resource_x7am7"), SubResource("Resource_qb4t8"), SubResource("Resource_wuou4")])
+notes = Array[ExtResource("1_eyaa3")]([SubResource("Resource_1gy8k"), SubResource("Resource_w8ue2"), SubResource("Resource_x7am7"), SubResource("Resource_qb4t8")])
 metadata/_custom_type_script = "uid://0q7tw24newak"
