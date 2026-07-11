@@ -5,10 +5,168 @@
 
 [sub_resource type="Resource" id="Resource_eyaa3"]
 script = ExtResource("1_eyaa3")
+
+[sub_resource type="Resource" id="Resource_1gy8k"]
+script = ExtResource("1_eyaa3")
+beat = 1.0
 lane = 1
+
+[sub_resource type="Resource" id="Resource_w8ue2"]
+script = ExtResource("1_eyaa3")
+beat = 2.0
+lane = 2
+
+[sub_resource type="Resource" id="Resource_x7am7"]
+script = ExtResource("1_eyaa3")
+beat = 3.0
+lane = 3
+
+[sub_resource type="Resource" id="Resource_qb4t8"]
+script = ExtResource("1_eyaa3")
+beat = 4.0
+
+[sub_resource type="Resource" id="Resource_wuou4"]
+script = ExtResource("1_eyaa3")
+beat = 4.5
+lane = 1
+
+[sub_resource type="Resource" id="Resource_atnvj"]
+script = ExtResource("1_eyaa3")
+beat = 5.0
+lane = 2
+
+[sub_resource type="Resource" id="Resource_1qq6v"]
+script = ExtResource("1_eyaa3")
+beat = 5.5
+lane = 3
+
+[sub_resource type="Resource" id="Resource_dnhs8"]
+script = ExtResource("1_eyaa3")
+beat = 6.0
+
+[sub_resource type="Resource" id="Resource_go6aw"]
+script = ExtResource("1_eyaa3")
+beat = 6.5
+lane = 1
+
+[sub_resource type="Resource" id="Resource_bf4uo"]
+script = ExtResource("1_eyaa3")
+beat = 7.0
+lane = 2
+
+[sub_resource type="Resource" id="Resource_fbkdo"]
+script = ExtResource("1_eyaa3")
+beat = 7.5
+lane = 3
+
+[sub_resource type="Resource" id="Resource_3dlhy"]
+script = ExtResource("1_eyaa3")
+beat = 8.0
+
+[sub_resource type="Resource" id="Resource_hafxj"]
+script = ExtResource("1_eyaa3")
+beat = 8.25
+lane = 1
+
+[sub_resource type="Resource" id="Resource_mjq71"]
+script = ExtResource("1_eyaa3")
+beat = 8.5
+lane = 2
+
+[sub_resource type="Resource" id="Resource_1fh23"]
+script = ExtResource("1_eyaa3")
+beat = 8.75
+lane = 3
+
+[sub_resource type="Resource" id="Resource_f2hdm"]
+script = ExtResource("1_eyaa3")
+beat = 9.0
+
+[sub_resource type="Resource" id="Resource_55u48"]
+script = ExtResource("1_eyaa3")
+beat = 9.25
+lane = 1
+
+[sub_resource type="Resource" id="Resource_pcsbx"]
+script = ExtResource("1_eyaa3")
+beat = 9.5
+lane = 2
+
+[sub_resource type="Resource" id="Resource_t646f"]
+script = ExtResource("1_eyaa3")
+beat = 9.75
+lane = 3
+
+[sub_resource type="Resource" id="Resource_tjg61"]
+script = ExtResource("1_eyaa3")
+beat = 10.0
+
+[sub_resource type="Resource" id="Resource_hbg47"]
+script = ExtResource("1_eyaa3")
+beat = 10.25
+lane = 1
+
+[sub_resource type="Resource" id="Resource_ouy00"]
+script = ExtResource("1_eyaa3")
+beat = 10.5
+lane = 2
+
+[sub_resource type="Resource" id="Resource_c2vm5"]
+script = ExtResource("1_eyaa3")
+beat = 10.75
+lane = 3
+
+[sub_resource type="Resource" id="Resource_4s61s"]
+script = ExtResource("1_eyaa3")
+beat = 11.0
+
+[sub_resource type="Resource" id="Resource_nr1dn"]
+script = ExtResource("1_eyaa3")
+beat = 11.25
+lane = 1
+
+[sub_resource type="Resource" id="Resource_4rq6c"]
+script = ExtResource("1_eyaa3")
+beat = 11.5
+lane = 2
+
+[sub_resource type="Resource" id="Resource_k281e"]
+script = ExtResource("1_eyaa3")
+beat = 11.75
+lane = 3
 
 [resource]
 script = ExtResource("1_o33bf")
-parser_string = "0100"
-notes = Array[ExtResource("1_eyaa3")]([SubResource("Resource_eyaa3")])
+parser_string = "1000
+0100
+0010
+0001
+,
+1000
+0100
+0010
+0001
+1000
+0100
+0010
+0001
+,
+1000
+0100
+0010
+0001
+1000
+0100
+0010
+0001
+1000
+0100
+0010
+0001
+1000
+0100
+0010
+0001
+"
+notes = Array[ExtResource("1_eyaa3")]([SubResource("Resource_eyaa3"), SubResource("Resource_1gy8k"), SubResource("Resource_w8ue2"), SubResource("Resource_x7am7"), SubResource("Resource_qb4t8"), SubResource("Resource_wuou4"), SubResource("Resource_atnvj"), SubResource("Resource_1qq6v"), SubResource("Resource_dnhs8"), SubResource("Resource_go6aw"), SubResource("Resource_bf4uo"), SubResource("Resource_fbkdo"), SubResource("Resource_3dlhy"), SubResource("Resource_hafxj"), SubResource("Resource_mjq71"), SubResource("Resource_1fh23"), SubResource("Resource_f2hdm"), SubResource("Resource_55u48"), SubResource("Resource_pcsbx"), SubResource("Resource_t646f"), SubResource("Resource_tjg61"), SubResource("Resource_hbg47"), SubResource("Resource_ouy00"), SubResource("Resource_c2vm5"), SubResource("Resource_4s61s"), SubResource("Resource_nr1dn"), SubResource("Resource_4rq6c"), SubResource("Resource_k281e")])
 metadata/_custom_type_script = "uid://0q7tw24newak"

@@ -10,3 +10,5 @@ script = ExtResource("1_al286")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Conductor" unique_id=912589107]
 stream = ExtResource("2_7b638")
+
+[node name="ChartDisplay" type="Node2D" parent="." unique_id=677731201]
