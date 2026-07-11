@@ -5,6 +5,10 @@
 [ext_resource type="Script" uid="uid://cbwpn11qctu1p" path="res://rhythm_game/scripts/chart_display.gd" id="3_qnuma"]
 [ext_resource type="Texture2D" uid="uid://difbybu4wdn1l" path="res://rhythm_game/art/arrow_outline.png" id="4_o2s18"]
 [ext_resource type="Resource" uid="uid://umdv83j48ki5" path="res://rhythm_game/charts/chart_01.tres" id="4_yyu3g"]
+[ext_resource type="PackedScene" uid="uid://cy2k516h3rmmq" path="res://rhythm_game/scenes/lane_judge.tscn" id="6_qnuma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
+size = Vector2(51, 90)
 
 [node name="Node2D" type="Node2D" unique_id=2046574851]
 
@@ -14,8 +18,9 @@ script = ExtResource("1_hw0jn")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Conductor" unique_id=912589107]
 stream = ExtResource("2_yyu3g")
 
-[node name="ChartDisplay" type="Node2D" parent="." unique_id=677731201 node_paths=PackedStringArray("lanes")]
+[node name="ChartDisplay" type="Node2D" parent="." unique_id=677731201 node_paths=PackedStringArray("conductor", "lanes")]
 script = ExtResource("3_qnuma")
+conductor = NodePath("../Conductor")
 lanes = [NodePath("HitLine/Lane_Left"), NodePath("HitLine/Lane_Down"), NodePath("HitLine/Lane_Up"), NodePath("HitLine/Lane_Right")]
 my_chart = ExtResource("4_yyu3g")
 
@@ -34,6 +39,8 @@ offset_right = 300.0
 offset_bottom = 8.0
 color = Color(1, 0.827451, 0.8, 0.10980392)
 
+[node name="LaneJudge" parent="ChartDisplay/HitLine/Lane_Left" unique_id=63747081 instance=ExtResource("6_qnuma")]
+
 [node name="Lane_Down" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1770243530]
 position = Vector2(0, 16)
 
@@ -47,6 +54,8 @@ offset_top = -8.0
 offset_right = 300.0
 offset_bottom = 8.0
 color = Color(0.82666665, 0.8, 1, 0.10980392)
+
+[node name="LaneJudge" parent="ChartDisplay/HitLine/Lane_Down" unique_id=565009870 instance=ExtResource("6_qnuma")]
 
 [node name="Lane_Up" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1179777212]
 position = Vector2(0, 32)
@@ -62,6 +71,8 @@ offset_right = 300.0
 offset_bottom = 8.0
 color = Color(0.8, 1, 0.99333334, 0.10980392)
 
+[node name="LaneJudge" parent="ChartDisplay/HitLine/Lane_Up" unique_id=1335332852 instance=ExtResource("6_qnuma")]
+
 [node name="Lane_Right" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1517811816]
 position = Vector2(0, 48)
 
@@ -75,3 +86,13 @@ offset_top = -8.0
 offset_right = 300.0
 offset_bottom = 8.0
 color = Color(0.80333334, 1, 0.8, 0.10980392)
+
+[node name="LaneJudge" parent="ChartDisplay/HitLine/Lane_Right" unique_id=1297496270 instance=ExtResource("6_qnuma")]
+
+[node name="Notes" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1049932427]
+
+[node name="NoteDespawner" type="Area2D" parent="ChartDisplay/HitLine" unique_id=1927949575]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChartDisplay/HitLine/NoteDespawner" unique_id=460717831]
+position = Vector2(-46, 24)
+shape = SubResource("RectangleShape2D_1jsb8")

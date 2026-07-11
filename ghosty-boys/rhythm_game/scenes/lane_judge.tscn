@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cy2k516h3rmmq"]
+
+[ext_resource type="Script" uid="uid://cn24l4wfmlf1g" path="res://rhythm_game/scripts/lane_judge.gd" id="1_7roxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnuma"]
+size = Vector2(28, 5.21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2s18"]
+size = Vector2(12, 5.21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyu3g"]
+size = Vector2(4, 5.21)
+
+[node name="LaneJudge" type="Node2D" unique_id=63747081]
+script = ExtResource("1_7roxo")
+
+[node name="Area_Okay" type="Area2D" parent="." unique_id=1794514243]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Okay" unique_id=993550760]
+shape = SubResource("RectangleShape2D_qnuma")
+debug_color = Color(0.7, 0, 0.011666489, 0.25490198)
+
+[node name="Area_Good" type="Area2D" parent="." unique_id=1876916634]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Good" unique_id=1529879030]
+shape = SubResource("RectangleShape2D_o2s18")
+debug_color = Color(0.7, 0.5366667, 0, 0.41960785)
+
+[node name="Area_Perfect" type="Area2D" parent="." unique_id=744787671]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Perfect" unique_id=211857665]
+shape = SubResource("RectangleShape2D_yyu3g")
+debug_color = Color(0, 0.7, 0.35, 0.41960785)
+
+[connection signal="area_entered" from="Area_Okay" to="." method="_on_area_okay_area_entered"]
+[connection signal="area_exited" from="Area_Okay" to="." method="_on_area_okay_area_exited"]
+[connection signal="area_entered" from="Area_Good" to="." method="_on_area_good_area_entered"]
+[connection signal="area_exited" from="Area_Good" to="." method="_on_area_good_area_exited"]
+[connection signal="area_entered" from="Area_Perfect" to="." method="_on_area_perfect_area_entered"]
+[connection signal="area_exited" from="Area_Perfect" to="." method="_on_area_perfect_area_exited"]

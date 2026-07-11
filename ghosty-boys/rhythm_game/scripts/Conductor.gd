@@ -1,4 +1,5 @@
 extends Node
+class_name Conductor
 
 @export var bpm : float = 160.0
 
@@ -18,7 +19,7 @@ signal beat_hit
 
 func _ready() -> void:
 	loop_length = _get_song_length_in_beats(audio_player.stream)
-	print("Song is " + str(loop_length) + " beats long!")
+	# print("Song is " + str(loop_length) + " beats long!")
 	audio_player.play()
 
 
@@ -35,7 +36,7 @@ func _process(_delta: float) -> void:
 	current_measure_beat = current_total_beat % 4
 
 	if current_total_beat != last_total_beat:
-		print(str(current_total_beat) + ", (" + str(current_measure) + ": " + str(current_measure_beat) + ")")
+		# print(str(current_total_beat) + ", (" + str(current_measure) + ": " + str(current_measure_beat) + ")")
 		beat_hit.emit()
 		if current_measure_beat == 0:
 			measure_hit.emit()
