@@ -12,6 +12,7 @@ var current_measure_beat = 0
 var _last_raw_beat : float = 0.0
 
 @onready var audio_player = $BackgroundMusicPlayer
+@onready var action_player : AudioStreamPlayer = $ActionMusicPlayer
 
 signal measure_hit
 signal beat_hit
