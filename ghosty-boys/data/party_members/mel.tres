@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_s0vjy")
 member_name = "Mel"
-max_hp = 30
-current_hp = 30
+max_hp = 100
+current_hp = 100
 moveset = Array[ExtResource("1_73pnj")]([ExtResource("2_1ju8u")])
 metadata/_custom_type_script = "uid://828whruuqql1"

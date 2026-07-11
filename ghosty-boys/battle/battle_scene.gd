@@ -15,9 +15,11 @@ var pending_attack: AttackData
 var pending_result: Dictionary
 var enemy_instances: Array[Dictionary] = []
 var pending_target: Dictionary
+var pending_finisher_method: String = ""
 
 func _ready() -> void:
 	action_menu.action_chosen.connect(_on_action_chosen)
+	action_menu.finisher_chosen.connect(_on_finisher_chosen)
 	target_menu.target_chosen.connect(_on_target_chosen)
 	_setup_enemies()
 	_enter_state(State.INTRO)
@@ -25,6 +27,7 @@ func _ready() -> void:
 func _on_action_chosen(attack: AttackData) -> void:
 	action_menu.clear()
 	pending_attack = attack
+	pending_finisher_method = ""
 	if attack.is_healing:
 		_enter_state(State.RHYTHM_CHALLENGE)
 	else:
@@ -40,12 +43,16 @@ func _enter_state(state: State) -> void:
 		State.PLAYER_MENU:
 			action_menu.display_moves(party[acting_member_index].moveset)
 		State.TARGET_SELECT:
-			var living_enemies := enemy_instances.filter(func(enemy): return enemy.current_hp > 0)
-			if living_enemies.size() == 1:
-				pending_target = living_enemies[0]
-				_enter_state(State.RHYTHM_CHALLENGE)
+			var eligible_enemies: Array
+			if pending_finisher_method != "":
+				eligible_enemies = _get_eligible_targets(pending_finisher_method)
 			else:
-				target_menu.display_targets(living_enemies)
+				eligible_enemies = enemy_instances.filter(func(enemy): return enemy.current_hp > 0)
+			if eligible_enemies.size() == 1:
+				pending_target = eligible_enemies[0]
+				_on_target_locked_in()
+			else:
+				target_menu.display_targets(eligible_enemies)
 		State.RHYTHM_CHALLENGE:
 			RhythmMinigame.start_challenge(pending_attack.attack_name)
 			pending_result = await RhythmMinigame.challenge_completed
@@ -128,4 +135,43 @@ func _check_battle_end() -> void:
 func _on_target_chosen(enemy: Dictionary) -> void:
 	target_menu.clear()
 	pending_target = enemy
-	_enter_state(State.RHYTHM_CHALLENGE)
+	_on_target_locked_in()
+	
+	
+func _get_eligible_targets(method: String) -> Array:
+	var eligible: Array = []
+	for enemy in enemy_instances:
+		if enemy.current_hp <= 0:
+			continue
+		var data: EnemyData = enemy.data
+		var ratio := float(enemy.current_hp) / data.max_hp
+		var threshold := data.destroy_threshold if method == "Destroy" else data.banish_threshold
+		if ratio <= threshold:
+			eligible.append(enemy)
+	return eligible
+	
+func _get_available_finisher_methods() -> Array[String]:
+	var methods: Array[String] = []
+	if not _get_eligible_targets("Destroy").is_empty():
+		methods.append("Destroy")
+	if not _get_eligible_targets("Banish").is_empty():
+		methods.append("Banish")
+	return methods
+
+func _on_finisher_chosen(method: String) -> void:
+	action_menu.clear()
+	pending_finisher_method = method
+	_enter_state(State.TARGET_SELECT)
+	
+func _on_target_locked_in() -> void:
+	if pending_finisher_method != "":
+		_finish_enemy()
+	else:
+		_enter_state(State.RHYTHM_CHALLENGE)
+
+func _finish_enemy() -> void: 
+	GameState.log_defeat(pending_target.data.enemy_name, pending_finisher_method.to_lower(), pending_target.data.zone_theme)
+	pending_target.current_hp = 0
+	print(pending_target.data.enemy_name, " was ", pending_finisher_method, "ed!")
+	pending_finisher_method = ""
+	_after_resolve()

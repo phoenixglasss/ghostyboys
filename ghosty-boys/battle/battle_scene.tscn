@@ -9,7 +9,7 @@
 [node name="BattleManager" type="Node2D" unique_id=1977351399]
 script = ExtResource("1_u2cu5")
 party = Array[Object]([ExtResource("3_4ui5s")])
-enemies = Array[Object]([ExtResource("5_trk6d"), ExtResource("5_trk6d")])
+enemies = Array[Object]([ExtResource("5_trk6d"), ExtResource("5_trk6d"), ExtResource("5_trk6d")])
 
 [node name="ActionMenu" parent="." unique_id=299728398 instance=ExtResource("2_1otyf")]
 
