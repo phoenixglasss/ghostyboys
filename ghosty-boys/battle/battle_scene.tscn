@@ -3,11 +3,14 @@
 [ext_resource type="Script" uid="uid://b7puitmr7pyjc" path="res://battle/battle_scene.gd" id="1_u2cu5"]
 [ext_resource type="PackedScene" uid="uid://bibl3yot1i7jt" path="res://battle/ui/action_menu.tscn" id="2_1otyf"]
 [ext_resource type="Resource" uid="uid://b1enytqyvsdrc" path="res://data/party_members/mel.tres" id="3_4ui5s"]
+[ext_resource type="PackedScene" uid="uid://d08qr2iy5nxoe" path="res://battle/ui/target_menu.tscn" id="5_nbjvm"]
 [ext_resource type="Resource" uid="uid://cxjyqudg4d2ax" path="res://data/enemies/bar/bar_drunkard.tres" id="5_trk6d"]
 
 [node name="BattleManager" type="Node2D" unique_id=1977351399]
 script = ExtResource("1_u2cu5")
 party = Array[Object]([ExtResource("3_4ui5s")])
-enemies = Array[Object]([ExtResource("5_trk6d")])
+enemies = Array[Object]([ExtResource("5_trk6d"), ExtResource("5_trk6d")])
 
 [node name="ActionMenu" parent="." unique_id=299728398 instance=ExtResource("2_1otyf")]
+
+[node name="TargetMenu" parent="." unique_id=1403061479 instance=ExtResource("5_nbjvm")]
