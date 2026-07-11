@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://be84blq6a53wc"]
 
 [ext_resource type="Script" uid="uid://cbwpn11qctu1p" path="res://rhythm_game/scripts/chart_display.gd" id="1_ch8tf"]
-[ext_resource type="Resource" uid="uid://umdv83j48ki5" path="res://rhythm_game/charts/chart_01.tres" id="2_cop0f"]
+[ext_resource type="Resource" uid="uid://umdv83j48ki5" path="res://rhythm_game/charts/4_note.tres" id="2_cop0f"]
 [ext_resource type="Texture2D" uid="uid://difbybu4wdn1l" path="res://rhythm_game/art/arrow_outline.png" id="3_x3wv8"]
 [ext_resource type="PackedScene" uid="uid://cy2k516h3rmmq" path="res://rhythm_game/scenes/lane_judge.tscn" id="4_3jvqq"]
 [ext_resource type="Script" uid="uid://btg0exx1nen5a" path="res://rhythm_game/scripts/note_despawner.gd" id="5_0ax0n"]

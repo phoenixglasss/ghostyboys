@@ -1,23 +1,17 @@
 [gd_scene format=3 uid="uid://dusywu8wyk70v"]
 
-[ext_resource type="Script" uid="uid://ca71pn5oc546g" path="res://rhythm_game/scripts/Conductor.gd" id="1_hw0jn"]
-[ext_resource type="AudioStream" uid="uid://b6inbdjy51w8s" path="res://rhythm_game/test_files/audio/click_8mm.ogg" id="2_yyu3g"]
-[ext_resource type="PackedScene" uid="uid://be84blq6a53wc" path="res://rhythm_game/scenes/chart_display.tscn" id="3_00ogi"]
+[ext_resource type="PackedScene" uid="uid://d12tlh28e3ui" path="res://rhythm_game/scenes/conductor.tscn" id="1_yyu3g"]
+[ext_resource type="Script" uid="uid://1unjoemnyvgb" path="res://rhythm_game/scripts/chart_debug_button.gd" id="4_hw0jn"]
+[ext_resource type="Resource" uid="uid://iyklrojkktvn" path="res://rhythm_game/charts/attack.tres" id="4_qnuma"]
+[ext_resource type="Resource" uid="uid://umdv83j48ki5" path="res://rhythm_game/charts/4_note.tres" id="4_yyu3g"]
+[ext_resource type="Resource" uid="uid://g0tuablnhd3k" path="res://rhythm_game/charts/2_note_hold.tres" id="5_qnuma"]
 
 [sub_resource type="Theme" id="Theme_o2s18"]
 default_font_size = 7
 
 [node name="Node2D" type="Node2D" unique_id=2046574851]
 
-[node name="Conductor" type="Node" parent="." unique_id=814417007]
-script = ExtResource("1_hw0jn")
-
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="Conductor" unique_id=912589107]
-stream = ExtResource("2_yyu3g")
-
-[node name="ActionMusicPlayer" type="AudioStreamPlayer" parent="Conductor" unique_id=1636531407]
-
-[node name="ChartDisplay" parent="." unique_id=642866271 instance=ExtResource("3_00ogi")]
+[node name="Conductor" parent="." unique_id=579423608 instance=ExtResource("1_yyu3g")]
 
 [node name="UI Nodes" type="CanvasLayer" parent="." unique_id=428757032]
 
@@ -30,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_o2s18")
 
-[node name="Button" type="Button" parent="UI Nodes/Debug UI" unique_id=282390038]
+[node name="Button" type="Button" parent="UI Nodes/Debug UI" unique_id=282390038 node_paths=PackedStringArray("conductor")]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -40,4 +34,37 @@ offset_top = -19.0
 offset_right = 65.0
 offset_bottom = -8.0
 grow_vertical = 0
+text = "Attack"
+script = ExtResource("4_hw0jn")
+chart = ExtResource("4_qnuma")
+conductor = NodePath("../../../Conductor")
+
+[node name="Button2" type="Button" parent="UI Nodes/Debug UI" unique_id=2074592713 node_paths=PackedStringArray("conductor")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_top = -27.0
+offset_right = 144.0
+offset_bottom = -8.0
+grow_vertical = 0
+text = "2 Note Hold"
+script = ExtResource("4_hw0jn")
+chart = ExtResource("5_qnuma")
+conductor = NodePath("../../../Conductor")
+
+[node name="Button3" type="Button" parent="UI Nodes/Debug UI" unique_id=1427917813 node_paths=PackedStringArray("conductor")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = -27.0
+offset_right = 217.0
+offset_bottom = -8.0
+grow_vertical = 0
 text = "4 Note Sequence"
+script = ExtResource("4_hw0jn")
+chart = ExtResource("4_yyu3g")
+conductor = NodePath("../../../Conductor")
