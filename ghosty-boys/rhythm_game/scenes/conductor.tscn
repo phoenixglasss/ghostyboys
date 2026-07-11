@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d12tlh28e3ui"]
+
+[ext_resource type="Script" uid="uid://ca71pn5oc546g" path="res://rhythm_game/scripts/Conductor.gd" id="1_mnomc"]
+[ext_resource type="AudioStream" uid="uid://b6inbdjy51w8s" path="res://rhythm_game/test_files/audio/click_8mm.ogg" id="2_esvws"]
+
+[node name="Conductor" type="Node" unique_id=579423608 groups=["conductor"]]
+script = ExtResource("1_mnomc")
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1504277517]
+stream = ExtResource("2_esvws")
+
+[node name="ActionMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1663700339]

@@ -11,8 +11,13 @@ var current_measure_beat = 0
 
 var _last_raw_beat : float = 0.0
 
+@export var bgm_file : AudioStream
+
 @onready var audio_player = $BackgroundMusicPlayer
 @onready var action_player : AudioStreamPlayer = $ActionMusicPlayer
+
+var chart_display : PackedScene = preload("res://rhythm_game/scenes/chart_display.tscn")
+
 
 signal measure_hit
 signal beat_hit
@@ -21,6 +26,7 @@ signal beat_hit
 func _ready() -> void:
 	loop_length = _get_song_length_in_beats(audio_player.stream)
 	# print("Song is " + str(loop_length) + " beats long!")
+	audio_player.stream = bgm_file
 	audio_player.play()
 	# gotta hit on the first beat, too
 	beat_hit.emit()
@@ -64,3 +70,9 @@ func _get_song_length_in_beats(stream : AudioStream) -> int:
 	if absf(beats - rounded) > 0.05:
 		push_warning("Loop isn't a whole number of beats (%.3f) — trim the audio file." % beats)
 	return rounded
+	
+func play_chart(chart_to_play : Chart) -> void:
+	var new_chart_display : ChartDisplay = chart_display.instantiate()
+	new_chart_display.my_chart = chart_to_play
+	get_tree().root.add_child(new_chart_display)
+	

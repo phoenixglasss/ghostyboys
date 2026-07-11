@@ -14,6 +14,10 @@ var audio_started : bool = false
 var lane_data : Array[Array] = []
 var note_item = preload("res://rhythm_game/scenes/note_item.tscn")
 
+var rating_total : int
+var potential_total : int
+
+signal chart_completed(chart_score : float)
 
 func _ready() -> void:
 	if !conductor:
@@ -45,7 +49,7 @@ func _process(_delta: float) -> void:
 	if audio_started:
 		if lane_data[0].is_empty() and lane_data[1].is_empty() \
 		and lane_data[2].is_empty() and lane_data[3].is_empty():
-			queue_free()
+			_complete_chart()
 
 
 func _input(event: InputEvent) -> void:
@@ -63,11 +67,13 @@ func _judge_note(judge_lane : int):
 	if !lane_data[judge_lane].is_empty():
 		var judge_note : NoteItem = lane_data[judge_lane].pop_front()
 		print(judge_note.rating)
+		rating_total += judge_note.rating
 		judge_note.queue_free()
 
 
 func _load_chart(chart : Chart):
 	notes = chart.notes
+	potential_total = notes.size() * 3
 
 	for note : NoteData in notes:
 		var new_note_item = note_item.instantiate()
@@ -96,3 +102,9 @@ func _on_measure_hit() -> void:
 func _play_my_audio() -> void:
 	conductor.action_player.stream = my_chart.audio
 	conductor.action_player.play()
+	
+func _complete_chart() -> void:
+	var my_score : float = float(rating_total) / float(potential_total)
+	print(my_score)
+	chart_completed.emit(my_score)
+	queue_free()
