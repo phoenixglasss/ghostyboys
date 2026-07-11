@@ -9,6 +9,7 @@ class_name Chart
 			_parse()
 		parse = false
 
+@export var audio : AudioStream
 @export var beats_per_bar : int = 4
 @export var notes : Array[NoteData]
 

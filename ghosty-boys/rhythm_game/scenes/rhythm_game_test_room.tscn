@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dusywu8wyk70v"]
+
+[ext_resource type="Script" uid="uid://ca71pn5oc546g" path="res://rhythm_game/scripts/Conductor.gd" id="1_hw0jn"]
+[ext_resource type="AudioStream" uid="uid://b6inbdjy51w8s" path="res://rhythm_game/test_files/audio/click_8mm.ogg" id="2_yyu3g"]
+[ext_resource type="Script" uid="uid://cbwpn11qctu1p" path="res://rhythm_game/scripts/chart_display.gd" id="3_qnuma"]
+[ext_resource type="Texture2D" uid="uid://difbybu4wdn1l" path="res://rhythm_game/art/arrow_outline.png" id="4_o2s18"]
+[ext_resource type="Resource" uid="uid://umdv83j48ki5" path="res://rhythm_game/charts/chart_01.tres" id="4_yyu3g"]
+
+[node name="Node2D" type="Node2D" unique_id=2046574851]
+
+[node name="Conductor" type="Node" parent="." unique_id=814417007]
+script = ExtResource("1_hw0jn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Conductor" unique_id=912589107]
+stream = ExtResource("2_yyu3g")
+
+[node name="ChartDisplay" type="Node2D" parent="." unique_id=677731201 node_paths=PackedStringArray("lanes")]
+script = ExtResource("3_qnuma")
+lanes = [NodePath("HitLine/Lane_Left"), NodePath("HitLine/Lane_Down"), NodePath("HitLine/Lane_Up"), NodePath("HitLine/Lane_Right")]
+my_chart = ExtResource("4_yyu3g")
+
+[node name="HitLine" type="Node2D" parent="ChartDisplay" unique_id=1038878901]
+position = Vector2(20, 20)
+
+[node name="Lane_Left" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1171813667]
+
+[node name="Sprite2D" type="Sprite2D" parent="ChartDisplay/HitLine/Lane_Left" unique_id=759602501]
+modulate = Color(1, 0.51025575, 0.44386888, 1)
+texture = ExtResource("4_o2s18")
+
+[node name="ColorRect" type="ColorRect" parent="ChartDisplay/HitLine/Lane_Left" unique_id=1470791556]
+offset_top = -8.0
+offset_right = 300.0
+offset_bottom = 8.0
+color = Color(1, 0.827451, 0.8, 0.10980392)
+
+[node name="Lane_Down" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1770243530]
+position = Vector2(0, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="ChartDisplay/HitLine/Lane_Down" unique_id=349190926]
+modulate = Color(0.51466656, 0.44, 1, 1)
+rotation = -1.5707964
+texture = ExtResource("4_o2s18")
+
+[node name="ColorRect" type="ColorRect" parent="ChartDisplay/HitLine/Lane_Down" unique_id=1707287160]
+offset_top = -8.0
+offset_right = 300.0
+offset_bottom = 8.0
+color = Color(0.82666665, 0.8, 1, 0.10980392)
+
+[node name="Lane_Up" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1179777212]
+position = Vector2(0, 32)
+
+[node name="Sprite2D" type="Sprite2D" parent="ChartDisplay/HitLine/Lane_Up" unique_id=1982364805]
+modulate = Color(0.4392157, 1, 0.93333334, 1)
+rotation = 1.5707964
+texture = ExtResource("4_o2s18")
+
+[node name="ColorRect" type="ColorRect" parent="ChartDisplay/HitLine/Lane_Up" unique_id=1986759303]
+offset_top = -8.0
+offset_right = 300.0
+offset_bottom = 8.0
+color = Color(0.8, 1, 0.99333334, 0.10980392)
+
+[node name="Lane_Right" type="Node2D" parent="ChartDisplay/HitLine" unique_id=1517811816]
+position = Vector2(0, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="ChartDisplay/HitLine/Lane_Right" unique_id=351094682]
+modulate = Color(0.4509804, 1, 0.4392157, 1)
+rotation = -3.1415927
+texture = ExtResource("4_o2s18")
+
+[node name="ColorRect" type="ColorRect" parent="ChartDisplay/HitLine/Lane_Right" unique_id=1591058251]
+offset_top = -8.0
+offset_right = 300.0
+offset_bottom = 8.0
+color = Color(0.80333334, 1, 0.8, 0.10980392)
