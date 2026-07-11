@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PartyMember" format=3 uid="uid://b1enytqyvsdrc"]
+
+[ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_73pnj"]
+[ext_resource type="Script" uid="uid://828whruuqql1" path="res://battle/classes/party_member.gd" id="2_s0vjy"]
+
+[resource]
+script = ExtResource("2_s0vjy")
+metadata/_custom_type_script = "uid://828whruuqql1"

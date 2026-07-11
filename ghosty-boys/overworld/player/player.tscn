@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://poatep0dlqgv"]
+
+[ext_resource type="Script" uid="uid://3p6c1s7hev4q" path="res://overworld/player/player.gd" id="1_ub68d"]
+[ext_resource type="Texture2D" uid="uid://cb2qth6srpc70" path="res://icon.svg" id="2_8lopn"]
+
+[node name="Player" type="CharacterBody2D" unique_id=594011378]
+script = ExtResource("1_ub68d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1022219655]
+texture = ExtResource("2_8lopn")
