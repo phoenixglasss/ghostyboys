@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Chart" format=3 uid="uid://umdv83j48ki5"]
+
+[ext_resource type="Script" uid="uid://b50ngybjhb1ux" path="res://rhythm_game/scripts/note_data.gd" id="1_eyaa3"]
+[ext_resource type="Script" uid="uid://0q7tw24newak" path="res://rhythm_game/scripts/Chart.gd" id="1_o33bf"]
+
+[sub_resource type="Resource" id="Resource_eyaa3"]
+script = ExtResource("1_eyaa3")
+lane = 1
+
+[resource]
+script = ExtResource("1_o33bf")
+parser_string = "0100"
+notes = Array[ExtResource("1_eyaa3")]([SubResource("Resource_eyaa3")])
+metadata/_custom_type_script = "uid://0q7tw24newak"
