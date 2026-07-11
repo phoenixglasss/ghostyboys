@@ -40,7 +40,7 @@ func _enter_state(state: State) -> void:
 			_resolve_action()
 			_after_resolve()
 		State.ENEMY_TURN:
-			pass
+			_run_enemy_turn()
 		State.CHECK_END:
 			pass
 
@@ -73,3 +73,24 @@ func _after_resolve() -> void:
 	else:
 		acting_member_index = 0
 		_enter_state(State.ENEMY_TURN)
+		
+		
+func _run_enemy_turn() -> void:
+	for enemy in enemy_instances:
+		if enemy.current_hp <= 0:
+			continue
+			
+		var living_party := party.filter(func(member): return member.current_hp > 0)
+		if living_party.is_empty():
+			_enter_state(State.CHECK_END)
+			return
+			
+		var move: AttackData = enemy.data.moveset.pick_random()
+		var target: PartyMember = living_party.pick_random()
+		
+		target.current_hp = max(target.current_hp - move.base_power, 0)
+		print(enemy.data.enemy_name, " used ", move.attack_name, " on ", target.member_name, " -> ", target.current_hp, "/", target.max_hp)
+		
+		await get_tree().create_timer(0.4).timeout
+		
+	_enter_state(State.CHECK_END)
