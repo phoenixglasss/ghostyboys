@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bu7fgc587llg"]
+
+[ext_resource type="Texture2D" uid="uid://c22u1mpyaato7" path="res://rhythm_game/art/arrow.png" id="1_3ffp5"]
+[ext_resource type="Script" uid="uid://b3em20clvhm8x" path="res://rhythm_game/scripts/note_item.gd" id="1_41fpa"]
+
+[node name="NoteItem" type="Node2D" unique_id=345099214]
+script = ExtResource("1_41fpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=716031205]
+texture = ExtResource("1_3ffp5")
