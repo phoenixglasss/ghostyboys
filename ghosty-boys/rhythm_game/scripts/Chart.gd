@@ -2,18 +2,14 @@
 extends Resource
 class_name Chart
 
-@export var parser_string : String = ""
+@export_multiline var parser_string : String = ""
 @export var parse : bool = false:
 	set(value):
 		if(value):
 			_parse()
 		parse = false
 
-
-
 @export var notes : Array[NoteData]
-
-
 
 
 func _parse():
@@ -25,4 +21,5 @@ func _parse():
 		new_note.note_type = NoteData.NOTE_TYPE.NONE
 		print(new_note)
 		notes.append(new_note)
+	notify_property_list_changed()
 		
