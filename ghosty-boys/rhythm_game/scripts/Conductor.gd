@@ -11,7 +11,7 @@ var current_measure_beat = 0
 
 var _last_raw_beat : float = 0.0
 
-@export var bgm_file : AudioStream
+@export var bgm_file : AudioStream = preload("res://rhythm_game/test_files/audio/click_8mm.ogg")
 
 @onready var audio_player = $BackgroundMusicPlayer
 @onready var action_player : AudioStreamPlayer = $ActionMusicPlayer
