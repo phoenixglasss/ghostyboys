@@ -18,6 +18,7 @@ var _last_raw_beat : float = 0.0
 
 var chart_display : PackedScene = preload("res://rhythm_game/scenes/chart_display.tscn")
 
+signal chart_completed(score : float)
 
 signal measure_hit
 signal beat_hit
@@ -75,4 +76,7 @@ func play_chart(chart_to_play : Chart) -> void:
 	var new_chart_display : ChartDisplay = chart_display.instantiate()
 	new_chart_display.my_chart = chart_to_play
 	get_tree().root.add_child(new_chart_display)
-	
+	new_chart_display.chart_completed.connect(_chart_completed)
+
+func _chart_completed(score : float) -> void:
+	chart_completed.emit(score)
