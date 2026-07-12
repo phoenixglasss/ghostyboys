@@ -7,10 +7,10 @@ var current_state: State = State.INTRO
 @export var party: Array[PartyMember]
 @export var enemies: Array[EnemyData]
 
-@onready var action_menu: ActionMenu = $ActionMenu
-@onready var target_menu: TargetMenu = $TargetMenu
+@onready var action_menu: ActionMenu = $UI/ActionMenu
+@onready var target_menu: TargetMenu = $UI/TargetMenu
 @onready var conductor: Conductor = $Conductor
-@onready var hud: BattleHUD = $BattleHUD
+@onready var hud: BattleHUD = $UI/BattleHUD
 
 var acting_member_index: int = 0
 var pending_attack: AttackData
