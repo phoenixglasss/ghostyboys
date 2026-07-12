@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6obn4od0lugx"
-path="res://.godot/imported/daisy_walk_right.png-e5eff8a1c3fbe86c517f76ade547d10d.ctex"
+uid="uid://ke6psxqgfqpp"
+path="res://.godot/imported/mel_walk_up.png-80d1e4aa3b8b3e0a6ef11ec9632e0e57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/daisy/textures/daisy_walk_right.png"
-dest_files=["res://.godot/imported/daisy_walk_right.png-e5eff8a1c3fbe86c517f76ade547d10d.ctex"]
+source_file="res://art/characters/overworld/mel/textures/mel_walk_up.png"
+dest_files=["res://.godot/imported/mel_walk_up.png-80d1e4aa3b8b3e0a6ef11ec9632e0e57.ctex"]
 
 [params]
 

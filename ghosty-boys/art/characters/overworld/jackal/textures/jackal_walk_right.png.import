@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg1wy0f8b0st3"
-path="res://.godot/imported/daisy_walk_down.png-fa7b738dd644cbc9dcc7a8c994128575.ctex"
+uid="uid://d0eyp178ygc76"
+path="res://.godot/imported/jackal_walk_right.png-f096d9e9c2807cdca5453491249e3a3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/daisy/textures/daisy_walk_down.png"
-dest_files=["res://.godot/imported/daisy_walk_down.png-fa7b738dd644cbc9dcc7a8c994128575.ctex"]
+source_file="res://art/characters/overworld/jackal/textures/jackal_walk_right.png"
+dest_files=["res://.godot/imported/jackal_walk_right.png-f096d9e9c2807cdca5453491249e3a3d.ctex"]
 
 [params]
 

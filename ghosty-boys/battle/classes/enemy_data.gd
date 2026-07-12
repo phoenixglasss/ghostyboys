@@ -7,3 +7,4 @@ class_name EnemyData
 @export var zone_theme: String
 @export var destroy_threshold: float = 0.3
 @export var moveset: Array[AttackData]
+@export var sprite : SpriteFrames

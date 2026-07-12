@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0eyp178ygc76"
-path="res://.godot/imported/jackal_walk_right.png-64f9f14f268c85de0dff3abea031c608.ctex"
+uid="uid://g7wiximsaxnx"
+path="res://.godot/imported/mel_walk_down.png-30854cc429ba45e7926872503bb45092.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/jackal/textures/jackal_walk_right.png"
-dest_files=["res://.godot/imported/jackal_walk_right.png-64f9f14f268c85de0dff3abea031c608.ctex"]
+source_file="res://art/characters/overworld/mel/textures/mel_walk_down.png"
+dest_files=["res://.godot/imported/mel_walk_down.png-30854cc429ba45e7926872503bb45092.ctex"]
 
 [params]
 

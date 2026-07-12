@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://poatep0dlqgv"]
 
 [ext_resource type="Script" uid="uid://3p6c1s7hev4q" path="res://overworld/player/player.gd" id="1_ub68d"]
-[ext_resource type="Texture2D" uid="uid://cscg81d07mtqm" path="res://art/characters/shadow_circle.png" id="2_8lopn"]
-[ext_resource type="SpriteFrames" uid="uid://hbw6ek0tmv56" path="res://art/characters/daisy/daisy_overworld.tres" id="2_ub68d"]
+[ext_resource type="Texture2D" uid="uid://cscg81d07mtqm" path="res://art/characters/overworld/shadow_circle.png" id="2_8lopn"]
+[ext_resource type="SpriteFrames" uid="uid://hbw6ek0tmv56" path="res://art/characters/overworld/daisy/daisy_overworld.tres" id="2_ub68d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jsb8"]
 radius = 5.0

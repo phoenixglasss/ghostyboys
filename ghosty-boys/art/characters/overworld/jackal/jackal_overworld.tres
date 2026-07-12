@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://clgytlidkeafr"]
 
-[ext_resource type="Texture2D" uid="uid://dxp1lomxw331n" path="res://art/characters/jackal/textures/jackal_walk_down.png" id="1_ervjn"]
-[ext_resource type="Texture2D" uid="uid://dpikdenu7me0u" path="res://art/characters/jackal/textures/jackal_walk_left.png" id="2_tm3ji"]
-[ext_resource type="Texture2D" uid="uid://d0eyp178ygc76" path="res://art/characters/jackal/textures/jackal_walk_right.png" id="3_iggn6"]
-[ext_resource type="Texture2D" uid="uid://qfjen68cydxj" path="res://art/characters/jackal/textures/jackal_walk_up.png" id="4_ygs6c"]
+[ext_resource type="Texture2D" uid="uid://dxp1lomxw331n" path="res://art/characters/overworld/jackal/textures/jackal_walk_down.png" id="1_ervjn"]
+[ext_resource type="Texture2D" uid="uid://dpikdenu7me0u" path="res://art/characters/overworld/jackal/textures/jackal_walk_left.png" id="2_tm3ji"]
+[ext_resource type="Texture2D" uid="uid://d0eyp178ygc76" path="res://art/characters/overworld/jackal/textures/jackal_walk_right.png" id="3_iggn6"]
+[ext_resource type="Texture2D" uid="uid://qfjen68cydxj" path="res://art/characters/overworld/jackal/textures/jackal_walk_up.png" id="4_ygs6c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdida"]
 atlas = ExtResource("1_ervjn")

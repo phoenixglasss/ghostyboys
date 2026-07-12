@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxp1lomxw331n"
-path="res://.godot/imported/jackal_walk_down.png-a264562176ae4357bec9b3ec34e96af6.ctex"
+uid="uid://w128jy5wb0du"
+path="res://.godot/imported/bar_wall.png-4f6123ce3318f7c13131b5d61fc3423b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/jackal/textures/jackal_walk_down.png"
-dest_files=["res://.godot/imported/jackal_walk_down.png-a264562176ae4357bec9b3ec34e96af6.ctex"]
+source_file="res://art/environment/tilesets/bar/bar_wall.png"
+dest_files=["res://.godot/imported/bar_wall.png-4f6123ce3318f7c13131b5d61fc3423b.ctex"]
 
 [params]
 

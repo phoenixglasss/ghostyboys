@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxn2y2dnerd8r"
-path="res://.godot/imported/daisy_walk_left.png-40c62cb2b2ad8564a2eeed7d93e50a79.ctex"
+uid="uid://b3xx01jsiutvt"
+path="res://.godot/imported/enemy_placeholder.png-44ee7227dba254c3fc3a207a2d7b7b0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/daisy/textures/daisy_walk_left.png"
-dest_files=["res://.godot/imported/daisy_walk_left.png-40c62cb2b2ad8564a2eeed7d93e50a79.ctex"]
+source_file="res://art/characters/battle/enemy_placeholder/enemy_placeholder.png"
+dest_files=["res://.godot/imported/enemy_placeholder.png-44ee7227dba254c3fc3a207a2d7b7b0a.ctex"]
 
 [params]
 

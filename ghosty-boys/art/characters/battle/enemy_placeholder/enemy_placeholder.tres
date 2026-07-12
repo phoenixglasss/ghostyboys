@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dhjxf06jhu08t"]
+
+[ext_resource type="Texture2D" uid="uid://bya1i6jla6xr5" path="res://art/characters/battle/enemy_placeholder/enemy_placeholder_attack.png" id="1_1gn3x"]
+[ext_resource type="Texture2D" uid="uid://b3xx01jsiutvt" path="res://art/characters/battle/enemy_placeholder/enemy_placeholder.png" id="1_il8bl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h38lq"]
+atlas = ExtResource("1_1gn3x")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gn3x"]
+atlas = ExtResource("1_il8bl")
+region = Rect2(0, 0, 16, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h38lq")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gn3x")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]

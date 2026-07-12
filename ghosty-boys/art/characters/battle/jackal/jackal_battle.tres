@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://xssha8wyvdcd"]
+
+[ext_resource type="Texture2D" uid="uid://d0eyp178ygc76" path="res://art/characters/overworld/jackal/textures/jackal_walk_right.png" id="1_oo4ht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t04cr"]
+atlas = ExtResource("1_oo4ht")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ix4g"]
+atlas = ExtResource("1_oo4ht")
+region = Rect2(0, 0, 16, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t04cr")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ix4g")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]

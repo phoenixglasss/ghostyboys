@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b6vbhu7yjaspx"]
+
+[ext_resource type="Texture2D" uid="uid://bb826ia3fci3m" path="res://art/characters/overworld/mel/textures/mel_walk_right.png" id="1_cpfx1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67xdg"]
+atlas = ExtResource("1_cpfx1")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp6jl"]
+atlas = ExtResource("1_cpfx1")
+region = Rect2(0, 0, 16, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67xdg")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp6jl")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]

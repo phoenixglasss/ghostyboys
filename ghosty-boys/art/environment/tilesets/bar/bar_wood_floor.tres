@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cw3n0r53yrp7g" path="res://art/environment/tilesets/bar/bar_wood_floor.png" id="1_8ry4o"]
 [ext_resource type="Texture2D" uid="uid://dkdnbairuxvr1" path="res://art/environment/tilesets/bar/bar_top.png" id="2_itl3i"]
+[ext_resource type="Texture2D" uid="uid://w128jy5wb0du" path="res://art/environment/tilesets/bar/bar_wall.png" id="3_hoxlo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itl3i"]
 texture = ExtResource("1_8ry4o")
@@ -391,10 +392,19 @@ texture = ExtResource("2_itl3i")
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.6666665, 8, -2.6666665, 8, 8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8wuv1"]
+texture = ExtResource("3_hoxlo")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_itl3i")
 sources/1 = SubResource("TileSetAtlasSource_hoxlo")
+sources/2 = SubResource("TileSetAtlasSource_8wuv1")
 metadata/_better_terrain = {
 &"decoration": ["Decoration", Color(0.4117647, 0.4117647, 0.4117647, 1), 3, [], {
 &"path": "res://addons/better-terrain/icons/Decoration.svg"

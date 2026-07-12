@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cscg81d07mtqm"
-path="res://.godot/imported/shadow_circle.png-67b38a1fabd39def6c2b7c3ee62f077d.ctex"
+uid="uid://c857cmpvf45hm"
+path="res://.godot/imported/daisy_walk_up.png-0ce30709f1a4e4cccd7d9a22dcbf79cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/shadow_circle.png"
-dest_files=["res://.godot/imported/shadow_circle.png-67b38a1fabd39def6c2b7c3ee62f077d.ctex"]
+source_file="res://art/characters/overworld/daisy/textures/daisy_walk_up.png"
+dest_files=["res://.godot/imported/daisy_walk_up.png-0ce30709f1a4e4cccd7d9a22dcbf79cf.ctex"]
 
 [params]
 

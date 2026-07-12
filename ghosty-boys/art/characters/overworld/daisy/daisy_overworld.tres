@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://hbw6ek0tmv56"]
 
-[ext_resource type="Texture2D" uid="uid://cxn2y2dnerd8r" path="res://art/characters/daisy/textures/daisy_walk_left.png" id="1_4cnk6"]
-[ext_resource type="Texture2D" uid="uid://dg1wy0f8b0st3" path="res://art/characters/daisy/textures/daisy_walk_down.png" id="1_d28tj"]
-[ext_resource type="Texture2D" uid="uid://b6obn4od0lugx" path="res://art/characters/daisy/textures/daisy_walk_right.png" id="3_kjtb7"]
-[ext_resource type="Texture2D" uid="uid://c857cmpvf45hm" path="res://art/characters/daisy/textures/daisy_walk_up.png" id="4_txjwd"]
+[ext_resource type="Texture2D" uid="uid://cxn2y2dnerd8r" path="res://art/characters/overworld/daisy/textures/daisy_walk_left.png" id="1_4cnk6"]
+[ext_resource type="Texture2D" uid="uid://dg1wy0f8b0st3" path="res://art/characters/overworld/daisy/textures/daisy_walk_down.png" id="1_d28tj"]
+[ext_resource type="Texture2D" uid="uid://b6obn4od0lugx" path="res://art/characters/overworld/daisy/textures/daisy_walk_right.png" id="3_kjtb7"]
+[ext_resource type="Texture2D" uid="uid://c857cmpvf45hm" path="res://art/characters/overworld/daisy/textures/daisy_walk_up.png" id="4_txjwd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqug7"]
 atlas = ExtResource("1_d28tj")

@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://ctjh4kactj115"]
 
-[ext_resource type="Texture2D" uid="uid://g7wiximsaxnx" path="res://art/characters/mel/textures/mel_walk_down.png" id="1_l7crg"]
-[ext_resource type="Texture2D" uid="uid://c3cms3a6ej74r" path="res://art/characters/mel/textures/mel_walk_left.png" id="2_lnk5q"]
-[ext_resource type="Texture2D" uid="uid://bb826ia3fci3m" path="res://art/characters/mel/textures/mel_walk_right.png" id="3_8454a"]
-[ext_resource type="Texture2D" uid="uid://ke6psxqgfqpp" path="res://art/characters/mel/textures/mel_walk_up.png" id="4_juewa"]
+[ext_resource type="Texture2D" uid="uid://g7wiximsaxnx" path="res://art/characters/overworld/mel/textures/mel_walk_down.png" id="1_l7crg"]
+[ext_resource type="Texture2D" uid="uid://c3cms3a6ej74r" path="res://art/characters/overworld/mel/textures/mel_walk_left.png" id="2_lnk5q"]
+[ext_resource type="Texture2D" uid="uid://bb826ia3fci3m" path="res://art/characters/overworld/mel/textures/mel_walk_right.png" id="3_8454a"]
+[ext_resource type="Texture2D" uid="uid://ke6psxqgfqpp" path="res://art/characters/overworld/mel/textures/mel_walk_up.png" id="4_juewa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hi7y"]
 atlas = ExtResource("1_l7crg")
