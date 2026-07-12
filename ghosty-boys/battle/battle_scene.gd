@@ -10,6 +10,7 @@ var current_state: State = State.INTRO
 @onready var action_menu: ActionMenu = $ActionMenu
 @onready var target_menu: TargetMenu = $TargetMenu
 @onready var conductor: Conductor = $Conductor
+@onready var hud: BattleHUD = $BattleHUD
 
 var acting_member_index: int = 0
 var pending_attack: AttackData
@@ -23,6 +24,7 @@ func _ready() -> void:
 	action_menu.destroy_chosen.connect(_on_destroy_chosen)
 	target_menu.target_chosen.connect(_on_target_chosen)
 	_setup_enemies()
+	hud.setup(party, enemy_instances)
 	_enter_state(State.INTRO)
 	
 func _on_action_chosen(attack: AttackData) -> void:
@@ -93,7 +95,8 @@ func _resolve_action() -> void:
 		if pending_target.current_hp <= 0:
 			GameState.log_defeat(pending_target.data.enemy_name, "banish", pending_target.data.zone_theme)
 			print(pending_target.data.enemy_name, " was Banished!")
-		
+	
+	hud.refresh(party, enemy_instances)
 	
 func _after_resolve() -> void:
 	var next_index := _find_next_living_member(acting_member_index + 1)
@@ -120,6 +123,7 @@ func _run_enemy_turn() -> void:
 		
 		target.current_hp = max(target.current_hp - move.base_power, 0)
 		print(enemy.data.enemy_name, " used ", move.attack_name, " on ", target.member_name, " -> ", target.current_hp, "/", target.max_hp)
+		hud.refresh(party, enemy_instances)
 		
 		await get_tree().create_timer(0.4).timeout
 		
@@ -171,6 +175,7 @@ func _finish_enemy() -> void:
 	GameState.log_defeat(pending_target.data.enemy_name, "destroy", pending_target.data.zone_theme)
 	pending_target.current_hp = 0
 	print(pending_target.data.enemy_name, " was Destroyed!")
+	hud.refresh(party, enemy_instances)
 	is_destroy_action = false
 	_after_resolve()
 

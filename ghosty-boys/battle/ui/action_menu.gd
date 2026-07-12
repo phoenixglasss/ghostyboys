@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends HBoxContainer
 
 class_name ActionMenu
 signal destroy_chosen

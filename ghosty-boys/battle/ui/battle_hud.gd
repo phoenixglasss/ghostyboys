@@ -37,4 +37,5 @@ func refresh(party: Array[PartyMember], enemies: Array[Dictionary]) -> void:
 		var data: EnemyData = enemy.data
 		if enemy.current_hp <= 0:
 			enemy_labels[i].text = "%s defeated" % data.enemy_name
-			
+		else:
+			enemy_labels[i].text = "%s %d/%d" % [data.enemy_name, enemy.current_hp, data.max_hp]
