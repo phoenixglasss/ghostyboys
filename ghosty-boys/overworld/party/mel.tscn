@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ohffeehc7ds7"]
+
+[ext_resource type="Script" uid="uid://d0fv2nuvdsokl" path="res://overworld/party/party_follower.gd" id="1_4p77u"]
+[ext_resource type="SpriteFrames" uid="uid://ctjh4kactj115" path="res://art/characters/overworld/mel/mel_overworld.tres" id="2_4p77u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6a5au"]
+
+[node name="Mel" type="CharacterBody2D" unique_id=2027066497]
+script = ExtResource("1_4p77u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=681225753]
+position = Vector2(0, -12)
+sprite_frames = ExtResource("2_4p77u")
+animation = &"walk_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1719626612]
+position = Vector2(0, -10)
+scale = Vector2(0.64604706, 0.67457026)
+shape = SubResource("CapsuleShape2D_6a5au")

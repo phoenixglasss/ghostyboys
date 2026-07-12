@@ -3,6 +3,8 @@
 [ext_resource type="TileSet" uid="uid://u8byqkju8h28" path="res://art/environment/tilesets/bar/bar_wood_floor.tres" id="1_x8o4u"]
 [ext_resource type="TileSet" uid="uid://g2m7tvf36mbe" path="res://art/environment/tilesets/_utility/shadow_tiles.tres" id="2_m3qxa"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="3_h3gxi"]
+[ext_resource type="PackedScene" uid="uid://ohffeehc7ds7" path="res://overworld/party/mel.tscn" id="4_mmme4"]
+[ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="5_a06n5"]
 
 [node name="01ABar" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
@@ -36,3 +38,11 @@ tile_set = ExtResource("1_x8o4u")
 
 [node name="Player" parent="." unique_id=594011378 instance=ExtResource("3_h3gxi")]
 position = Vector2(126, 98)
+
+[node name="Mel" parent="." unique_id=2027066497 node_paths=PackedStringArray("leader") instance=ExtResource("4_mmme4")]
+position = Vector2(106, 99)
+leader = NodePath("../Player")
+
+[node name="Jackal" parent="." unique_id=384938334 node_paths=PackedStringArray("leader") instance=ExtResource("5_a06n5")]
+position = Vector2(85, 99)
+leader = NodePath("../Mel")
