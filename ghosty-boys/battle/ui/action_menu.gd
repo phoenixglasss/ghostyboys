@@ -1,29 +1,29 @@
 extends VBoxContainer
 
 class_name ActionMenu
+signal destroy_chosen
 
 signal action_chosen(attack: AttackData)
-signal finisher_chosen(method: String)
 
-func display_moves(moveset: Array[AttackData], available_finishers: Array[String] = []) -> void:
+func display_moves(moveset: Array[AttackData], show_destroy: bool = false) -> void:
 	for child in get_children():
 		child.queue_free()
-		
+
 	for attack in moveset:
 		var button := Button.new()
 		button.text = attack.attack_name
 		button.pressed.connect(_on_move_button_pressed.bind(attack))
 		add_child(button)
-		
-	for method in available_finishers:
+
+	if show_destroy:
 		var button := Button.new()
-		button.text = method
-		button.pressed.connect(_on_finisher_button_pressed.bind(method))
+		button.text = "Destroy"
+		button.pressed.connect(_on_destroy_button_pressed)
 		add_child(button)
-		
-func _on_finisher_button_pressed(method: String) -> void:
-	finisher_chosen.emit(method)
-		
+
+
+func _on_destroy_button_pressed() -> void:
+	destroy_chosen.emit()
 		
 func _on_move_button_pressed(attack: AttackData) -> void:
 	action_chosen.emit(attack)
