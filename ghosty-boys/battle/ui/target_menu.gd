@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends HBoxContainer
 class_name TargetMenu
 
 signal target_chosen(enemy: Dictionary)
