@@ -1,10 +1,30 @@
 [gd_scene format=3 uid="uid://poatep0dlqgv"]
 
 [ext_resource type="Script" uid="uid://3p6c1s7hev4q" path="res://overworld/player/player.gd" id="1_ub68d"]
-[ext_resource type="Texture2D" uid="uid://cb2qth6srpc70" path="res://icon.svg" id="2_8lopn"]
+[ext_resource type="Texture2D" uid="uid://cscg81d07mtqm" path="res://art/characters/shadow_circle.png" id="2_8lopn"]
+[ext_resource type="SpriteFrames" uid="uid://hbw6ek0tmv56" path="res://art/characters/daisy/daisy_overworld.tres" id="2_ub68d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jsb8"]
+radius = 5.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=594011378]
+y_sort_enabled = true
+motion_mode = 1
 script = ExtResource("1_ub68d")
+speed = 80.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1022219655]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1146248414]
+modulate = Color(1, 1, 1, 0.52156866)
+z_index = -1
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_8lopn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=292426345]
+position = Vector2(0, -12)
+sprite_frames = ExtResource("2_ub68d")
+animation = &"walk_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1852023407]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_1jsb8")
