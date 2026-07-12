@@ -16,32 +16,34 @@ script = ExtResource("1_u2cu5")
 party = Array[ExtResource("2_coff1")]([ExtResource("3_4ui5s"), ExtResource("4_dkrhh")])
 enemies = Array[ExtResource("4_trk6d")]([ExtResource("5_trk6d")])
 
-[node name="ActionMenu" parent="." unique_id=299728398 instance=ExtResource("2_1otyf")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="TargetMenu" parent="." unique_id=1403061479 instance=ExtResource("5_nbjvm")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="Conductor" parent="." unique_id=579423608 instance=ExtResource("9_dkrhh")]
 
-[node name="BattleHUD" parent="." unique_id=1717795442 instance=ExtResource("10_ubjmj")]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1940318940]
+
+[node name="BattleHUD" parent="UI" unique_id=1717795442 instance=ExtResource("10_ubjmj")]
+
+[node name="ActionMenu" parent="UI" unique_id=299728398 instance=ExtResource("2_1otyf")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TargetMenu" parent="UI" unique_id=1403061479 instance=ExtResource("5_nbjvm")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
