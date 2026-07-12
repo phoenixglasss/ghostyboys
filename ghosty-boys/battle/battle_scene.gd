@@ -95,8 +95,9 @@ func _resolve_action() -> void:
 		
 	
 func _after_resolve() -> void:
-	acting_member_index += 1
-	if acting_member_index < party.size():
+	var next_index := _find_next_living_member(acting_member_index + 1)
+	if next_index != -1:
+		acting_member_index = next_index
 		_enter_state(State.PLAYER_MENU)
 	else:
 		acting_member_index = 0
@@ -134,6 +135,8 @@ func _check_battle_end() -> void:
 		_enter_state(State.DEFEAT)
 		return
 		
+	var next_index := _find_next_living_member(0)
+	acting_member_index = next_index
 	_enter_state(State.PLAYER_MENU)
 	
 func _on_target_chosen(enemy: Dictionary) -> void:
@@ -174,3 +177,11 @@ func _on_destroy_chosen() -> void:
 	action_menu.clear()
 	is_destroy_action = true
 	_enter_state(State.TARGET_SELECT)
+
+func _find_next_living_member(start_index: int) -> int:
+	var index := start_index
+	while index < party.size():
+		if party[index].current_hp > 0:
+			return index
+		index += 1
+	return -1

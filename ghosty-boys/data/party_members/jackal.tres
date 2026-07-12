@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PartyMember" format=3 uid="uid://j00g2w45mh4w"]
+
+[ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_v7max"]
+[ext_resource type="Script" uid="uid://828whruuqql1" path="res://battle/classes/party_member.gd" id="2_hdwec"]
+[ext_resource type="Resource" uid="uid://bs78kl3mxn62n" path="res://data/attacks/punch.tres" id="2_x2304"]
+
+[resource]
+script = ExtResource("2_hdwec")
+member_name = "Jackal"
+max_hp = 100
+current_hp = 100
+moveset = Array[ExtResource("1_v7max")]([ExtResource("2_x2304")])
+metadata/_custom_type_script = "uid://828whruuqql1"
