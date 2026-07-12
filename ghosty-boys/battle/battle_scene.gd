@@ -9,10 +9,11 @@ var current_state: State = State.INTRO
 
 @onready var action_menu: ActionMenu = $ActionMenu
 @onready var target_menu: TargetMenu = $TargetMenu
+@onready var conductor: Conductor = $Conductor
 
 var acting_member_index: int = 0
 var pending_attack: AttackData
-var pending_result: Dictionary
+var pending_result: float
 var enemy_instances: Array[Dictionary] = []
 var pending_target: Dictionary
 var is_destroy_action: bool = false
@@ -54,8 +55,8 @@ func _enter_state(state: State) -> void:
 			else:
 				target_menu.display_targets(eligible_enemies)
 		State.RHYTHM_CHALLENGE:
-			RhythmMinigame.start_challenge(pending_attack.attack_name)
-			pending_result = await RhythmMinigame.challenge_completed
+			conductor.play_chart(pending_attack.chart)
+			pending_result = await conductor.chart_completed
 			_enter_state(State.RESOLVE)
 		State.RESOLVE:
 			_resolve_action()
@@ -79,7 +80,7 @@ func _setup_enemies() -> void:
 
 # damage math portion
 func _resolve_action() -> void:
-	var amount := roundi(pending_attack.base_power * pending_result.percentage)
+	var amount := roundi(pending_attack.base_power * pending_result)
 	
 	if pending_attack.is_healing:
 		var target: PartyMember = party[acting_member_index]

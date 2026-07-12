@@ -16,7 +16,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-RhythmMinigame="*uid://2udrld8vxs5y"
 GameState="*uid://dkq20w86npckp"
 
 [display]
