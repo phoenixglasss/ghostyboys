@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("3_7x623")
-member_name = "Jackal"
+member_name = "Daisy"
 max_hp = 100
 current_hp = 100
 moveset = Array[ExtResource("1_sowji")]([ExtResource("2_84ogf")])
