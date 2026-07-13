@@ -2,6 +2,9 @@ extends Node
 
 var party: Array[PartyMember] = []
 var defeated_enemies: Array[Dictionary] = []
+var pending_encounter: EncounterData
+var return_scene_path: String
+var return_position: Vector2
 
 func _ready() -> void:
 	party = [

@@ -35,6 +35,7 @@ enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg")
 [global_group]
 
 conductor=""
+player=""
 
 [input]
 

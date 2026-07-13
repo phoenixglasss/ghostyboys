@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://kc7vim4w7wcx"]
+
+[ext_resource type="Script" uid="uid://teo45i2lkv0v" path="res://overworld/encounter_trigger.gd" id="1_6c0qf"]
+[ext_resource type="Resource" uid="uid://by4yumk8l612l" path="res://data/encounters/bar_fight.tres" id="2_e1j6f"]
+[ext_resource type="Texture2D" uid="uid://b3xx01jsiutvt" path="res://art/characters/battle/enemy_placeholder/enemy_placeholder.png" id="2_ujjfp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6a5au"]
+height = 24.0
+
+[node name="EncounterTrigger" type="Area2D" unique_id=617777993]
+position = Vector2(-1, -12)
+script = ExtResource("1_6c0qf")
+encounter = ExtResource("2_e1j6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785337612]
+scale = Vector2(1.0400002, 1)
+shape = SubResource("CapsuleShape2D_6a5au")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082657938]
+texture = ExtResource("2_ujjfp")
