@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 GameState="*uid://dkq20w86npckp"
 BetterTerrain="*uid://dpooiy5gitrvw"
+SceneTransition="*uid://r4y4d30mamo2"
 
 [display]
 

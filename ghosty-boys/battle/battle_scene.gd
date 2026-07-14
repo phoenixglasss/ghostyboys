@@ -69,6 +69,8 @@ func _enter_state(state: State) -> void:
 			_check_battle_end()
 		State.VICTORY:
 			print("Victory!")
+			await get_tree().create_timer(1.0).timeout
+			SceneTransition.return_to_overworld()
 		State.DEFEAT:
 			print("Defeat...")
 

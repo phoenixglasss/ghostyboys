@@ -15,7 +15,6 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	if not body.is_in_group("player"):
 		return
-		
+
 	has_triggered = true
-	GameState.pending_encounter = encounter
-	print("Encounter triggered: ", encounter.encounter_name, " -> ", GameState.pending_encounter.enemies.size(), " enemies")
+	SceneTransition.go_to_battle(encounter)
