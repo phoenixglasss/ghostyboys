@@ -3,8 +3,6 @@
 [ext_resource type="SpriteFrames" uid="uid://clgytlidkeafr" path="res://art/characters/overworld/jackal/jackal_overworld.tres" id="1_3w524"]
 [ext_resource type="Script" uid="uid://d0fv2nuvdsokl" path="res://overworld/party/party_follower.gd" id="1_igboi"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6a5au"]
-
 [node name="Jackal" type="CharacterBody2D" unique_id=384938334]
 script = ExtResource("1_igboi")
 
@@ -12,8 +10,3 @@ script = ExtResource("1_igboi")
 position = Vector2(0, -12)
 sprite_frames = ExtResource("1_3w524")
 animation = &"walk_down"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1782247381]
-position = Vector2(0, -10)
-scale = Vector2(0.55999786, 0.6400012)
-shape = SubResource("CapsuleShape2D_6a5au")
