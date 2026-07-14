@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b7puitmr7pyjc" path="res://battle/battle_scene.gd" id="1_u2cu5"]
 [ext_resource type="PackedScene" uid="uid://bibl3yot1i7jt" path="res://battle/ui/action_menu.tscn" id="2_1otyf"]
-[ext_resource type="Script" uid="uid://828whruuqql1" path="res://battle/classes/party_member.gd" id="2_coff1"]
-[ext_resource type="Resource" uid="uid://b1enytqyvsdrc" path="res://data/party_members/mel.tres" id="3_4ui5s"]
-[ext_resource type="Resource" uid="uid://j00g2w45mh4w" path="res://data/party_members/jackal.tres" id="4_dkrhh"]
 [ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="4_trk6d"]
 [ext_resource type="PackedScene" uid="uid://d08qr2iy5nxoe" path="res://battle/ui/target_menu.tscn" id="5_nbjvm"]
 [ext_resource type="Resource" uid="uid://cxjyqudg4d2ax" path="res://data/enemies/bar/bar_drunkard.tres" id="5_trk6d"]
@@ -13,7 +10,6 @@
 
 [node name="BattleManager" type="Node2D" unique_id=1977351399]
 script = ExtResource("1_u2cu5")
-party = Array[ExtResource("2_coff1")]([ExtResource("3_4ui5s"), ExtResource("4_dkrhh")])
 enemies = Array[ExtResource("4_trk6d")]([ExtResource("5_trk6d")])
 
 [node name="Conductor" parent="." unique_id=579423608 instance=ExtResource("9_dkrhh")]

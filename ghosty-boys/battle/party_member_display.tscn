@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d4nelasu1ucxl"]
+
+[ext_resource type="Script" uid="uid://8kg3sh0maskc" path="res://battle/party_member_display.gd" id="1_yy0t6"]
+
+[node name="PartyMemberDisplay" type="Node2D" unique_id=1806403326]
+script = ExtResource("1_yy0t6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1339067003]

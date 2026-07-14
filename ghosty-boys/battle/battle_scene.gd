@@ -3,8 +3,6 @@ extends Node2D
 enum State { INTRO, PLAYER_MENU, TARGET_SELECT, RHYTHM_CHALLENGE, RESOLVE, ENEMY_TURN, CHECK_END, VICTORY, DEFEAT }
 var current_state: State = State.INTRO
 
-# test data slots. these are special, secret slots.
-@export var party: Array[PartyMember]
 @export var enemies: Array[EnemyData]
 
 @onready var action_menu: ActionMenu = $UI/ActionMenu
@@ -12,6 +10,7 @@ var current_state: State = State.INTRO
 @onready var conductor: Conductor = $Conductor
 @onready var hud: BattleHUD = $UI/BattleHUD
 
+var party: Array[PartyMember] = []
 var acting_member_index: int = 0
 var pending_attack: AttackData
 var pending_result: float
@@ -23,6 +22,13 @@ func _ready() -> void:
 	action_menu.action_chosen.connect(_on_action_chosen)
 	action_menu.destroy_chosen.connect(_on_destroy_chosen)
 	target_menu.target_chosen.connect(_on_target_chosen)
+	
+	party = GameState.party
+	
+	if GameState.pending_encounter:
+		enemies = GameState.pending_encounter.enemies
+		GameState.pending_encounter = null
+		
 	_setup_enemies()
 	hud.setup(party, enemy_instances)
 	_enter_state(State.INTRO)
@@ -44,6 +50,7 @@ func _enter_state(state: State) -> void:
 			_enter_state(State.PLAYER_MENU)
 			# until it has an intro animation to play, it just hands off to next state
 		State.PLAYER_MENU:
+			print("Now acting: ", party[acting_member_index].member_name)
 			action_menu.display_moves(party[acting_member_index].moveset, _is_destroy_available())
 		State.TARGET_SELECT:
 			var eligible_enemies: Array
@@ -101,6 +108,10 @@ func _resolve_action() -> void:
 	hud.refresh(party, enemy_instances)
 	
 func _after_resolve() -> void:
+	if enemy_instances.all(func(enemy): return enemy.current_hp <= 0):
+		_enter_state(State.CHECK_END)
+		return
+	
 	var next_index := _find_next_living_member(acting_member_index + 1)
 	if next_index != -1:
 		acting_member_index = next_index

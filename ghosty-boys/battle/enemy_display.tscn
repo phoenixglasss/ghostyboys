@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cc234wkp1kqef"]
+
+[ext_resource type="Texture2D" uid="uid://bya1i6jla6xr5" path="res://art/characters/battle/enemy_placeholder/enemy_placeholder_attack.png" id="1_37bsg"]
+[ext_resource type="Script" uid="uid://b2si3ek13sy6o" path="res://battle/enemy_display.gd" id="1_q417g"]
+
+[node name="EnemyDisplay" type="Node2D" unique_id=2002422098]
+script = ExtResource("1_q417g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1159477441]
+
+[node name="Placeholder" type="Sprite2D" parent="." unique_id=2135670559]
+texture = ExtResource("1_37bsg")

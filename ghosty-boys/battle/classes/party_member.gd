@@ -6,4 +6,4 @@ class_name PartyMember
 @export var max_hp: int
 @export var current_hp: int
 @export var moveset: Array[AttackData]
-@export var sprite : SpriteFrames
+@export var sprite_frames: SpriteFrames
