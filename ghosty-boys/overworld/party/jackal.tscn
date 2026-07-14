@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://d0fv2nuvdsokl" path="res://overworld/party/party_follower.gd" id="1_igboi"]
 
 [node name="Jackal" type="CharacterBody2D" unique_id=384938334]
+use_parent_material = true
 script = ExtResource("1_igboi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1438176394]
+use_parent_material = true
 position = Vector2(0, -12)
 sprite_frames = ExtResource("1_3w524")
 animation = &"walk_down"

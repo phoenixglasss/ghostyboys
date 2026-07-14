@@ -10,6 +10,7 @@ height = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=594011378]
 y_sort_enabled = true
+use_parent_material = true
 motion_mode = 1
 script = ExtResource("1_ub68d")
 speed = 80.0
@@ -21,6 +22,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_8lopn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=292426345]
+use_parent_material = true
 position = Vector2(0, -12)
 sprite_frames = ExtResource("2_ub68d")
 animation = &"walk_down"

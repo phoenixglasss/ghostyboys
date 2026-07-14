@@ -4,9 +4,11 @@
 [ext_resource type="SpriteFrames" uid="uid://ctjh4kactj115" path="res://art/characters/overworld/mel/mel_overworld.tres" id="2_4p77u"]
 
 [node name="Mel" type="CharacterBody2D" unique_id=2027066497]
+use_parent_material = true
 script = ExtResource("1_4p77u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=681225753]
+use_parent_material = true
 position = Vector2(0, -12)
 sprite_frames = ExtResource("2_4p77u")
 animation = &"walk_down"
