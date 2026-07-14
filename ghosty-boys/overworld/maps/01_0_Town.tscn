@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="5_vb587"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="7_jnrag"]
 
-[node name="01ABar" type="Node2D" unique_id=1499958377]
+[node name="01_0_Town" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
 
 [node name="Environment" type="Node2D" parent="." unique_id=1480905318]
@@ -38,16 +38,18 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAQABgABAAAAAAAAAA=")
 tile_set = ExtResource("1_w6723")
 
-[node name="Player" parent="." unique_id=594011378 groups=["player"] instance=ExtResource("3_w6723")]
-position = Vector2(238, 463)
-
 [node name="Mel" parent="." unique_id=2027066497 node_paths=PackedStringArray("leader") instance=ExtResource("4_hg5lp")]
+y_sort_enabled = true
 position = Vector2(218, 464)
 leader = NodePath("../Player")
 
 [node name="Jackal" parent="." unique_id=384938334 node_paths=PackedStringArray("leader") instance=ExtResource("5_vb587")]
+y_sort_enabled = true
 position = Vector2(197, 464)
 leader = NodePath("../Mel")
+
+[node name="Player" parent="." unique_id=594011378 groups=["player"] instance=ExtResource("3_w6723")]
+position = Vector2(238, 463)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=859136871 node_paths=PackedStringArray("player")]
 limit_left = 0
