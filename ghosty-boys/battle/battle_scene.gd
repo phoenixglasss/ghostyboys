@@ -3,6 +3,16 @@ extends Node2D
 enum State { INTRO, PLAYER_MENU, TARGET_SELECT, RHYTHM_CHALLENGE, RESOLVE, ENEMY_TURN, CHECK_END, VICTORY, DEFEAT }
 var current_state: State = State.INTRO
 
+const PartyMemberDisplayScene := preload("res://battle/party_member_display.tscn")
+const EnemyDisplayScene := preload("res://battle/enemy_display.tscn")
+
+const PARTY_X: float = 40.0
+const ENEMY_X: float = 260.0
+const ROW_SPACING: float = 40.0
+const FIRST_ROW_Y: float = 40.0
+
+var party_displays: Array[PartyMemberDisplay] = []
+
 @export var enemies: Array[EnemyData]
 
 @onready var action_menu: ActionMenu = $UI/ActionMenu
@@ -30,8 +40,10 @@ func _ready() -> void:
 		GameState.pending_encounter = null
 		
 	_setup_enemies()
+	_spawn_combatants()
 	hud.setup(party, enemy_instances)
 	_enter_state(State.INTRO)
+	
 	
 func _on_action_chosen(attack: AttackData) -> void:
 	action_menu.clear()
@@ -104,6 +116,7 @@ func _resolve_action() -> void:
 		if pending_target.current_hp <= 0:
 			GameState.log_defeat(pending_target.data.enemy_name, "banish", pending_target.data.zone_theme)
 			print(pending_target.data.enemy_name, " was Banished!")
+			pending_target.display.visible = false
 	
 	hud.refresh(party, enemy_instances)
 	
@@ -188,6 +201,7 @@ func _finish_enemy() -> void:
 	GameState.log_defeat(pending_target.data.enemy_name, "destroy", pending_target.data.zone_theme)
 	pending_target.current_hp = 0
 	print(pending_target.data.enemy_name, " was Destroyed!")
+	pending_target.display.visible = false
 	hud.refresh(party, enemy_instances)
 	is_destroy_action = false
 	_after_resolve()
@@ -204,3 +218,19 @@ func _find_next_living_member(start_index: int) -> int:
 			return index
 		index += 1
 	return -1
+
+
+func _spawn_combatants() -> void:
+	for i in party.size():
+		var display: PartyMemberDisplay = PartyMemberDisplayScene.instantiate()
+		add_child(display)
+		display.position = Vector2(PARTY_X, FIRST_ROW_Y + i * ROW_SPACING)
+		display.setup(party[i])
+		party_displays.append(display)
+		
+	for i in enemy_instances.size():
+		var display: EnemyDisplay = EnemyDisplayScene.instantiate()
+		add_child(display)
+		display.position = Vector2(ENEMY_X, FIRST_ROW_Y + i * ROW_SPACING)
+		display.setup(enemy_instances[i].data)
+		enemy_instances[i]["display"] = display

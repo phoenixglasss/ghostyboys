@@ -9,3 +9,5 @@ func setup(member: PartyMember) -> void:
 		sprite.sprite_frames = member.sprite_frames
 		if sprite.sprite_frames.has_animation("battle_enter"):
 			sprite.play("battle_enter")
+		else:
+			sprite.play("walk_down")

@@ -13,6 +13,7 @@ func setup(party: Array[PartyMember], enemies: Array[Dictionary]) -> void:
 	party_labels.clear()
 	for member in party:
 		var label := Label.new()
+		label.add_theme_font_size_override("font_size", 12)
 		party_status.add_child(label)
 		party_labels.append(label)
 		
@@ -21,6 +22,7 @@ func setup(party: Array[PartyMember], enemies: Array[Dictionary]) -> void:
 	enemy_labels.clear()
 	for enemy in enemies:
 		var label := Label.new()
+		label.add_theme_font_size_override("font_size", 12)
 		enemy_status.add_child(label)
 		enemy_labels.append(label)
 		
