@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://iix62evixrq"]
 
 [ext_resource type="Script" uid="uid://byd7ienug6bwm" path="res://battle/ui/battle_hud.gd" id="1_5v37y"]
+[ext_resource type="StyleBox" uid="uid://beg3hfuotjdiw" path="res://battle/ui/retro_panel_style.tres" id="2_wqe8b"]
+[ext_resource type="PackedScene" uid="uid://bibl3yot1i7jt" path="res://battle/ui/action_menu.tscn" id="3_ksfvt"]
 
 [node name="BattleHUD" type="Control" unique_id=1717795442]
 layout_mode = 3
@@ -11,11 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5v37y")
 
-[node name="PartyStatus" type="VBoxContainer" parent="." unique_id=147233120]
-layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="EnemyStatus" type="VBoxContainer" parent="." unique_id=41457023]
 layout_mode = 1
 anchors_preset = 1
@@ -24,3 +21,35 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-4, 0)
+
+[node name="BottomBar" type="HBoxContainer" parent="." unique_id=635289876]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_enabled = true
+
+[node name="PartyPanel" type="PanelContainer" parent="BottomBar" unique_id=1461518540]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_wqe8b")
+
+[node name="PartyStatus" type="VBoxContainer" parent="BottomBar/PartyPanel" unique_id=147233120]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(4, 0)
+theme_override_constants/separation = 0
+
+[node name="ActionPanel" type="PanelContainer" parent="BottomBar" unique_id=2069764811]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("2_wqe8b")
+
+[node name="ActionMenu" parent="BottomBar/ActionPanel" unique_id=1358370513 instance=ExtResource("3_ksfvt")]
+layout_mode = 2

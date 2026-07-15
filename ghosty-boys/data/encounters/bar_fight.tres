@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("2_3f84x")
 encounter_name = "Bar Fight"
-enemies = Array[ExtResource("1_tkjg1")]([ExtResource("2_k66cy")])
+enemies = Array[ExtResource("1_tkjg1")]([ExtResource("2_k66cy"), ExtResource("2_k66cy")])
 metadata/_custom_type_script = "uid://bvffv678mkbsd"

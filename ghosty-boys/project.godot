@@ -38,6 +38,10 @@ enabled=PackedStringArray("res://addons/better-terrain/plugin.cfg")
 conductor=""
 player=""
 
+[gui]
+
+theme/custom_font="uid://bpwi7c7adciib"
+
 [input]
 
 move_up={

@@ -1,7 +1,7 @@
 extends Control
 class_name BattleHUD
 
-@onready var party_status: VBoxContainer = $PartyStatus
+@onready var party_status: VBoxContainer = $BottomBar/PartyPanel/PartyStatus
 @onready var enemy_status: VBoxContainer = $EnemyStatus
 
 var party_labels: Array[Label] = []
@@ -13,7 +13,7 @@ func setup(party: Array[PartyMember], enemies: Array[Dictionary]) -> void:
 	party_labels.clear()
 	for member in party:
 		var label := Label.new()
-		label.add_theme_font_size_override("font_size", 12)
+		label.add_theme_font_size_override("font_size", 8)
 		party_status.add_child(label)
 		party_labels.append(label)
 		
@@ -22,7 +22,7 @@ func setup(party: Array[PartyMember], enemies: Array[Dictionary]) -> void:
 	enemy_labels.clear()
 	for enemy in enemies:
 		var label := Label.new()
-		label.add_theme_font_size_override("font_size", 12)
+		label.add_theme_font_size_override("font_size", 8)
 		enemy_status.add_child(label)
 		enemy_labels.append(label)
 		
