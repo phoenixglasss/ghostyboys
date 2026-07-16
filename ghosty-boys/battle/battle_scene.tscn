@@ -20,4 +20,8 @@ enemies = Array[ExtResource("4_trk6d")]([ExtResource("5_trk6d")])
 [node name="TargetMenu" parent="UI/BattleHUD/BottomBar/ActionPanel" parent_id_path=PackedInt32Array(1717795442, 2069764811) index="1" unique_id=1403061479 instance=ExtResource("5_nbjvm")]
 layout_mode = 2
 
+[node name="Background" type="Sprite2D" parent="." unique_id=1167135790]
+z_index = -10
+position = Vector2(160, 90)
+
 [editable path="UI/BattleHUD"]

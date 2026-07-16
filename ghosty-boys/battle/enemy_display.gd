@@ -14,3 +14,6 @@ func setup(enemy_data: EnemyData) -> void:
 	else:
 		placeholder.visible = true
 		sprite.visible = true
+
+func set_highlighted(highlighted: bool) -> void:
+	modulate = Color(1.3, 1.3, 1.3) if highlighted else Color.WHITE
