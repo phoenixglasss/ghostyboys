@@ -91,6 +91,9 @@ func _enter_state(state: State) -> void:
 			_check_battle_end()
 		State.VICTORY:
 			print("Victory!")
+			if GameState.pending_trigger_id != "":
+				GameState.mark_trigger_cleared(GameState.pending_trigger_id)
+				GameState.pending_trigger_id = ""
 			await get_tree().create_timer(1.0).timeout
 			SceneTransition.return_to_overworld()
 		State.DEFEAT:
