@@ -215,6 +215,7 @@ func _spawn_combatants() -> void:
 		add_child(display)
 		display.position = Vector2(ENEMY_X, FIRST_ROW_Y + i * ROW_SPACING)
 		display.setup(enemy_instances[i].data)
+		display.conductor = conductor
 		enemy_instances[i]["display"] = display
 
 func _is_destroy_available_for(enemy: Dictionary) -> bool:
