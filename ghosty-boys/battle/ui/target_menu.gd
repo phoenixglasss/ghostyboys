@@ -23,8 +23,7 @@ func _on_target_button_pressed(enemy: Dictionary) -> void:
 	target_chosen.emit(enemy)
 	
 func _on_target_button_hovered(enemy: Dictionary, hovering: bool) -> void:
-	if enemy.display:
-		enemy.display.set_highlighted(hovering)
+	pass
 	
 	
 func clear() -> void:
