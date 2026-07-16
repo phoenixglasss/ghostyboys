@@ -68,3 +68,6 @@ text = "4 Note Sequence"
 script = ExtResource("4_hw0jn")
 chart = ExtResource("4_yyu3g")
 conductor = NodePath("../../../Conductor")
+
+[node name="ChartLayer" type="CanvasLayer" parent="." unique_id=680891670]
+layer = 5

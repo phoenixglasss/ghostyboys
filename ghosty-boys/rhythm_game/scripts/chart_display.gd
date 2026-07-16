@@ -32,10 +32,12 @@ func _ready() -> void:
 	var earliest : float = conductor.get_song_position() + minimum_lead_beats
 	start_beat = ceil(earliest / 4.0) * 4.0
 
+	# set the initial scroll offset BEFORE notes exist
+	notes_container.position.x = (start_beat - conductor.get_song_position()) * note_spacing
+
 	lane_data.clear()
 	for i in 4:
 		lane_data.append([])
-
 	_load_chart(my_chart)
 
 
@@ -66,10 +68,18 @@ func _input(event: InputEvent) -> void:
 
 func _judge_note(judge_lane : int):
 	if !lane_data[judge_lane].is_empty():
-		var judge_note : NoteItem = lane_data[judge_lane].pop_front()
-		print(judge_note.rating)
-		rating_total += judge_note.rating
-		judge_note.queue_free()
+		# check if rated, then apply judgement, THEN pop
+		var judge_note : NoteItem = lane_data[judge_lane][0]
+		if judge_note.rated:
+			print(judge_note.rating)
+			rating_total += judge_note.rating
+			match judge_note.rating:
+				2:
+					lanes[judge_lane].get_node("AnimatedSprite2D").play("good")
+				3:
+					lanes[judge_lane].get_node("AnimatedSprite2D").play("perfect")
+			lane_data[judge_lane].pop_front()
+			judge_note.queue_free()
 
 
 func _load_chart(chart : Chart):

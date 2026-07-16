@@ -3,6 +3,7 @@ class_name NoteItem
 
 var lane : int = 0
 var rating : Rating = Rating.MISS
+var rated : bool = false
 
 enum Rating {
 	MISS, OKAY, GOOD, PERFECT

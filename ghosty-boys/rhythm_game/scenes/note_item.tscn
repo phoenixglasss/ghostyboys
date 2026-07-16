@@ -16,5 +16,6 @@ texture = ExtResource("1_3ffp5")
 shape = SubResource("RectangleShape2D_1jsb8")
 
 [node name="Label" type="Label" parent="." unique_id=1886070785]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0

@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://difbybu4wdn1l" path="res://rhythm_game/art/arrow_outline.png" id="3_x3wv8"]
 [ext_resource type="PackedScene" uid="uid://cy2k516h3rmmq" path="res://rhythm_game/scenes/lane_judge.tscn" id="4_3jvqq"]
 [ext_resource type="Script" uid="uid://btg0exx1nen5a" path="res://rhythm_game/scripts/note_despawner.gd" id="5_0ax0n"]
+[ext_resource type="SpriteFrames" uid="uid://dblxxv41npa8" path="res://rhythm_game/art/arrow_highlights.tres" id="6_x3wv8"]
+[ext_resource type="Script" uid="uid://bty7bkq7ck3o3" path="res://rhythm_game/scripts/lane_highlight.gd" id="7_3jvqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(56.5, 90)
@@ -90,6 +92,11 @@ color = Color(1, 0.82666665, 0.8, 0.19607843)
 
 [node name="LaneJudge" parent="ChartContainer/HitLine/Lane_Left" unique_id=63747081 instance=ExtResource("4_3jvqq")]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ChartContainer/HitLine/Lane_Left" unique_id=539163330]
+sprite_frames = ExtResource("6_x3wv8")
+animation = &"perfect"
+script = ExtResource("7_3jvqq")
+
 [node name="Lane_Down" type="Node2D" parent="ChartContainer/HitLine" unique_id=2114530266]
 position = Vector2(0, 16)
 
@@ -105,6 +112,12 @@ offset_bottom = 8.0
 color = Color(0.82666665, 0.8, 1, 0.19607843)
 
 [node name="LaneJudge" parent="ChartContainer/HitLine/Lane_Down" unique_id=1848868504 instance=ExtResource("4_3jvqq")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ChartContainer/HitLine/Lane_Down" unique_id=1752007736]
+rotation = -1.5707964
+sprite_frames = ExtResource("6_x3wv8")
+animation = &"none"
+script = ExtResource("7_3jvqq")
 
 [node name="Lane_Up" type="Node2D" parent="ChartContainer/HitLine" unique_id=21159712]
 position = Vector2(0, 32)
@@ -122,6 +135,12 @@ color = Color(0.8, 1, 0.99333334, 0.19607843)
 
 [node name="LaneJudge" parent="ChartContainer/HitLine/Lane_Up" unique_id=764743389 instance=ExtResource("4_3jvqq")]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ChartContainer/HitLine/Lane_Up" unique_id=2082292732]
+rotation = 1.5707964
+sprite_frames = ExtResource("6_x3wv8")
+animation = &"none"
+script = ExtResource("7_3jvqq")
+
 [node name="Lane_Right" type="Node2D" parent="ChartContainer/HitLine" unique_id=120798699]
 position = Vector2(0, 48)
 
@@ -137,6 +156,12 @@ offset_bottom = 8.0
 color = Color(0.80333334, 1, 0.8, 0.19607843)
 
 [node name="LaneJudge" parent="ChartContainer/HitLine/Lane_Right" unique_id=1560798544 instance=ExtResource("4_3jvqq")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ChartContainer/HitLine/Lane_Right" unique_id=254954217]
+rotation = 3.1415927
+sprite_frames = ExtResource("6_x3wv8")
+animation = &"none"
+script = ExtResource("7_3jvqq")
 
 [node name="Notes" type="Node2D" parent="ChartContainer/HitLine" unique_id=1024378404]
 
