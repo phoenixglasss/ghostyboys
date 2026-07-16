@@ -8,13 +8,15 @@ var current_total_beat : int = 0
 var current_loop : int = 0
 var loop_length : int = 0
 var current_measure_beat = 0
-
 var _last_raw_beat : float = 0.0
+var raw_beat : float = 0.0
 
 @export var bgm_file : AudioStream = preload("res://rhythm_game/test_files/audio/click_8mm.ogg")
 
 @onready var audio_player : AudioStreamPlayer = $BackgroundMusicPlayer
 @onready var action_player : AudioStreamPlayer = $ActionMusicPlayer
+
+@export var battle_manager : BattleManager
 
 var chart_display : PackedScene = preload("res://rhythm_game/scenes/chart_display.tscn")
 
@@ -35,7 +37,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	var raw_beat := _get_raw_beat()
+	raw_beat = _get_raw_beat()
 
 	if raw_beat < _last_raw_beat - (loop_length * 0.5):
 		current_loop += 1

@@ -1,4 +1,5 @@
 extends Node2D
+class_name BattleManager
 
 enum State { INTRO, PLAYER_MENU, TARGET_SELECT, RHYTHM_CHALLENGE, RESOLVE, ENEMY_TURN, CHECK_END, VICTORY, DEFEAT }
 var current_state: State = State.INTRO
@@ -44,6 +45,7 @@ func _ready() -> void:
 		conductor.bpm = bgm.bpm
 		conductor.audio_player.stream = bgm.audio
 		conductor.audio_player.play()
+		conductor.battle_manager = self
 		
 	_setup_enemies()
 	_spawn_combatants()
@@ -202,6 +204,7 @@ func _spawn_combatants() -> void:
 		add_child(display)
 		display.position = Vector2(PARTY_X, FIRST_ROW_Y + i * ROW_SPACING)
 		display.setup(party[i])
+		display.conductor = conductor
 		party_displays.append(display)
 		
 	for i in enemy_instances.size():
