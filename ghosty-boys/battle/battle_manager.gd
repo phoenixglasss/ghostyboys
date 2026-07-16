@@ -40,7 +40,7 @@ func _ready() -> void:
 		
 	_setup_enemies()
 	_spawn_combatants()
-	hud.setup(party, enemy_instances)
+	hud.setup(party)
 	_enter_state(State.INTRO)
 	
 	
@@ -109,7 +109,7 @@ func _resolve_action() -> void:
 			print(pending_target.data.enemy_name, " was Banished!")
 			pending_target.display.visible = false
 	
-	hud.refresh(party, enemy_instances)
+	hud.refresh(party)
 	
 func _after_resolve() -> void:
 	if enemy_instances.all(func(enemy): return enemy.current_hp <= 0):
@@ -140,7 +140,7 @@ func _run_enemy_turn() -> void:
 		
 		target.current_hp = max(target.current_hp - move.base_power, 0)
 		print(enemy.data.enemy_name, " used ", move.attack_name, " on ", target.member_name, " -> ", target.current_hp, "/", target.max_hp)
-		hud.refresh(party, enemy_instances)
+		hud.refresh(party)
 		
 		await get_tree().create_timer(0.4).timeout
 		
@@ -173,7 +173,7 @@ func _finish_enemy() -> void:
 	pending_target.current_hp = 0
 	print(pending_target.data.enemy_name, " was Destroyed!")
 	pending_target.display.visible = false
-	hud.refresh(party, enemy_instances)
+	hud.refresh(party)
 	_after_resolve()
 
 func _on_destroy_chosen() -> void:
@@ -208,3 +208,4 @@ func _is_destroy_available_for(enemy: Dictionary) -> bool:
 	var data: EnemyData = enemy.data
 	var ratio := float(enemy.current_hp) / data.max_hp
 	return ratio <= data.destroy_threshold
+	
