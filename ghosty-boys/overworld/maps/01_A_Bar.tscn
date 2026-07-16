@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://ehokx0hbdxv0"]
 
+[ext_resource type="Script" uid="uid://07bdqpqg3ape" path="res://overworld/overworld_map.gd" id="1_lkitk"]
 [ext_resource type="TileSet" uid="uid://u8byqkju8h28" path="res://art/environment/tilesets/bar/bar_wood_floor.tres" id="1_x8o4u"]
+[ext_resource type="AudioStream" uid="uid://dflaecpbcc33c" path="res://audio/music/overworld/bar.mp3" id="2_er5qq"]
 [ext_resource type="TileSet" uid="uid://g2m7tvf36mbe" path="res://art/environment/tilesets/_utility/shadow_tiles.tres" id="2_m3qxa"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="3_h3gxi"]
 [ext_resource type="PackedScene" uid="uid://ohffeehc7ds7" path="res://overworld/party/mel.tscn" id="4_mmme4"]
@@ -9,6 +11,8 @@
 
 [node name="01ABar" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
+script = ExtResource("1_lkitk")
+bgm = ExtResource("2_er5qq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1605471520]
 z_index = -100
