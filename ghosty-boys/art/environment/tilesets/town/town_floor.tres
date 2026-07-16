@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" format=3 uid="uid://bk0yg5x16sckd"]
 
-[ext_resource type="Texture2D" uid="uid://dnj2kebyratyq" path="res://art/environment/tilesets/town/town_tileset.png" id="1_o387t"]
+[ext_resource type="Texture2D" uid="uid://ctdjb4x6nuebi" path="res://art/environment/tilesets/town/town_floor_normaled.tres" id="1_3h5dw"]
 [ext_resource type="Texture2D" uid="uid://dcfswmdelntbs" path="res://art/environment/tilesets/town/building.png" id="2_aq15l"]
 [ext_resource type="Texture2D" uid="uid://chxgo8o3i7l5n" path="res://art/environment/tilesets/town/bank.png" id="3_3h5dw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itl3i"]
-texture = ExtResource("1_o387t")
+texture = ExtResource("1_3h5dw")
 0:0/0 = 0
 0:0/0/metadata/_better_terrain = {
 0: [0],

@@ -20,6 +20,8 @@ var party_displays: Array[PartyMemberDisplay] = []
 @onready var conductor: Conductor = $Conductor
 @onready var hud: BattleHUD = $UI/BattleHUD
 
+@export var bgm : BGM = preload("res://audio/music/battle/battle_bgm.tres")
+
 var party: Array[PartyMember] = []
 var acting_member_index: int = 0
 var pending_attack: AttackData
@@ -37,6 +39,11 @@ func _ready() -> void:
 	if GameState.pending_encounter:
 		enemies = GameState.pending_encounter.enemies
 		GameState.pending_encounter = null
+	
+	if conductor:
+		conductor.bpm = bgm.bpm
+		conductor.audio_player.stream = bgm.audio
+		conductor.audio_player.play()
 		
 	_setup_enemies()
 	_spawn_combatants()

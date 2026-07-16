@@ -1,10 +1,35 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://beqscow35be53"]
 
 [ext_resource type="Texture2D" uid="uid://b6obn4od0lugx" path="res://art/characters/overworld/daisy/textures/daisy_walk_right.png" id="1_nnv4s"]
+[ext_resource type="Texture2D" uid="uid://evgjqi7m5wnj" path="res://art/characters/battle/daisy/daisy_readyup.png" id="2_i8ik1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8ik1"]
 atlas = ExtResource("1_nnv4s")
 region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oks7e"]
+atlas = ExtResource("2_i8ik1")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl5v8"]
+atlas = ExtResource("2_i8ik1")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdf82"]
+atlas = ExtResource("2_i8ik1")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukfhv"]
+atlas = ExtResource("2_i8ik1")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6i4i"]
+atlas = ExtResource("2_i8ik1")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyb1n"]
+atlas = ExtResource("2_i8ik1")
+region = Rect2(80, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v421n"]
 atlas = ExtResource("1_nnv4s")
@@ -18,6 +43,29 @@ animations = [{
 }],
 "loop": 1,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oks7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl5v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdf82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukfhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6i4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyb1n")
+}],
+"loop": 0,
+"name": &"battle_enter",
 "speed": 5.0
 }, {
 "frames": [{

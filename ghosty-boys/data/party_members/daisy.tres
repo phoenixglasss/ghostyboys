@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_sowji"]
 [ext_resource type="Resource" uid="uid://bs78kl3mxn62n" path="res://data/attacks/punch.tres" id="2_84ogf"]
 [ext_resource type="Script" uid="uid://828whruuqql1" path="res://battle/classes/party_member.gd" id="3_7x623"]
-[ext_resource type="SpriteFrames" uid="uid://hbw6ek0tmv56" path="res://art/characters/overworld/daisy/daisy_overworld.tres" id="4_84ogf"]
+[ext_resource type="SpriteFrames" uid="uid://beqscow35be53" path="res://art/characters/battle/daisy/daisy_battle.tres" id="4_84ogf"]
 
 [resource]
 script = ExtResource("3_7x623")

@@ -1,0 +1,9 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://ctdjb4x6nuebi"]
+
+[ext_resource type="Texture2D" uid="uid://dnj2kebyratyq" path="res://art/environment/tilesets/town/town_tileset.png" id="1_5wpx4"]
+[ext_resource type="Texture2D" uid="uid://dteqt2evmxmns" path="res://art/environment/tilesets/town/town_tileset_normal.png" id="2_mn07o"]
+
+[resource]
+diffuse_texture = ExtResource("1_5wpx4")
+normal_texture = ExtResource("2_mn07o")
+specular_shininess = 0.15

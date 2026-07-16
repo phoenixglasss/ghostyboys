@@ -2,11 +2,17 @@
 
 [ext_resource type="TileSet" uid="uid://bk0yg5x16sckd" path="res://art/environment/tilesets/town/town_floor.tres" id="1_w6723"]
 [ext_resource type="TileSet" uid="uid://g2m7tvf36mbe" path="res://art/environment/tilesets/_utility/shadow_tiles.tres" id="2_jnrag"]
+[ext_resource type="Texture2D" uid="uid://3vp3u1f1fnh2" path="res://art/environment/tilesets/town/streetlight.png" id="3_hg5lp"]
 [ext_resource type="Shader" uid="uid://c4pow8fpj7hx7" path="res://art/shaders/glow_sprite.gdshader" id="3_jnrag"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="3_w6723"]
 [ext_resource type="PackedScene" uid="uid://ohffeehc7ds7" path="res://overworld/party/mel.tscn" id="4_hg5lp"]
+[ext_resource type="Texture2D" uid="uid://cid3y55vrsuup" path="res://art/environment/tilesets/town/streetlight_light2d.png" id="4_vb587"]
+[ext_resource type="Texture2D" uid="uid://cscg81d07mtqm" path="res://art/characters/overworld/shadow_circle.png" id="5_2khfc"]
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="5_vb587"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="7_jnrag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
+size = Vector2(14, 4)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flypk"]
 shader = ExtResource("3_jnrag")
@@ -14,6 +20,17 @@ shader_parameter/bevel_color = Color(0.4, 0.85, 1, 1)
 shader_parameter/body_color = Color(0.5, 0.5, 0.6, 1)
 shader_parameter/alpha_threshold = 0.1
 shader_parameter/thickness = 1
+
+[sub_resource type="Gradient" id="Gradient_vb587"]
+offsets = PackedFloat32Array(0, 0.22413793, 0.70689654, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_hg5lp"]
+colors = PackedColorArray(0, 0, 0, 0.3137255, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hg5lp"]
+gradient = SubResource("Gradient_hg5lp")
+width = 48
 
 [node name="01_0_Town" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
@@ -54,6 +71,82 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAQABgABAAAAAAAAAADABUABQAAAAAAAAA=")
 tile_set = ExtResource("1_w6723")
 
+[node name="PointLight2D" type="PointLight2D" parent="Environment" unique_id=1261635469]
+position = Vector2(256, 408)
+color = Color(0.84, 0.84, 0.84, 0.8117647)
+texture = ExtResource("4_vb587")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Environment" unique_id=1307634987]
+position = Vector2(56, 368)
+color = Color(0.84, 0.84, 0.84, 0.6431373)
+texture = ExtResource("4_vb587")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment" unique_id=150264470]
+position = Vector2(208, 424)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D" unique_id=948800224]
+position = Vector2(0, -37)
+texture = ExtResource("3_hg5lp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D" unique_id=1585384901]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1jsb8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Environment/StaticBody2D" unique_id=1117049439]
+position = Vector2(0, -64)
+color = Color(0.839557, 0.4648332, 3.85046e-07, 1)
+texture = ExtResource("4_vb587")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Environment/StaticBody2D" unique_id=1089659143]
+modulate = Color(1, 1, 1, 0.52156866)
+z_index = -1
+position = Vector2(0, -2.940155)
+texture = ExtResource("5_2khfc")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Environment" unique_id=861418664]
+position = Vector2(112, 448)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D2" unique_id=1088431438]
+position = Vector2(0, -37)
+texture = ExtResource("3_hg5lp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D2" unique_id=1578010445]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1jsb8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Environment/StaticBody2D2" unique_id=906185163]
+position = Vector2(0, -64)
+color = Color(0.839557, 0.4648332, 3.85046e-07, 1)
+texture = ExtResource("4_vb587")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Environment/StaticBody2D2" unique_id=265904005]
+modulate = Color(1, 1, 1, 0.52156866)
+z_index = -1
+position = Vector2(0, -2.940155)
+texture = ExtResource("5_2khfc")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Environment" unique_id=1799368576]
+position = Vector2(184, 248)
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D4" unique_id=2028266171]
+position = Vector2(0, -37)
+texture = ExtResource("3_hg5lp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D4" unique_id=1141485197]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1jsb8")
+
+[node name="PointLight2D" type="PointLight2D" parent="Environment/StaticBody2D4" unique_id=324894849]
+position = Vector2(0, -64)
+color = Color(0.839557, 0.4648332, 3.85046e-07, 1)
+texture = ExtResource("4_vb587")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Environment/StaticBody2D4" unique_id=152674695]
+modulate = Color(1, 1, 1, 0.52156866)
+z_index = -1
+position = Vector2(0, -2.940155)
+texture = ExtResource("5_2khfc")
+
 [node name="Node2D" type="Node2D" parent="." unique_id=570543222]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_flypk")
@@ -79,5 +172,39 @@ limit_bottom = 512
 script = ExtResource("7_jnrag")
 player = NodePath("../Node2D/Player")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1559864011]
+position = Vector2(160, 256)
+amount = 256
+lifetime = 12.0
+emission_shape = 3
+emission_rect_extents = Vector2(160, 256)
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 36.0
+color = Color(1, 0.98883337, 0.32999998, 0.2784314)
+color_ramp = SubResource("Gradient_vb587")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1321070764]
-color = Color(0.5395, 0.6058, 0.65, 1)
+color = Color(0.20802054, 0.23799628, 0.25512746, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2105748351]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 48.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_hg5lp")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1605995253]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 272.0
+offset_right = 320.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_hg5lp")
+flip_h = true

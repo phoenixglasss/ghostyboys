@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BGM" format=3 uid="uid://buf55hg20quf"]
+
+[ext_resource type="AudioStream" uid="uid://cy4yalu7svj6o" path="res://audio/music/battle/battle_bgm.ogg" id="1_y8iev"]
+[ext_resource type="Script" uid="uid://dia02j37xesfm" path="res://rhythm_game/scripts/bgm.gd" id="2_8aaek"]
+
+[resource]
+script = ExtResource("2_8aaek")
+bpm = 137.0
+metadata/_custom_type_script = "uid://dia02j37xesfm"

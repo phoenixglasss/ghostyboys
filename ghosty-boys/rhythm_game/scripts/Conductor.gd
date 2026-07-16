@@ -13,7 +13,7 @@ var _last_raw_beat : float = 0.0
 
 @export var bgm_file : AudioStream = preload("res://rhythm_game/test_files/audio/click_8mm.ogg")
 
-@onready var audio_player = $BackgroundMusicPlayer
+@onready var audio_player : AudioStreamPlayer = $BackgroundMusicPlayer
 @onready var action_player : AudioStreamPlayer = $ActionMusicPlayer
 
 var chart_display : PackedScene = preload("res://rhythm_game/scenes/chart_display.tscn")
@@ -27,8 +27,8 @@ signal beat_hit
 func _ready() -> void:
 	loop_length = _get_song_length_in_beats(audio_player.stream)
 	# print("Song is " + str(loop_length) + " beats long!")
-	audio_player.stream = bgm_file
-	audio_player.play()
+	# audio_player.stream = bgm_file
+	# audio_player.play()
 	# gotta hit on the first beat, too
 	beat_hit.emit()
 	measure_hit.emit()
