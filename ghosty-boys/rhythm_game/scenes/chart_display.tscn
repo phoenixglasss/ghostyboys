@@ -9,9 +9,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(56.5, 90)
 
-[node name="ChartDisplay" type="Node2D" unique_id=642866271 node_paths=PackedStringArray("conductor", "lanes")]
+[node name="ChartDisplay" type="Node2D" unique_id=642866271 node_paths=PackedStringArray("lanes")]
 script = ExtResource("1_ch8tf")
-conductor = NodePath("")
 lanes = [NodePath("HitLine/Lane_Left"), NodePath("HitLine/Lane_Down"), NodePath("HitLine/Lane_Up"), NodePath("HitLine/Lane_Right")]
 my_chart = ExtResource("2_cop0f")
 

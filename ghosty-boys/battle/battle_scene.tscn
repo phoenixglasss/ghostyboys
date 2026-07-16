@@ -4,8 +4,13 @@
 [ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="4_trk6d"]
 [ext_resource type="PackedScene" uid="uid://d08qr2iy5nxoe" path="res://battle/ui/target_menu.tscn" id="5_nbjvm"]
 [ext_resource type="Resource" uid="uid://cxjyqudg4d2ax" path="res://data/enemies/bar/bar_drunkard.tres" id="5_trk6d"]
+[ext_resource type="Texture2D" uid="uid://cpvv3phr4rjhy" path="res://art/ui/battle_ui_bg.png" id="6_coff1"]
 [ext_resource type="PackedScene" uid="uid://d12tlh28e3ui" path="res://rhythm_game/scenes/conductor.tscn" id="9_dkrhh"]
 [ext_resource type="PackedScene" uid="uid://iix62evixrq" path="res://battle/ui/battle_hud.tscn" id="10_ubjmj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_coff1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ui5s"]
 
 [node name="BattleManager" type="Node2D" unique_id=1977351399]
 script = ExtResource("1_u2cu5")
@@ -17,7 +22,21 @@ enemies = Array[ExtResource("4_trk6d")]([ExtResource("5_trk6d")])
 
 [node name="BattleHUD" parent="UI" unique_id=1717795442 instance=ExtResource("10_ubjmj")]
 
-[node name="TargetMenu" parent="UI/BattleHUD/BottomBar/ActionPanel" parent_id_path=PackedInt32Array(1717795442, 2069764811) index="1" unique_id=1403061479 instance=ExtResource("5_nbjvm")]
+[node name="TextureRect" type="TextureRect" parent="UI/BattleHUD" unique_id=145771455]
+z_index = -1
+layout_mode = 0
+offset_top = 119.0
+offset_right = 320.0
+offset_bottom = 179.0
+texture = ExtResource("6_coff1")
+
+[node name="PartyPanel" parent="UI/BattleHUD/BottomBar" parent_id_path=PackedInt32Array(1717795442, 635289876) index="0" unique_id=1461518540]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_coff1")
+
+[node name="ActionPanel" parent="UI/BattleHUD/BottomBar" parent_id_path=PackedInt32Array(1717795442, 635289876) index="1" unique_id=2069764811]
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4ui5s")
+
+[node name="TargetMenu" parent="UI/BattleHUD/BottomBar/ActionPanel" index="1" unique_id=1403061479 instance=ExtResource("5_nbjvm")]
 layout_mode = 2
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1167135790]
