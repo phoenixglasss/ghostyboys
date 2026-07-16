@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbwpn11qctu1p" path="res://rhythm_game/scripts/chart_display.gd" id="1_ch8tf"]
 [ext_resource type="Resource" uid="uid://umdv83j48ki5" path="res://rhythm_game/charts/4_note.tres" id="2_cop0f"]
+[ext_resource type="Texture2D" uid="uid://cy1kuxbhqdrbu" path="res://art/ui/battle_chart_bg.png" id="3_cop0f"]
 [ext_resource type="Texture2D" uid="uid://difbybu4wdn1l" path="res://rhythm_game/art/arrow_outline.png" id="3_x3wv8"]
 [ext_resource type="PackedScene" uid="uid://cy2k516h3rmmq" path="res://rhythm_game/scenes/lane_judge.tscn" id="4_3jvqq"]
 [ext_resource type="Script" uid="uid://btg0exx1nen5a" path="res://rhythm_game/scripts/note_despawner.gd" id="5_0ax0n"]
@@ -9,83 +10,143 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(56.5, 90)
 
+[sub_resource type="Animation" id="Animation_x3wv8"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_cop0f"]
+resource_name = "fly_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChartContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(3.3635814, 0.4829682, 1),
+"update": 0,
+"values": [Vector2(0, 66), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3jvqq"]
+resource_name = "fly_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChartContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5),
+"transitions": PackedFloat32Array(2.4622886, 0.4829682, 3.3635814),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 66)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wv8"]
+_data = {
+&"RESET": SubResource("Animation_x3wv8"),
+&"fly_in": SubResource("Animation_cop0f"),
+&"fly_out": SubResource("Animation_3jvqq")
+}
+
 [node name="ChartDisplay" type="Node2D" unique_id=642866271 node_paths=PackedStringArray("lanes")]
+z_index = 50
 script = ExtResource("1_ch8tf")
-lanes = [NodePath("HitLine/Lane_Left"), NodePath("HitLine/Lane_Down"), NodePath("HitLine/Lane_Up"), NodePath("HitLine/Lane_Right")]
+lanes = [NodePath("ChartContainer/HitLine/Lane_Left"), NodePath("ChartContainer/HitLine/Lane_Down"), NodePath("ChartContainer/HitLine/Lane_Up"), NodePath("ChartContainer/HitLine/Lane_Right")]
 my_chart = ExtResource("2_cop0f")
 
-[node name="HitLine" type="Node2D" parent="." unique_id=949200915]
+[node name="ChartContainer" type="Node2D" parent="." unique_id=762716084]
+
+[node name="TextureRect" type="TextureRect" parent="ChartContainer" unique_id=1532543491]
+z_index = -1
+offset_top = 12.0
+offset_right = 320.0
+offset_bottom = 76.0
+texture = ExtResource("3_cop0f")
+
+[node name="ColorRect" type="ColorRect" parent="ChartContainer/TextureRect" unique_id=1978613666]
+layout_mode = 0
+offset_left = 19.0
+offset_right = 20.0
+offset_bottom = 64.0
+color = Color(1, 1, 1, 0.3647059)
+
+[node name="HitLine" type="Node2D" parent="ChartContainer" unique_id=949200915]
 position = Vector2(20, 20)
 
-[node name="Lane_Left" type="Node2D" parent="HitLine" unique_id=242720238]
+[node name="Lane_Left" type="Node2D" parent="ChartContainer/HitLine" unique_id=242720238]
 
-[node name="Sprite2D" type="Sprite2D" parent="HitLine/Lane_Left" unique_id=1336005630]
+[node name="Sprite2D" type="Sprite2D" parent="ChartContainer/HitLine/Lane_Left" unique_id=1336005630]
 modulate = Color(1, 0.51025575, 0.44386888, 1)
 texture = ExtResource("3_x3wv8")
 
-[node name="ColorRect" type="ColorRect" parent="HitLine/Lane_Left" unique_id=539264110]
+[node name="ColorRect" type="ColorRect" parent="ChartContainer/HitLine/Lane_Left" unique_id=539264110]
 offset_top = -8.0
 offset_right = 300.0
 offset_bottom = 8.0
-color = Color(1, 0.827451, 0.8, 0.10980392)
+color = Color(1, 0.82666665, 0.8, 0.19607843)
 
-[node name="LaneJudge" parent="HitLine/Lane_Left" unique_id=63747081 instance=ExtResource("4_3jvqq")]
+[node name="LaneJudge" parent="ChartContainer/HitLine/Lane_Left" unique_id=63747081 instance=ExtResource("4_3jvqq")]
 
-[node name="Lane_Down" type="Node2D" parent="HitLine" unique_id=2114530266]
+[node name="Lane_Down" type="Node2D" parent="ChartContainer/HitLine" unique_id=2114530266]
 position = Vector2(0, 16)
 
-[node name="Sprite2D" type="Sprite2D" parent="HitLine/Lane_Down" unique_id=1704591430]
+[node name="Sprite2D" type="Sprite2D" parent="ChartContainer/HitLine/Lane_Down" unique_id=1704591430]
 modulate = Color(0.51466656, 0.44, 1, 1)
 rotation = -1.5707964
 texture = ExtResource("3_x3wv8")
 
-[node name="ColorRect" type="ColorRect" parent="HitLine/Lane_Down" unique_id=1336048417]
+[node name="ColorRect" type="ColorRect" parent="ChartContainer/HitLine/Lane_Down" unique_id=1336048417]
 offset_top = -8.0
 offset_right = 300.0
 offset_bottom = 8.0
-color = Color(0.82666665, 0.8, 1, 0.10980392)
+color = Color(0.82666665, 0.8, 1, 0.19607843)
 
-[node name="LaneJudge" parent="HitLine/Lane_Down" unique_id=1848868504 instance=ExtResource("4_3jvqq")]
+[node name="LaneJudge" parent="ChartContainer/HitLine/Lane_Down" unique_id=1848868504 instance=ExtResource("4_3jvqq")]
 
-[node name="Lane_Up" type="Node2D" parent="HitLine" unique_id=21159712]
+[node name="Lane_Up" type="Node2D" parent="ChartContainer/HitLine" unique_id=21159712]
 position = Vector2(0, 32)
 
-[node name="Sprite2D" type="Sprite2D" parent="HitLine/Lane_Up" unique_id=1675152243]
+[node name="Sprite2D" type="Sprite2D" parent="ChartContainer/HitLine/Lane_Up" unique_id=1675152243]
 modulate = Color(0.4392157, 1, 0.93333334, 1)
 rotation = 1.5707964
 texture = ExtResource("3_x3wv8")
 
-[node name="ColorRect" type="ColorRect" parent="HitLine/Lane_Up" unique_id=1469468336]
+[node name="ColorRect" type="ColorRect" parent="ChartContainer/HitLine/Lane_Up" unique_id=1469468336]
 offset_top = -8.0
 offset_right = 300.0
 offset_bottom = 8.0
-color = Color(0.8, 1, 0.99333334, 0.10980392)
+color = Color(0.8, 1, 0.99333334, 0.19607843)
 
-[node name="LaneJudge" parent="HitLine/Lane_Up" unique_id=764743389 instance=ExtResource("4_3jvqq")]
+[node name="LaneJudge" parent="ChartContainer/HitLine/Lane_Up" unique_id=764743389 instance=ExtResource("4_3jvqq")]
 
-[node name="Lane_Right" type="Node2D" parent="HitLine" unique_id=120798699]
+[node name="Lane_Right" type="Node2D" parent="ChartContainer/HitLine" unique_id=120798699]
 position = Vector2(0, 48)
 
-[node name="Sprite2D" type="Sprite2D" parent="HitLine/Lane_Right" unique_id=254755346]
+[node name="Sprite2D" type="Sprite2D" parent="ChartContainer/HitLine/Lane_Right" unique_id=254755346]
 modulate = Color(0.4509804, 1, 0.4392157, 1)
 rotation = -3.1415927
 texture = ExtResource("3_x3wv8")
 
-[node name="ColorRect" type="ColorRect" parent="HitLine/Lane_Right" unique_id=134888122]
+[node name="ColorRect" type="ColorRect" parent="ChartContainer/HitLine/Lane_Right" unique_id=134888122]
 offset_top = -8.0
 offset_right = 300.0
 offset_bottom = 8.0
-color = Color(0.80333334, 1, 0.8, 0.10980392)
+color = Color(0.80333334, 1, 0.8, 0.19607843)
 
-[node name="LaneJudge" parent="HitLine/Lane_Right" unique_id=1560798544 instance=ExtResource("4_3jvqq")]
+[node name="LaneJudge" parent="ChartContainer/HitLine/Lane_Right" unique_id=1560798544 instance=ExtResource("4_3jvqq")]
 
-[node name="Notes" type="Node2D" parent="HitLine" unique_id=1024378404]
+[node name="Notes" type="Node2D" parent="ChartContainer/HitLine" unique_id=1024378404]
 
-[node name="NoteDespawner" type="Area2D" parent="HitLine" unique_id=130865920]
+[node name="NoteDespawner" type="Area2D" parent="ChartContainer/HitLine" unique_id=130865920]
 script = ExtResource("5_0ax0n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitLine/NoteDespawner" unique_id=1943074162]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChartContainer/HitLine/NoteDespawner" unique_id=1943074162]
 position = Vector2(-43.25, 24)
 shape = SubResource("RectangleShape2D_1jsb8")
 
-[connection signal="area_entered" from="HitLine/NoteDespawner" to="." method="_on_note_despawner_area_entered"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1914540185]
+libraries/ = SubResource("AnimationLibrary_x3wv8")
+
+[connection signal="area_entered" from="ChartContainer/HitLine/NoteDespawner" to="." method="_on_note_despawner_area_entered"]

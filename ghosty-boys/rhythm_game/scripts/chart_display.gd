@@ -6,8 +6,8 @@ class_name ChartDisplay
 var notes : Array[NoteData]
 var note_spacing : float = 48
 @export var my_chart : Chart
-@onready var hit_line : Node2D = $HitLine
-@onready var notes_container : Node2D = $HitLine/Notes
+@onready var hit_line : Node2D = $ChartContainer/HitLine
+@onready var notes_container : Node2D = $ChartContainer/HitLine/Notes
 @export var minimum_lead_beats : float = 1.5
 var start_beat : float = 0.0
 var audio_started : bool = false
@@ -26,6 +26,7 @@ func _ready() -> void:
 		print("NO CONDUCTOR?!?!?!")
 	conductor.beat_hit.connect(_on_beat_hit)
 	conductor.measure_hit.connect(_on_measure_hit)
+	$AnimationPlayer.play("fly_in")
 
 	# Grace first, THEN round up to the next bar.
 	var earliest : float = conductor.get_song_position() + minimum_lead_beats
@@ -107,4 +108,6 @@ func _complete_chart() -> void:
 	var my_score : float = float(rating_total) / float(potential_total)
 	print(my_score)
 	chart_completed.emit(my_score)
+	$AnimationPlayer.play("fly_out")
+	await $AnimationPlayer.animation_finished
 	queue_free()
