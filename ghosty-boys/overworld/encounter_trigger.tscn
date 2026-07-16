@@ -18,3 +18,7 @@ shape = SubResource("CapsuleShape2D_6a5au")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082657938]
 texture = ExtResource("2_ujjfp")
+
+[node name="WanderTimer" type="Timer" parent="." unique_id=1140540488]
+wait_time = 3.0
+autostart = true

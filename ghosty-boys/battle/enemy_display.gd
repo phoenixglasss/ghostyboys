@@ -22,3 +22,6 @@ func _process(delta: float) -> void:
 		var bounded_beat : float = fmod(conductor.raw_beat,2.0)
 		var bounce_scale_mod = bounce_curve.sample_baked(bounded_beat)
 		sprite.scale.y = 1 + bounce_scale_mod * 0.05
+
+func set_highlighted(highlighted: bool) -> void:
+	modulate = Color(1.3, 1.3, 1.3) if highlighted else Color.WHITE
