@@ -40,6 +40,9 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_4ui5s")
 [node name="TargetMenu" parent="UI/BattleHUD/BottomBar/ActionPanel" index="1" unique_id=1403061479 instance=ExtResource("5_nbjvm")]
 layout_mode = 2
 
+[node name="ChartLayer" type="CanvasLayer" parent="." unique_id=1614373971]
+layer = 5
+
 [node name="Background" type="Sprite2D" parent="." unique_id=1167135790]
 z_index = -10
 position = Vector2(160, 90)

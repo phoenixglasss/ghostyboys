@@ -18,6 +18,8 @@ var raw_beat : float = 0.0
 
 @export var battle_manager : BattleManager
 
+var chart_layer : CanvasLayer
+
 var chart_display : PackedScene = preload("res://rhythm_game/scenes/chart_display.tscn")
 
 signal chart_completed(score : float)
@@ -36,7 +38,11 @@ func _ready() -> void:
 	measure_hit.emit()
 
 
+
 func _process(_delta: float) -> void:
+	if (battle_manager and !chart_layer): 
+		chart_layer = battle_manager.get_node("ChartLayer")
+	
 	raw_beat = _get_raw_beat()
 
 	if raw_beat < _last_raw_beat - (loop_length * 0.5):
@@ -77,8 +83,9 @@ func _get_song_length_in_beats(stream : AudioStream) -> int:
 func play_chart(chart_to_play : Chart) -> void:
 	var new_chart_display : ChartDisplay = chart_display.instantiate()
 	new_chart_display.my_chart = chart_to_play
-	new_chart_display.position.y = 116
-	get_tree().root.add_child(new_chart_display)
+	new_chart_display.position.y = 102
+	chart_layer.add_child(new_chart_display)
+	new_chart_display.z_index += 100
 	new_chart_display.chart_completed.connect(_chart_completed)
 
 func _chart_completed(score : float) -> void:

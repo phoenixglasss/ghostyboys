@@ -57,6 +57,7 @@ lanes = [NodePath("ChartContainer/HitLine/Lane_Left"), NodePath("ChartContainer/
 my_chart = ExtResource("2_cop0f")
 
 [node name="ChartContainer" type="Node2D" parent="." unique_id=762716084]
+z_index = 50
 
 [node name="TextureRect" type="TextureRect" parent="ChartContainer" unique_id=1532543491]
 z_index = -1
