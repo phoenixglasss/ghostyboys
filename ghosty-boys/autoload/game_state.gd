@@ -8,6 +8,10 @@ var return_position: Vector2
 var cleared_triggers: Array[String] = []
 var pending_trigger_id: String = ""
 var interaction_counts: Dictionary = {}
+var intro_dialogue_played: bool = false
+var bar_unlocked: bool = false
+var tutorial_fight_won: bool = false
+var closing_dialogue_played: bool = false
 
 func _ready() -> void:
 	party = [
