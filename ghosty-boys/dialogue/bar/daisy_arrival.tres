@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://dt8qecvatbqjr"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_l4g8f"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_40rnd"]
+
+[resource]
+script = ExtResource("2_40rnd")
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

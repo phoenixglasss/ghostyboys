@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b7h8060cltqys" path="res://art/environment/tilesets/bar/posters2.png" id="8_dlket"]
 [ext_resource type="Texture2D" uid="uid://gmd2mfeavouy" path="res://art/environment/tilesets/bar/posters3.png" id="9_kxtva"]
 [ext_resource type="Texture2D" uid="uid://0upu3sr5qtqp" path="res://art/environment/tilesets/bar/bar_back.png" id="9_pp8a1"]
+[ext_resource type="Script" uid="uid://bllk7toq05m21" path="res://overworld/maps/story_triggers.gd" id="14_dlket"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(128, 16)
@@ -156,3 +157,6 @@ trigger_id = "bar_drunkard_1"
 [node name="EncounterTrigger2" parent="." unique_id=343656332 instance=ExtResource("6_a06n5")]
 position = Vector2(68, 35)
 trigger_id = "bar_drunkard_2"
+
+[node name="StoryTriggers" type="Node" parent="." unique_id=1095393877]
+script = ExtResource("14_dlket")

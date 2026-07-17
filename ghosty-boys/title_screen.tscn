@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dik17376qvwpm"]
+
+[ext_resource type="Script" uid="uid://beuxwuxiqaxb2" path="res://title_screen.gd" id="1_v6p8y"]
+
+[node name="TitleScreen" type="Control" unique_id=309086067]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6p8y")
+
+[node name="Background" type="TextureRect" parent="." unique_id=885430999]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="." unique_id=997806008]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 33.0
+offset_right = 256.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 26
+text = "Witchsong"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="." unique_id=2024869076]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 79.0
+offset_right = 209.0
+offset_bottom = 115.0
+text = "Play Game"
