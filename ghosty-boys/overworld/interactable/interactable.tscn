@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dfn1hlmf434fo"]
+
+[ext_resource type="Script" uid="uid://dokwruh1v5m1f" path="res://overworld/interactable/interactable.gd" id="1_oxmgk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6a5au"]
+
+[node name="Interactable" type="Area2D" unique_id=1231168211]
+script = ExtResource("1_oxmgk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1421851178]
+scale = Vector2(1.604252, 1.6246935)
+shape = SubResource("CircleShape2D_6a5au")
