@@ -26,6 +26,11 @@ func return_to_overworld() -> void:
 		player.global_position = GameState.return_position
 	await _fade_to(0.0)
 	
+func fade_to_scene(scene_path: String) -> void:
+	await _fade_to(1.0)
+	get_tree().change_scene_to_file(scene_path)
+	await _fade_to(0.0)
+	
 func _fade_to(target_alpha: float) -> void:
 	var tween := create_tween()
 	tween.tween_property(fade_rect, "color:a", target_alpha, FADE_DURATION)

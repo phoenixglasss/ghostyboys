@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GhostyBoys"
-run/main_scene="uid://ehokx0hbdxv0"
+run/main_scene="uid://dik17376qvwpm"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

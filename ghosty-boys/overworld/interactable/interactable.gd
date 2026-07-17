@@ -1,7 +1,8 @@
 extends Area2D
 class_name Interactable
 
-@export var conversation: DialogueConversation
+@export var conversations: Array[DialogueConversation]
+@export var interactable_id: String
 
 var player_in_range: Node2D
 
@@ -32,5 +33,19 @@ func _unhandled_input(event: InputEvent) -> void:
 	var facing: Vector2 = Vector2(facing_raw)
 	var to_npc: Vector2 = (global_position - player_in_range.global_position).normalized()
 	if to_npc.dot(facing) > 0.5:
-		get_viewport().set_input_as_handled()
-		DialogueBox.start_conversation(conversation)
+		return
+		
+	var conversation := _get_current_conversation()
+	if not conversation:
+		return
+		
+	get_viewport().set_input_as_handled()
+	DialogueBox.start_conversation(conversation)
+	GameState.increment_interaction_count(interactable_id)
+
+func _get_current_conversation() -> DialogueConversation:
+	if conversations.is_empty():
+		return null
+	var count : int = GameState.get_interaction_count(interactable_id)
+	var index: int = min(count, conversations.size() - 1)
+	return conversations[index]

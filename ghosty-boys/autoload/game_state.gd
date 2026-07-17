@@ -7,6 +7,7 @@ var return_scene_path: String
 var return_position: Vector2
 var cleared_triggers: Array[String] = []
 var pending_trigger_id: String = ""
+var interaction_counts: Dictionary = {}
 
 func _ready() -> void:
 	party = [
@@ -26,3 +27,9 @@ func mark_trigger_cleared(trigger_id: String) -> void:
 		
 func is_trigger_cleared(trigger_id: String) -> bool:
 	return trigger_id in cleared_triggers
+
+func get_interaction_count(interactable_id: String) -> int:
+	return interaction_counts.get(interactable_id, 0)
+	
+func increment_interaction_count(interactable_id: String) -> void:
+	interaction_counts[interactable_id] = get_interaction_count(interactable_id) + 1
