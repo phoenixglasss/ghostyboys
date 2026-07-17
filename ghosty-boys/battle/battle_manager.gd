@@ -20,7 +20,7 @@ var party_displays: Array[PartyMemberDisplay] = []
 @onready var target_menu: TargetMenu = $UI/BattleHUD/BottomBar/ActionPanel/TargetMenu
 @onready var conductor: Conductor = $Conductor
 @onready var hud: BattleHUD = $UI/BattleHUD
-@onready var background: Sprite2D = $Background
+# @onready var background: Sprite2D = $Background
 
 
 @export var bgm : BGM = preload("res://audio/music/battle/battle_bgm.tres")
@@ -41,7 +41,7 @@ func _ready() -> void:
 	
 	if GameState.pending_encounter:
 		enemies = GameState.pending_encounter.enemies
-		_set_background(GameState.pending_encounter.background)
+		# _set_background(GameState.pending_encounter.background)
 		GameState.pending_encounter = null
 	
 	if conductor:
@@ -227,6 +227,7 @@ func _is_destroy_available_for(enemy: Dictionary) -> bool:
 	return ratio <= data.destroy_threshold
 	
 func _set_background(texture: Texture2D) -> void:
-	if texture:
-		background.texture = texture
-		background.scale = Vector2(320.0 / texture.get_width(), 180.0 / texture.get_height())
+	pass
+	# if texture:
+		# background.texture = texture
+		# background.scale = Vector2(320.0 / texture.get_width(), 180.0 / texture.get_height())
