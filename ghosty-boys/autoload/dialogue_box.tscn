@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dk026q4kcro2p"]
+
+[ext_resource type="StyleBox" uid="uid://b8gd7en6sk83c" path="res://dialogue/dialogue_box_style.tres" id="1_ttnpm"]
+[ext_resource type="Script" uid="uid://cqxebhtv2ffe8" path="res://autoload/dialogue_box.gd" id="1_vl7lk"]
+[ext_resource type="StyleBox" uid="uid://clrnlw64idjhx" path="res://dialogue/dialogue_portrait_style.tres" id="2_7h1r8"]
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=1448988751]
+process_mode = 3
+layer = 8
+script = ExtResource("1_vl7lk")
+
+[node name="MainPanel" type="PanelContainer" parent="." unique_id=1378311773]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("1_ttnpm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanel" unique_id=1901590634]
+layout_mode = 2
+
+[node name="PortraitPanel" type="PanelContainer" parent="MainPanel/HBoxContainer" unique_id=1531662852]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_7h1r8")
+
+[node name="PortraitTexture" type="TextureRect" parent="MainPanel/HBoxContainer/PortraitPanel" unique_id=1062361572]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/HBoxContainer" unique_id=366524238]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpeakerLabel" type="Label" parent="MainPanel/HBoxContainer/VBoxContainer" unique_id=1182501243]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+
+[node name="DialogueLabel" type="Label" parent="MainPanel/HBoxContainer/VBoxContainer" unique_id=486900032]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+
+[node name="TypewriterTimer" type="Timer" parent="." unique_id=1343159857]
+wait_time = 0.030000000000000002

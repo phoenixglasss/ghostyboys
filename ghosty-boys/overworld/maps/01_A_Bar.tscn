@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ohffeehc7ds7" path="res://overworld/party/mel.tscn" id="4_mmme4"]
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="5_a06n5"]
 [ext_resource type="PackedScene" uid="uid://kc7vim4w7wcx" path="res://overworld/encounter_trigger.tscn" id="6_a06n5"]
+[ext_resource type="PackedScene" uid="uid://dfn1hlmf434fo" path="res://overworld/interactable/interactable.tscn" id="9_e6pda"]
+[ext_resource type="Resource" uid="uid://dse78wowx7p6o" path="res://dialogue/bar/bartender_intro.tres" id="10_mt7io"]
 
 [node name="01ABar" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
@@ -61,3 +63,7 @@ trigger_id = "bar_drunkard_1"
 [node name="EncounterTrigger2" parent="." unique_id=343656332 instance=ExtResource("6_a06n5")]
 position = Vector2(68, 35)
 trigger_id = "bar_drunkard_2"
+
+[node name="Interactable" parent="." unique_id=1231168211 instance=ExtResource("9_e6pda")]
+position = Vector2(171, 80)
+conversation = ExtResource("10_mt7io")
