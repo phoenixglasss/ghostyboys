@@ -17,7 +17,6 @@ var raw_beat : float = 0.0
 @onready var action_player : AudioStreamPlayer = $ActionMusicPlayer
 
 @export var battle_manager : BattleManager
-
 var chart_layer : CanvasLayer
 
 var chart_display : PackedScene = preload("res://rhythm_game/scenes/chart_display.tscn")

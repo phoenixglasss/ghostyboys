@@ -1,12 +1,50 @@
 [gd_scene format=3 uid="uid://bfd2xjrkewh7a"]
 
 [ext_resource type="Script" uid="uid://b7puitmr7pyjc" path="res://battle/battle_manager.gd" id="1_u2cu5"]
+[ext_resource type="PackedScene" uid="uid://cif7pw37l0p5t" path="res://battle/backgrounds/01_A_Bar_Battle.tscn" id="4_dkrhh"]
 [ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="4_trk6d"]
+[ext_resource type="Shader" uid="uid://c71o2x02nbqdj" path="res://art/shaders/mono_dither.gdshader" id="5_dkrhh"]
 [ext_resource type="PackedScene" uid="uid://d08qr2iy5nxoe" path="res://battle/ui/target_menu.tscn" id="5_nbjvm"]
 [ext_resource type="Resource" uid="uid://cxjyqudg4d2ax" path="res://data/enemies/bar/bar_drunkard.tres" id="5_trk6d"]
 [ext_resource type="Texture2D" uid="uid://cpvv3phr4rjhy" path="res://art/ui/battle_ui_bg.png" id="6_coff1"]
+[ext_resource type="Shader" uid="uid://3b2dsopb4ds2" path="res://art/shaders/lens_sweep.gdshader" id="6_ubjmj"]
+[ext_resource type="Script" uid="uid://5ru4ncaojmhs" path="res://battle/background_noise_effect.gd" id="6_yjq6l"]
+[ext_resource type="Script" uid="uid://bewc6eu4e7upq" path="res://battle/background_effect.gd" id="7_jj1aw"]
+[ext_resource type="Curve" uid="uid://du75o42h1qrik" path="res://rhythm_game/background_curve.tres" id="8_7jdo1"]
 [ext_resource type="PackedScene" uid="uid://d12tlh28e3ui" path="res://rhythm_game/scenes/conductor.tscn" id="9_dkrhh"]
 [ext_resource type="PackedScene" uid="uid://iix62evixrq" path="res://battle/ui/battle_hud.tscn" id="10_ubjmj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yjq6l"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7jdo1"]
+width = 320
+height = 180
+noise = SubResource("FastNoiseLite_yjq6l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trk6d"]
+shader = ExtResource("5_dkrhh")
+shader_parameter/mono_color = Color(0.98666686, 0.19999999, 1, 1)
+shader_parameter/levels = 5
+shader_parameter/use_dither = true
+shader_parameter/dither_strength = 1.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_7jdo1")
+shader_parameter/noise_offset = Vector2(0, 0)
+shader_parameter/noise_scale = 1.0
+shader_parameter/noise_amount = 0.150000007125
+shader_parameter/cc_gain = 1.0
+shader_parameter/cc_lift = -0.23999998765000002
+shader_parameter/cc_gamma = 0.77200003341012
+shader_parameter/cc_contrast = 1.0
+shader_parameter/cc_brightness = 0.0
+shader_parameter/sl_freq = 320.0000152
+shader_parameter/sl_amp = 0.050000002375
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jsb8"]
+shader = ExtResource("6_ubjmj")
+shader_parameter/lens_x = 0.58
+shader_parameter/lens_width = 0.1200000057
+shader_parameter/lens_strength = 0.2000000095
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_coff1"]
 
@@ -15,6 +53,34 @@
 [node name="BattleManager" type="Node2D" unique_id=1977351399]
 script = ExtResource("1_u2cu5")
 enemies = Array[ExtResource("4_trk6d")]([ExtResource("5_trk6d")])
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=516746175]
+layer = -1
+
+[node name="01ABar" parent="Background" unique_id=1499958377 instance=ExtResource("4_dkrhh")]
+
+[node name="MonochromeRect" type="ColorRect" parent="Background" unique_id=157435277]
+material = SubResource("ShaderMaterial_trk6d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_yjq6l")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Background" unique_id=548294753]
+copy_mode = 2
+
+[node name="ZoomWaveRect" type="ColorRect" parent="Background" unique_id=452067068 node_paths=PackedStringArray("conductor")]
+material = SubResource("ShaderMaterial_1jsb8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_jj1aw")
+sweep_curve = ExtResource("8_7jdo1")
+conductor = NodePath("../../Conductor")
 
 [node name="Conductor" parent="." unique_id=579423608 instance=ExtResource("9_dkrhh")]
 
@@ -42,9 +108,5 @@ texture = ExtResource("6_coff1")
 
 [node name="ChartLayer" type="CanvasLayer" parent="." unique_id=1614373971]
 layer = 5
-
-[node name="Background" type="Sprite2D" parent="." unique_id=1167135790]
-z_index = -10
-position = Vector2(160, 90)
 
 [editable path="UI/BattleHUD"]
