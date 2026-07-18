@@ -25,7 +25,7 @@ size = Vector2(128, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6pda"]
 size = Vector2(18, 4)
 
-[node name="01ABar2" type="Node2D" unique_id=1499958377]
+[node name="01ABar3" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
 script = ExtResource("1_lkitk")
 bgm = ExtResource("2_er5qq")
