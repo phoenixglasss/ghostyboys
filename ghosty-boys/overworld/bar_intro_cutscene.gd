@@ -46,11 +46,21 @@ func _walk_npcs_to(displays: Array, targets: Array, speed: float) -> void:
 	while not all_arrived:
 		all_arrived = true
 		for i in displays.size():
-			if displays[i].global_position.distance_to(targets[i]) > 2.0:
+			var to_target: Vector2 = targets[i] - displays[i].global_position
+			if to_target.length() > 2.0:
 				displays[i].global_position = displays[i].global_position.move_toward(targets[i], speed * get_process_delta_time())
+				displays[i].sprite.play(_walk_animation_for(to_target))
 				all_arrived = false
 		await get_tree().process_frame
-	
-	
+
+	for display in displays:
+		display.sprite.stop()
+		display.sprite.frame = 0
+
+
+func _walk_animation_for(direction: Vector2) -> String:
+	if abs(direction.x) > abs(direction.y):
+		return "walk_right" if direction.x > 0 else "walk_left"
+	return "walk_down" if direction.y > 0 else "walk_up"
 	
 	
