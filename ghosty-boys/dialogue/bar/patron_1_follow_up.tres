@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://dy56iye1k3yxw"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_rkgv6"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_mrkye"]
+
+[sub_resource type="Resource" id="Resource_fbxqs"]
+script = ExtResource("1_rkgv6")
+speaker_name = "Bar Patron"
+text = "I wouldn't stand too close to me..."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_mrkye")
+lines = Array[ExtResource("1_rkgv6")]([SubResource("Resource_fbxqs")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

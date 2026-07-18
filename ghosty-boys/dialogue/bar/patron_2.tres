@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://dcyiwudtxos7r"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_ln035"]
+[ext_resource type="Texture2D" uid="uid://ba4r0h2itoay6" path="res://art/portraits/daisy_portrait.png" id="2_c8cfu"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_khvwk"]
+
+[sub_resource type="Resource" id="Resource_c8cfu"]
+script = ExtResource("1_ln035")
+speaker_name = "Bar Patron"
+text = "Heh... You're funny looking."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_bxvcm"]
+script = ExtResource("1_ln035")
+speaker_name = "Daisy"
+portrait = ExtResource("2_c8cfu")
+text = "I... don't think you're sober enough to help me."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_udy3y"]
+script = ExtResource("1_ln035")
+speaker_name = "Bar Patron"
+text = "Oh man. Funny robot talks."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_khvwk")
+lines = Array[ExtResource("1_ln035")]([SubResource("Resource_c8cfu"), SubResource("Resource_bxvcm"), SubResource("Resource_udy3y")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

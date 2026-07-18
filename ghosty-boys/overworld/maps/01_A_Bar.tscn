@@ -19,7 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://w75gr2me4kai" path="res://overworld/npc/npc_display.tscn" id="15_kxtva"]
 [ext_resource type="Resource" uid="uid://b6kta32g4o15r" path="res://data/npcs/bartender.tres" id="15_t07ka"]
 [ext_resource type="Resource" uid="uid://ccaclf3763pq2" path="res://dialogue/bar/door_blocked.tres" id="16_t07ka"]
+[ext_resource type="Resource" uid="uid://dcyiwudtxos7r" path="res://dialogue/bar/patron_2.tres" id="19_3i4cb"]
+[ext_resource type="Resource" uid="uid://dxtft1ue4i721" path="res://dialogue/bar/patron_1.tres" id="19_3rj1h"]
 [ext_resource type="SpriteFrames" uid="uid://ctjh4kactj115" path="res://art/characters/overworld/mel/mel_overworld.tres" id="19_qxo6v"]
+[ext_resource type="Resource" uid="uid://dy56iye1k3yxw" path="res://dialogue/bar/patron_1_follow_up.tres" id="20_6htja"]
 [ext_resource type="SpriteFrames" uid="uid://clgytlidkeafr" path="res://art/characters/overworld/jackal/jackal_overworld.tres" id="20_y5bx4"]
 [ext_resource type="Resource" uid="uid://cmygyngpcn5bb" path="res://dialogue/bar/mel_jackal_table.tres" id="21_b5scq"]
 [ext_resource type="Resource" uid="uid://bdxb5e87ctm8u" path="res://dialogue/bar/jackal_table_2.tres" id="22_b5scq"]
@@ -35,6 +38,17 @@ size = Vector2(128, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6pda"]
 size = Vector2(18, 4)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6a5au"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xs8e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vmhh2"]
+radius = 7.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1lv5l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rb02s"]
 
 [node name="01ABar3" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
@@ -155,11 +169,13 @@ shape = SubResource("RectangleShape2D_e6pda")
 [node name="Player" parent="." unique_id=594011378 groups=["player"] instance=ExtResource("3_h3gxi")]
 position = Vector2(171, 145)
 
-[node name="StoryTriggers" type="Node" parent="." unique_id=1095393877 node_paths=PackedStringArray("player")]
+[node name="StoryTriggers" type="Node" parent="." unique_id=1095393877 node_paths=PackedStringArray("player", "exit_door")]
 script = ExtResource("14_dlket")
 player = NodePath("../Player")
+exit_door = NodePath("../ExitDoor")
 
 [node name="ExitDoor" parent="." unique_id=1336064970 instance=ExtResource("15_kacvf")]
+y_sort_enabled = true
 position = Vector2(167, 160)
 scale = Vector2(2.081192, 1)
 blocked_conversation = ExtResource("16_t07ka")
@@ -169,54 +185,117 @@ destination_scene = "res://overworld/maps/01_0_Town.tscn"
 script = ExtResource("14_xvjhj")
 
 [node name="BarPatron2" parent="TutorialNPCs" unique_id=2043939913 instance=ExtResource("15_kxtva")]
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D" parent="TutorialNPCs/BarPatron2" index="0" unique_id=109997131]
+y_sort_enabled = true
 position = Vector2(249, 72)
 sprite_frames = ExtResource("22_y5bx4")
 animation = &"down"
 
 [node name="Interactable" parent="TutorialNPCs/BarPatron2" unique_id=1443432585 instance=ExtResource("9_e6pda")]
 position = Vector2(225, 112)
+conversations = Array[ExtResource("15_dh0uk")]([ExtResource("19_3i4cb")])
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TutorialNPCs/BarPatron2" unique_id=1605378807]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialNPCs/BarPatron2/StaticBody2D" unique_id=1198795461]
+y_sort_enabled = true
+position = Vector2(249, 77.99999)
+scale = Vector2(0.56, 0.52)
+shape = SubResource("CapsuleShape2D_6a5au")
 
 [node name="BarPatron1" parent="TutorialNPCs" unique_id=1554699823 instance=ExtResource("15_kxtva")]
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D" parent="TutorialNPCs/BarPatron1" index="0" unique_id=109997131]
+y_sort_enabled = true
 position = Vector2(225, 112)
 sprite_frames = ExtResource("22_y5bx4")
 animation = &"down"
 
 [node name="Interactable" parent="TutorialNPCs/BarPatron1" unique_id=1139485935 instance=ExtResource("9_e6pda")]
+y_sort_enabled = true
 position = Vector2(250, 72)
+conversations = Array[ExtResource("15_dh0uk")]([ExtResource("19_3rj1h"), ExtResource("20_6htja")])
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TutorialNPCs/BarPatron1" unique_id=1633992755]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialNPCs/BarPatron1/StaticBody2D" unique_id=622503195]
+y_sort_enabled = true
+position = Vector2(225, 120.00001)
+scale = Vector2(0.52, 0.32)
+shape = SubResource("CapsuleShape2D_3xs8e")
 
 [node name="JackalNPC" parent="TutorialNPCs" unique_id=1608703524 instance=ExtResource("15_kxtva")]
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D" parent="TutorialNPCs/JackalNPC" index="0" unique_id=109997131]
+y_sort_enabled = true
 position = Vector2(133, 115)
 sprite_frames = ExtResource("20_y5bx4")
 animation = &"walk_down"
 
+[node name="StaticBody2D" type="StaticBody2D" parent="TutorialNPCs/JackalNPC" unique_id=165679159]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialNPCs/JackalNPC/StaticBody2D" unique_id=2123304448]
+y_sort_enabled = true
+position = Vector2(133, 121)
+scale = Vector2(1, 0.44000125)
+shape = SubResource("CapsuleShape2D_vmhh2")
+
 [node name="MelJackalTableConvo" parent="TutorialNPCs" unique_id=710376746 instance=ExtResource("9_e6pda")]
+y_sort_enabled = true
 position = Vector2(116.00001, 118)
 scale = Vector2(1.8399999, 1)
 conversations = Array[ExtResource("15_dh0uk")]([ExtResource("21_b5scq"), ExtResource("22_b5scq"), ExtResource("23_vsck7")])
 
 [node name="MelNPC" parent="TutorialNPCs" unique_id=1718872955 instance=ExtResource("15_kxtva")]
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D" parent="TutorialNPCs/MelNPC" index="0" unique_id=109997131]
+y_sort_enabled = true
 position = Vector2(99, 115)
 sprite_frames = ExtResource("19_qxo6v")
 animation = &"walk_down"
 
+[node name="StaticBody2D" type="StaticBody2D" parent="TutorialNPCs/MelNPC" unique_id=1894001225]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialNPCs/MelNPC/StaticBody2D" unique_id=832871527]
+y_sort_enabled = true
+position = Vector2(99, 120.00001)
+scale = Vector2(1, 0.56000125)
+shape = SubResource("CapsuleShape2D_1lv5l")
+
 [node name="BartenderInteractable" parent="TutorialNPCs" unique_id=1231168211 instance=ExtResource("9_e6pda")]
-position = Vector2(162, 48)
+y_sort_enabled = true
+position = Vector2(162, 37)
 conversations = Array[ExtResource("15_dh0uk")]([ExtResource("10_mt7io")])
 
+[node name="CollisionShape2D" parent="TutorialNPCs/BartenderInteractable" index="0" unique_id=1421851178]
+y_sort_enabled = true
+position = Vector2(0, 7)
+scale = Vector2(1.604252, 2.9446936)
+
 [node name="NPCDisplay" parent="TutorialNPCs/BartenderInteractable" unique_id=299095180 instance=ExtResource("15_kxtva")]
+y_sort_enabled = true
 npc_data = ExtResource("15_t07ka")
 
 [node name="AnimatedSprite2D" parent="TutorialNPCs/BartenderInteractable/NPCDisplay" index="0" unique_id=109997131]
+y_sort_enabled = true
 sprite_frames = ExtResource("22_y5bx4")
 animation = &"down"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TutorialNPCs/BartenderInteractable" unique_id=1510293784]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialNPCs/BartenderInteractable/StaticBody2D" unique_id=627079666]
+y_sort_enabled = true
+shape = SubResource("CapsuleShape2D_rb02s")
 
 [node name="IntroCutscene" type="Node" parent="." unique_id=1468409914 node_paths=PackedStringArray("bartender_interactable", "patron_1_display", "patron_2_display", "bartender_display")]
 script = ExtResource("26_orog1")
@@ -232,4 +311,5 @@ tutorial_encounter = ExtResource("29_6htja")
 [editable path="TutorialNPCs/BarPatron1"]
 [editable path="TutorialNPCs/JackalNPC"]
 [editable path="TutorialNPCs/MelNPC"]
+[editable path="TutorialNPCs/BartenderInteractable"]
 [editable path="TutorialNPCs/BartenderInteractable/NPCDisplay"]

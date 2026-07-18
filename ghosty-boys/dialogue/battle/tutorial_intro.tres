@@ -10,7 +10,7 @@
 script = ExtResource("1_rv7yc")
 speaker_name = "Mel"
 portrait = ExtResource("2_3hsqe")
-text = "Daisy! Just try to hit the notes in time and you can help us wear them down!"
+text = "Just try to hit the notes in time and you can help us wear them down!"
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_3hsqe"]

@@ -4,6 +4,7 @@ const MelScene := preload("res://overworld/party/mel.tscn")
 const JackalScene := preload("res://overworld/party/jackal.tscn")
 
 @export var player: Node2D
+@export var exit_door: ExitDoor
 
 
 func _ready() -> void:
@@ -19,6 +20,7 @@ func _check_story_dialogue() -> void:
 		await DialogueBox.conversation_finished
 		GameState.closing_dialogue_played = true
 		GameState.party_has_mel_and_jackal = true
+		exit_door.unlock()
 		_check_party_followers()
 		
 func _check_party_followers() -> void:

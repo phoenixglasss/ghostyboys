@@ -11,7 +11,7 @@ func display_targets(living_enemies: Array) -> void:
 	for enemy in living_enemies:
 		var button := Button.new()
 		button.text = enemy.data.enemy_name
-		button.add_theme_font_size_override("font_size", 8)
+		button.add_theme_font_size_override("font_size", 7)
 		button.pressed.connect(_on_target_button_pressed.bind(enemy))
 		button.mouse_entered.connect(_on_target_button_hovered.bind(enemy, true))
 		button.mouse_exited.connect(_on_target_button_hovered.bind(enemy, false))
