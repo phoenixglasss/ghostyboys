@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://dhpl8ja7dv21o"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_4r6gl"]
+[ext_resource type="Texture2D" uid="uid://c0nwmag75d5b4" path="res://art/portraits/mel_portrait.png" id="2_mjoje"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_oj76o"]
+
+[sub_resource type="Resource" id="Resource_mjoje"]
+script = ExtResource("1_4r6gl")
+speaker_name = "Mel"
+portrait = ExtResource("2_mjoje")
+text = "That dude glaring behind the bar is the bartender. "
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_emyxb"]
+script = ExtResource("1_4r6gl")
+speaker_name = "Mel"
+portrait = ExtResource("2_mjoje")
+text = "He's nicer than he looks, I promise."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_oj76o")
+lines = Array[ExtResource("1_4r6gl")]([SubResource("Resource_mjoje"), SubResource("Resource_emyxb")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

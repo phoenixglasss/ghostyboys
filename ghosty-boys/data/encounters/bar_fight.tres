@@ -4,10 +4,13 @@
 [ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="1_tkjg1"]
 [ext_resource type="Script" uid="uid://bvffv678mkbsd" path="res://battle/classes/encounter_data.gd" id="2_3f84x"]
 [ext_resource type="Resource" uid="uid://cxjyqudg4d2ax" path="res://data/enemies/bar/bar_drunkard.tres" id="2_k66cy"]
+[ext_resource type="Resource" uid="uid://hw6f4x3lmw3l" path="res://dialogue/battle/tutorial_intro.tres" id="4_04bip"]
 
 [resource]
 script = ExtResource("2_3f84x")
 encounter_name = "Bar Fight"
 enemies = Array[ExtResource("1_tkjg1")]([ExtResource("2_k66cy"), ExtResource("2_k66cy")])
 background = ExtResource("1_k66cy")
+intro_conversation = ExtResource("4_04bip")
+allow_destroy = false
 metadata/_custom_type_script = "uid://bvffv678mkbsd"

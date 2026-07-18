@@ -31,6 +31,8 @@ var pending_attack: AttackData
 var pending_result: float
 var enemy_instances: Array[Dictionary] = []
 var pending_target: Dictionary
+var allow_destroy: bool = true
+var intro_conversation: DialogueConversation
 
 func _ready() -> void:
 	action_menu.action_chosen.connect(_on_action_chosen)
@@ -53,6 +55,12 @@ func _ready() -> void:
 	_setup_enemies()
 	_spawn_combatants()
 	hud.setup(party)
+	_enter_state(State.INTRO)
+	
+	if intro_conversation:
+		DialogueBox.start_conversation(intro_conversation)
+		await DialogueBox.conversation_finished
+		
 	_enter_state(State.INTRO)
 	
 	
@@ -222,6 +230,8 @@ func _spawn_combatants() -> void:
 		enemy_instances[i]["display"] = display
 
 func _is_destroy_available_for(enemy: Dictionary) -> bool:
+	if not allow_destroy:
+		return false
 	var data: EnemyData = enemy.data
 	var ratio := float(enemy.current_hp) / data.max_hp
 	return ratio <= data.destroy_threshold
