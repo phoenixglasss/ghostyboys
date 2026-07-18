@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://b4ktvoqoyim2b" path="res://art/environment/tilesets/bar/table.png" id="6_e6pda"]
 [ext_resource type="Texture2D" uid="uid://crby8afrnjadm" path="res://art/environment/tilesets/bar/posters1.png" id="7_2npyi"]
 [ext_resource type="Texture2D" uid="uid://b7h8060cltqys" path="res://art/environment/tilesets/bar/posters2.png" id="8_dlket"]
-[ext_resource type="TileSet" uid="uid://yyp4wbq8lp8s" path="res://art/environment/tilesets/scrapyard/scrapyard_floor.tres" id="8_kxtva"]
 [ext_resource type="Texture2D" uid="uid://gmd2mfeavouy" path="res://art/environment/tilesets/bar/posters3.png" id="9_kxtva"]
 [ext_resource type="Texture2D" uid="uid://0upu3sr5qtqp" path="res://art/environment/tilesets/bar/bar_back.png" id="9_pp8a1"]
 [ext_resource type="Script" uid="uid://bllk7toq05m21" path="res://overworld/maps/story_triggers.gd" id="14_dlket"]
@@ -24,7 +23,7 @@ size = Vector2(128, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6pda"]
 size = Vector2(18, 4)
 
-[node name="01ABar2" type="Node2D" unique_id=1499958377]
+[node name="01ABar3" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
 script = ExtResource("1_lkitk")
 bgm = ExtResource("2_er5qq")
@@ -79,7 +78,7 @@ tile_set = ExtResource("2_m3qxa")
 [node name="Environmental Objects" type="TileMapLayer" parent="Environment" unique_id=1973217229]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAHAAMAAQABAAAAAAAIAAMAAQABAAAAAAAJAAMAAQABAAAAAAAKAAMAAQABAAAAAAALAAMAAQABAAAAAAAMAAMAAQABAAAAAAAGAAMAAQAAAAAAAAANAAMAAQACAAAAAAA=")
-tile_set = ExtResource("8_kxtva")
+tile_set = ExtResource("1_x8o4u")
 
 [node name="BarBottles" type="StaticBody2D" parent="Environment" unique_id=807723177]
 position = Vector2(160, 24)
