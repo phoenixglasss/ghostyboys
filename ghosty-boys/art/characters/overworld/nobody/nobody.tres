@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c3o7vhhvd41m7"]
+
+[ext_resource type="Texture2D" uid="uid://c7c71m3er8wj6" path="res://art/characters/overworld/nobody/nobody_down.png" id="1_74upl"]
+[ext_resource type="Texture2D" uid="uid://b1m8vk52q2mkd" path="res://art/characters/overworld/nobody/nobody_left.png" id="2_y7fql"]
+[ext_resource type="Texture2D" uid="uid://bnidb66bxpit1" path="res://art/characters/overworld/nobody/nobody_right.png" id="3_ca2vq"]
+[ext_resource type="Texture2D" uid="uid://b1q0yqhsdwjvn" path="res://art/characters/overworld/nobody/nobody_up.png" id="4_cxyu5"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_74upl")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y7fql")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ca2vq")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cxyu5")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]

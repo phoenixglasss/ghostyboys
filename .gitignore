@@ -15,3 +15,12 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+ghosty-boys/.DS_Store
+ghosty-boys/art/.DS_Store
+ghosty-boys/art/characters/.DS_Store
+ghosty-boys/.DS_Store
+ghosty-boys/audio/.DS_Store
+ghosty-boys/audio/music/.DS_Store
+ghosty-boys/battle/.DS_Store
+ghosty-boys/overworld/.DS_Store
+ghosty-boys/.DS_Store
