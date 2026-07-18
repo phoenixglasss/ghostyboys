@@ -13,6 +13,7 @@ const ROW_SPACING: float = 35.0
 const FIRST_ROW_Y: float = 20.0
 
 var party_displays: Array[PartyMemberDisplay] = []
+var post_battle_position: Vector2
 
 @export var enemies: Array[EnemyData]
 
@@ -48,6 +49,7 @@ func _ready() -> void:
 		allow_destroy = GameState.pending_encounter.allow_destroy
 		intro_conversation = GameState.pending_encounter.intro_conversation
 		is_tutorial_fight = GameState.pending_encounter.is_tutorial_fight
+		post_battle_position = GameState.pending_encounter.post_battle_position
 		GameState.pending_encounter = null
 	
 	if conductor:
@@ -107,6 +109,7 @@ func _enter_state(state: State) -> void:
 				GameState.pending_trigger_id = ""
 			if is_tutorial_fight:
 				GameState.tutorial_fight_won = true
+				GameState.return_position = post_battle_position
 			await get_tree().create_timer(1.0).timeout
 			SceneTransition.return_to_overworld()
 		State.DEFEAT:

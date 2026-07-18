@@ -15,4 +15,5 @@ background = ExtResource("1_k66cy")
 intro_conversation = ExtResource("4_04bip")
 allow_destroy = false
 is_tutorial_fight = true
+post_battle_position = Vector2(189, 75)
 metadata/_custom_type_script = "uid://bvffv678mkbsd"
