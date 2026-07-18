@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://gmd2mfeavouy" path="res://art/environment/tilesets/bar/posters3.png" id="9_kxtva"]
 [ext_resource type="Texture2D" uid="uid://0upu3sr5qtqp" path="res://art/environment/tilesets/bar/bar_back.png" id="9_pp8a1"]
 [ext_resource type="Script" uid="uid://bllk7toq05m21" path="res://overworld/maps/story_triggers.gd" id="14_dlket"]
+[ext_resource type="PackedScene" uid="uid://jx1mhp255fxu" path="res://overworld/exit_door.tscn" id="15_kacvf"]
+[ext_resource type="Resource" uid="uid://ccaclf3763pq2" path="res://dialogue/bar/door_blocked.tres" id="16_t07ka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(128, 16)
@@ -160,3 +162,9 @@ trigger_id = "bar_drunkard_2"
 
 [node name="StoryTriggers" type="Node" parent="." unique_id=1095393877]
 script = ExtResource("14_dlket")
+
+[node name="ExitDoor" parent="." unique_id=1336064970 instance=ExtResource("15_kacvf")]
+position = Vector2(167, 160)
+scale = Vector2(2.081192, 1)
+blocked_conversation = ExtResource("16_t07ka")
+destination_scene = "res://overworld/maps/01_0_Town.tscn"

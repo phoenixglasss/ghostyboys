@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://jx1mhp255fxu"]
+
+[ext_resource type="Script" uid="uid://67caj7mt7pj3" path="res://overworld/exit_door.gd" id="1_6fddg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a5au"]
+size = Vector2(28, 7)
+
+[node name="ExitDoor" type="Area2D" unique_id=1336064970]
+script = ExtResource("1_6fddg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1014510390]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_6a5au")
