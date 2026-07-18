@@ -71,7 +71,7 @@ func _judge_note(judge_lane : int):
 		# check if rated, then apply judgement, THEN pop
 		var judge_note : NoteItem = lane_data[judge_lane][0]
 		if judge_note.rated:
-			print(judge_note.rating)
+			# print(judge_note.rating)
 			rating_total += judge_note.rating
 			match judge_note.rating:
 				2:
@@ -116,7 +116,7 @@ func _play_my_audio() -> void:
 	
 func _complete_chart() -> void:
 	var my_score : float = float(rating_total) / float(potential_total)
-	print(my_score)
+	# print(my_score)
 	chart_completed.emit(my_score)
 	$AnimationPlayer.play("fly_out")
 	await $AnimationPlayer.animation_finished
