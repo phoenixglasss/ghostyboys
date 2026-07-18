@@ -41,8 +41,8 @@ theme_override_font_sizes/font_size = 9
 
 [node name="DialogueLabel" type="Label" parent="MainPanel/HBoxContainer/VBoxContainer" unique_id=486900032]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 7
 autowrap_mode = 2
 
 [node name="TypewriterTimer" type="Timer" parent="." unique_id=1343159857]
-wait_time = 0.030000000000000002
+wait_time = 0.03

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal conversation_finished
+
 @onready var portrait_texture: TextureRect = $MainPanel/HBoxContainer/PortraitPanel/PortraitTexture
 @onready var speaker_label: Label = $MainPanel/HBoxContainer/VBoxContainer/SpeakerLabel
 @onready var dialogue_label: Label = $MainPanel/HBoxContainer/VBoxContainer/DialogueLabel
@@ -72,3 +74,4 @@ func _end_conversation() -> void:
 	visible = false
 	get_tree().paused = false
 	current_conversation = null
+	conversation_finished.emit()

@@ -5,16 +5,18 @@
 [ext_resource type="AudioStream" uid="uid://dflaecpbcc33c" path="res://audio/music/overworld/bar.mp3" id="2_er5qq"]
 [ext_resource type="TileSet" uid="uid://g2m7tvf36mbe" path="res://art/environment/tilesets/_utility/shadow_tiles.tres" id="2_m3qxa"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="3_h3gxi"]
-[ext_resource type="PackedScene" uid="uid://ohffeehc7ds7" path="res://overworld/party/mel.tscn" id="4_mmme4"]
-[ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="5_a06n5"]
-[ext_resource type="PackedScene" uid="uid://kc7vim4w7wcx" path="res://overworld/encounter_trigger.tscn" id="6_a06n5"]
 [ext_resource type="Texture2D" uid="uid://b4ktvoqoyim2b" path="res://art/environment/tilesets/bar/table.png" id="6_e6pda"]
 [ext_resource type="Texture2D" uid="uid://crby8afrnjadm" path="res://art/environment/tilesets/bar/posters1.png" id="7_2npyi"]
 [ext_resource type="Texture2D" uid="uid://b7h8060cltqys" path="res://art/environment/tilesets/bar/posters2.png" id="8_dlket"]
+[ext_resource type="PackedScene" uid="uid://dfn1hlmf434fo" path="res://overworld/interactable/interactable.tscn" id="9_e6pda"]
 [ext_resource type="Texture2D" uid="uid://gmd2mfeavouy" path="res://art/environment/tilesets/bar/posters3.png" id="9_kxtva"]
 [ext_resource type="Texture2D" uid="uid://0upu3sr5qtqp" path="res://art/environment/tilesets/bar/bar_back.png" id="9_pp8a1"]
+[ext_resource type="Resource" uid="uid://dse78wowx7p6o" path="res://dialogue/bar/bartender_intro.tres" id="10_mt7io"]
 [ext_resource type="Script" uid="uid://bllk7toq05m21" path="res://overworld/maps/story_triggers.gd" id="14_dlket"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="15_dh0uk"]
 [ext_resource type="PackedScene" uid="uid://jx1mhp255fxu" path="res://overworld/exit_door.tscn" id="15_kacvf"]
+[ext_resource type="PackedScene" uid="uid://w75gr2me4kai" path="res://overworld/npc/npc_display.tscn" id="15_kxtva"]
+[ext_resource type="Resource" uid="uid://b6kta32g4o15r" path="res://data/npcs/bartender.tres" id="15_t07ka"]
 [ext_resource type="Resource" uid="uid://ccaclf3763pq2" path="res://dialogue/bar/door_blocked.tres" id="16_t07ka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
@@ -139,26 +141,8 @@ texture = ExtResource("6_e6pda")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Table4" unique_id=1885047562]
 shape = SubResource("RectangleShape2D_e6pda")
 
-[node name="Mel" parent="." unique_id=2027066497 node_paths=PackedStringArray("leader") instance=ExtResource("4_mmme4")]
-y_sort_enabled = true
-position = Vector2(106, 99)
-leader = NodePath("../Player")
-
-[node name="Jackal" parent="." unique_id=384938334 node_paths=PackedStringArray("leader") instance=ExtResource("5_a06n5")]
-y_sort_enabled = true
-position = Vector2(85, 99)
-leader = NodePath("../Mel")
-
 [node name="Player" parent="." unique_id=594011378 groups=["player"] instance=ExtResource("3_h3gxi")]
 position = Vector2(126, 98)
-
-[node name="EncounterTrigger" parent="." unique_id=617777993 instance=ExtResource("6_a06n5")]
-position = Vector2(243, 88)
-trigger_id = "bar_drunkard_1"
-
-[node name="EncounterTrigger2" parent="." unique_id=343656332 instance=ExtResource("6_a06n5")]
-position = Vector2(68, 35)
-trigger_id = "bar_drunkard_2"
 
 [node name="StoryTriggers" type="Node" parent="." unique_id=1095393877]
 script = ExtResource("14_dlket")
@@ -168,3 +152,10 @@ position = Vector2(167, 160)
 scale = Vector2(2.081192, 1)
 blocked_conversation = ExtResource("16_t07ka")
 destination_scene = "res://overworld/maps/01_0_Town.tscn"
+
+[node name="Interactable" parent="." unique_id=1231168211 instance=ExtResource("9_e6pda")]
+position = Vector2(162, 48)
+conversations = Array[ExtResource("15_dh0uk")]([ExtResource("10_mt7io")])
+npc_data = ExtResource("15_t07ka")
+
+[node name="NPCDisplay" parent="Interactable" unique_id=299095180 instance=ExtResource("15_kxtva")]

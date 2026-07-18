@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://b6kta32g4o15r"]
+
+[ext_resource type="Script" uid="uid://cnc5586kp86i2" path="res://overworld/npc/npc_data.gd" id="1_tbwtb"]
+[ext_resource type="SpriteFrames" uid="uid://dhjxf06jhu08t" path="res://art/characters/battle/enemy_placeholder/enemy_placeholder.tres" id="2_j0cpe"]
+
+[resource]
+script = ExtResource("1_tbwtb")
+npc_name = "Bartender"
+sprite_frames = ExtResource("2_j0cpe")
+metadata/_custom_type_script = "uid://cnc5586kp86i2"
