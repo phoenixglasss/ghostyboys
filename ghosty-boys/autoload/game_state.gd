@@ -12,6 +12,7 @@ var intro_dialogue_played: bool = false
 var bar_unlocked: bool = false
 var tutorial_fight_won: bool = false
 var closing_dialogue_played: bool = false
+var party_has_mel_and_jackal: bool = false
 
 func _ready() -> void:
 	party = [

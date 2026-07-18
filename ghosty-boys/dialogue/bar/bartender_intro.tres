@@ -1,15 +1,123 @@
 [gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://dse78wowx7p6o"]
 
 [ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_qv1x3"]
+[ext_resource type="Texture2D" uid="uid://ba4r0h2itoay6" path="res://art/portraits/daisy_portrait.png" id="2_agnu6"]
 [ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_t6khw"]
+[ext_resource type="Texture2D" uid="uid://ctugkjd8780ko" path="res://art/portraits/bartender_portrait.png" id="3_vdxg3"]
 
-[sub_resource type="Resource" id="Resource_agnu6"]
+[sub_resource type="Resource" id="Resource_dlket"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Daisy"
+portrait = ExtResource("2_agnu6")
+text = "Um, excuse me... Mr. Bartender?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_kxtva"]
 script = ExtResource("1_qv1x3")
 speaker_name = "Bartender"
-text = "Oh! A newcomer. You picked a rather strange time to visit our town, friend."
+portrait = ExtResource("3_vdxg3")
+text = "Huh... Hello. You picked a hell of a time to visit our little town."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_kacvf"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Daisy"
+portrait = ExtResource("2_agnu6")
+text = "Well, I didn't intend to... My car broke down just on the town border."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_t07ka"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Daisy"
+portrait = ExtResource("2_agnu6")
+text = "I tried the mechanic's shop, but it's all dark. "
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_dh0uk"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Daisy"
+portrait = ExtResource("2_agnu6")
+text = "Actually, almost everything in this town seems dark."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_2c0vq"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Daisy"
+portrait = ExtResource("2_agnu6")
+text = "I would have thought the whole place was abandoned if I hadn't seen the lights on here at your bar."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_n2p8o"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Bartender"
+portrait = ExtResource("3_vdxg3")
+text = "Unfortunately for all of us, the mechanic shop's been closed for a while."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_qxo6v"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Bartender"
+portrait = ExtResource("3_vdxg3")
+text = "Along with just about everything else."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_y5bx4"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Bartender"
+portrait = ExtResource("3_vdxg3")
+text = "Only reason this town isn't completely abandoned is because no one can leave with that tower over there trapping us in."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_b5scq"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Daisy"
+portrait = ExtResource("2_agnu6")
+text = "Tower? Wait, that giant, looming tower I saw in the distance is... keeping you here somehow?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_vsck7"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Bartender"
+portrait = ExtResource("3_vdxg3")
+text = "Not just me. Us. All of us. "
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_xvjhj"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Bartender"
+portrait = ExtResource("3_vdxg3")
+text = "You included."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_orog1"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Bartender"
+portrait = ExtResource("3_vdxg3")
+text = "Keeping us trapped, and it's changing folks."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_hb8wr"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Bartender"
+portrait = ExtResource("3_vdxg3")
+text = "You might as well have a drink about it."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_3on2e"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Daisy"
+portrait = ExtResource("2_agnu6")
+text = "Changing people? How??"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_ghty6"]
+script = ExtResource("1_qv1x3")
+speaker_name = "Bartender"
+portrait = ExtResource("3_vdxg3")
+text = "Well, not so sure, but uh... You get used to it. "
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [resource]
 script = ExtResource("2_t6khw")
-lines = Array[ExtResource("1_qv1x3")]([SubResource("Resource_agnu6")])
+lines = Array[ExtResource("1_qv1x3")]([SubResource("Resource_dlket"), SubResource("Resource_kxtva"), SubResource("Resource_kacvf"), SubResource("Resource_t07ka"), SubResource("Resource_dh0uk"), SubResource("Resource_2c0vq"), SubResource("Resource_n2p8o"), SubResource("Resource_qxo6v"), SubResource("Resource_y5bx4"), SubResource("Resource_b5scq"), SubResource("Resource_vsck7"), SubResource("Resource_xvjhj"), SubResource("Resource_orog1"), SubResource("Resource_hb8wr"), SubResource("Resource_3on2e"), SubResource("Resource_ghty6")])
 metadata/_custom_type_script = "uid://crsnq2fq76xma"

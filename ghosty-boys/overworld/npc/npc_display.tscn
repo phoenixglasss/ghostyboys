@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://w75gr2me4kai"]
+
+[ext_resource type="Script" uid="uid://ddlirn17ldtpd" path="res://overworld/npc/npc_display.gd" id="1_aq7oe"]
+
+[node name="NPCDisplay" type="Node2D" unique_id=299095180]
+script = ExtResource("1_aq7oe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=109997131]
