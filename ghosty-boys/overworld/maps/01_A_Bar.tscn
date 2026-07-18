@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://0upu3sr5qtqp" path="res://art/environment/tilesets/bar/bar_back.png" id="9_pp8a1"]
 [ext_resource type="Resource" uid="uid://dse78wowx7p6o" path="res://dialogue/bar/bartender_intro.tres" id="10_mt7io"]
 [ext_resource type="Script" uid="uid://bllk7toq05m21" path="res://overworld/maps/story_triggers.gd" id="14_dlket"]
+[ext_resource type="Script" uid="uid://b7jbhl7k63sac" path="res://overworld/tutorial_npcs.gd" id="14_xvjhj"]
 [ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="15_dh0uk"]
 [ext_resource type="PackedScene" uid="uid://jx1mhp255fxu" path="res://overworld/exit_door.tscn" id="15_kacvf"]
 [ext_resource type="PackedScene" uid="uid://w75gr2me4kai" path="res://overworld/npc/npc_display.tscn" id="15_kxtva"]
@@ -24,6 +25,10 @@
 [ext_resource type="Resource" uid="uid://bdxb5e87ctm8u" path="res://dialogue/bar/jackal_table_2.tres" id="22_b5scq"]
 [ext_resource type="SpriteFrames" uid="uid://c3o7vhhvd41m7" path="res://art/characters/overworld/nobody/nobody.tres" id="22_y5bx4"]
 [ext_resource type="Resource" uid="uid://dhpl8ja7dv21o" path="res://dialogue/bar/mel_table_2.tres" id="23_vsck7"]
+[ext_resource type="Script" uid="uid://dbne8ugbiuag1" path="res://overworld/bar_intro_cutscene.gd" id="26_orog1"]
+[ext_resource type="Resource" uid="uid://d06h0v1h58mp2" path="res://dialogue/bar/bartender_repeat.tres" id="27_ghty6"]
+[ext_resource type="Resource" uid="uid://dcjmv1s0qgnd4" path="res://dialogue/bar/mel_jackal_reveal.tres" id="28_3rj1h"]
+[ext_resource type="Resource" uid="uid://by4yumk8l612l" path="res://data/encounters/bar_fight.tres" id="29_6htja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(128, 16)
@@ -150,8 +155,9 @@ shape = SubResource("RectangleShape2D_e6pda")
 [node name="Player" parent="." unique_id=594011378 groups=["player"] instance=ExtResource("3_h3gxi")]
 position = Vector2(171, 145)
 
-[node name="StoryTriggers" type="Node" parent="." unique_id=1095393877]
+[node name="StoryTriggers" type="Node" parent="." unique_id=1095393877 node_paths=PackedStringArray("player")]
 script = ExtResource("14_dlket")
+player = NodePath("../Player")
 
 [node name="ExitDoor" parent="." unique_id=1336064970 instance=ExtResource("15_kacvf")]
 position = Vector2(167, 160)
@@ -159,58 +165,71 @@ scale = Vector2(2.081192, 1)
 blocked_conversation = ExtResource("16_t07ka")
 destination_scene = "res://overworld/maps/01_0_Town.tscn"
 
-[node name="BartenderInteractable" parent="." unique_id=1231168211 instance=ExtResource("9_e6pda")]
-position = Vector2(162, 48)
-conversations = Array[ExtResource("15_dh0uk")]([ExtResource("10_mt7io")])
+[node name="TutorialNPCs" type="Node" parent="." unique_id=1317823727]
+script = ExtResource("14_xvjhj")
 
-[node name="NPCDisplay" parent="BartenderInteractable" unique_id=299095180 instance=ExtResource("15_kxtva")]
-npc_data = ExtResource("15_t07ka")
+[node name="BarPatron2" parent="TutorialNPCs" unique_id=2043939913 instance=ExtResource("15_kxtva")]
 
-[node name="AnimatedSprite2D" parent="BartenderInteractable/NPCDisplay" index="0" unique_id=109997131]
-sprite_frames = ExtResource("22_y5bx4")
-animation = &"down"
-
-[node name="MelNPC" parent="." unique_id=1718872955 instance=ExtResource("15_kxtva")]
-
-[node name="AnimatedSprite2D" parent="MelNPC" index="0" unique_id=109997131]
-position = Vector2(99, 115)
-sprite_frames = ExtResource("19_qxo6v")
-animation = &"walk_down"
-
-[node name="JackalNPC" parent="." unique_id=1608703524 instance=ExtResource("15_kxtva")]
-
-[node name="AnimatedSprite2D" parent="JackalNPC" index="0" unique_id=109997131]
-position = Vector2(133, 115)
-sprite_frames = ExtResource("20_y5bx4")
-animation = &"walk_down"
-
-[node name="MelJackalTableConvo" parent="." unique_id=710376746 instance=ExtResource("9_e6pda")]
-position = Vector2(116.00001, 118)
-scale = Vector2(1.8399999, 1)
-conversations = Array[ExtResource("15_dh0uk")]([ExtResource("21_b5scq"), ExtResource("22_b5scq"), ExtResource("23_vsck7")])
-
-[node name="BarPatron1" parent="." unique_id=1554699823 instance=ExtResource("15_kxtva")]
-
-[node name="AnimatedSprite2D" parent="BarPatron1" index="0" unique_id=109997131]
-position = Vector2(225, 112)
-sprite_frames = ExtResource("22_y5bx4")
-animation = &"down"
-
-[node name="Interactable" parent="BarPatron1" unique_id=1139485935 instance=ExtResource("9_e6pda")]
-position = Vector2(250, 72)
-
-[node name="BarPatron2" parent="." unique_id=2043939913 instance=ExtResource("15_kxtva")]
-
-[node name="AnimatedSprite2D" parent="BarPatron2" index="0" unique_id=109997131]
+[node name="AnimatedSprite2D" parent="TutorialNPCs/BarPatron2" index="0" unique_id=109997131]
 position = Vector2(249, 72)
 sprite_frames = ExtResource("22_y5bx4")
 animation = &"down"
 
-[node name="Interactable" parent="BarPatron2" unique_id=1443432585 instance=ExtResource("9_e6pda")]
+[node name="Interactable" parent="TutorialNPCs/BarPatron2" unique_id=1443432585 instance=ExtResource("9_e6pda")]
 position = Vector2(225, 112)
 
-[editable path="BartenderInteractable/NPCDisplay"]
-[editable path="MelNPC"]
-[editable path="JackalNPC"]
-[editable path="BarPatron1"]
-[editable path="BarPatron2"]
+[node name="BarPatron1" parent="TutorialNPCs" unique_id=1554699823 instance=ExtResource("15_kxtva")]
+
+[node name="AnimatedSprite2D" parent="TutorialNPCs/BarPatron1" index="0" unique_id=109997131]
+position = Vector2(225, 112)
+sprite_frames = ExtResource("22_y5bx4")
+animation = &"down"
+
+[node name="Interactable" parent="TutorialNPCs/BarPatron1" unique_id=1139485935 instance=ExtResource("9_e6pda")]
+position = Vector2(250, 72)
+
+[node name="JackalNPC" parent="TutorialNPCs" unique_id=1608703524 instance=ExtResource("15_kxtva")]
+
+[node name="AnimatedSprite2D" parent="TutorialNPCs/JackalNPC" index="0" unique_id=109997131]
+position = Vector2(133, 115)
+sprite_frames = ExtResource("20_y5bx4")
+animation = &"walk_down"
+
+[node name="MelJackalTableConvo" parent="TutorialNPCs" unique_id=710376746 instance=ExtResource("9_e6pda")]
+position = Vector2(116.00001, 118)
+scale = Vector2(1.8399999, 1)
+conversations = Array[ExtResource("15_dh0uk")]([ExtResource("21_b5scq"), ExtResource("22_b5scq"), ExtResource("23_vsck7")])
+
+[node name="MelNPC" parent="TutorialNPCs" unique_id=1718872955 instance=ExtResource("15_kxtva")]
+
+[node name="AnimatedSprite2D" parent="TutorialNPCs/MelNPC" index="0" unique_id=109997131]
+position = Vector2(99, 115)
+sprite_frames = ExtResource("19_qxo6v")
+animation = &"walk_down"
+
+[node name="BartenderInteractable" parent="TutorialNPCs" unique_id=1231168211 instance=ExtResource("9_e6pda")]
+position = Vector2(162, 48)
+conversations = Array[ExtResource("15_dh0uk")]([ExtResource("10_mt7io")])
+
+[node name="NPCDisplay" parent="TutorialNPCs/BartenderInteractable" unique_id=299095180 instance=ExtResource("15_kxtva")]
+npc_data = ExtResource("15_t07ka")
+
+[node name="AnimatedSprite2D" parent="TutorialNPCs/BartenderInteractable/NPCDisplay" index="0" unique_id=109997131]
+sprite_frames = ExtResource("22_y5bx4")
+animation = &"down"
+
+[node name="IntroCutscene" type="Node" parent="." unique_id=1468409914 node_paths=PackedStringArray("bartender_interactable", "patron_1_display", "patron_2_display", "bartender_display")]
+script = ExtResource("26_orog1")
+bartender_interactable = NodePath("../TutorialNPCs/BartenderInteractable")
+patron_1_display = NodePath("../TutorialNPCs/BarPatron1")
+patron_2_display = NodePath("../TutorialNPCs/BarPatron2")
+bartender_display = NodePath("../TutorialNPCs/BartenderInteractable/NPCDisplay")
+bartender_repeat_line = ExtResource("27_ghty6")
+mel_jackal_reveal_line = ExtResource("28_3rj1h")
+tutorial_encounter = ExtResource("29_6htja")
+
+[editable path="TutorialNPCs/BarPatron2"]
+[editable path="TutorialNPCs/BarPatron1"]
+[editable path="TutorialNPCs/JackalNPC"]
+[editable path="TutorialNPCs/MelNPC"]
+[editable path="TutorialNPCs/BartenderInteractable/NPCDisplay"]

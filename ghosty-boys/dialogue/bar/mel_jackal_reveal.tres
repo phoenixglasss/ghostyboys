@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://dcjmv1s0qgnd4"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_mwn5k"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_erdfd"]
+[ext_resource type="Texture2D" uid="uid://c0nwmag75d5b4" path="res://art/portraits/mel_portrait.png" id="2_f4yx5"]
+[ext_resource type="Texture2D" uid="uid://85bxmm11fx8a" path="res://art/portraits/jackal_portrait.png" id="3_07aul"]
+
+[sub_resource type="Resource" id="Resource_f4yx5"]
+script = ExtResource("1_mwn5k")
+speaker_name = "Mel"
+portrait = ExtResource("2_f4yx5")
+text = "Crap. Sorry, stranger, but we can't get you out of here before we deal with these guys."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_07aul"]
+script = ExtResource("1_mwn5k")
+speaker_name = "Jackal"
+portrait = ExtResource("3_07aul")
+text = "Get behind us and follow our lead!"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_erdfd")
+lines = Array[ExtResource("1_mwn5k")]([SubResource("Resource_f4yx5"), SubResource("Resource_07aul")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

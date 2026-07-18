@@ -1,6 +1,8 @@
 extends Area2D
 class_name Interactable
 
+signal interaction_conversation_finished
+
 @export var conversations: Array[DialogueConversation]
 @export var interactable_id: String
 
@@ -33,6 +35,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 	DialogueBox.start_conversation(conversation)
 	GameState.increment_interaction_count(interactable_id)
+	await DialogueBox.conversation_finished
+	interaction_conversation_finished.emit()
 
 func _get_current_conversation() -> DialogueConversation:
 	if conversations.is_empty():

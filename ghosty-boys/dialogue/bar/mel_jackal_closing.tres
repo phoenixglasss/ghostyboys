@@ -1,0 +1,151 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://46a8u66fieja"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_f4ort"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_hxxjt"]
+[ext_resource type="Texture2D" uid="uid://ba4r0h2itoay6" path="res://art/portraits/daisy_portrait.png" id="2_jfj3i"]
+[ext_resource type="Texture2D" uid="uid://85bxmm11fx8a" path="res://art/portraits/jackal_portrait.png" id="3_45po7"]
+[ext_resource type="Texture2D" uid="uid://c0nwmag75d5b4" path="res://art/portraits/mel_portrait.png" id="4_3st3c"]
+
+[sub_resource type="Resource" id="Resource_ce6ch"]
+script = ExtResource("1_f4ort")
+portrait = ExtResource("2_jfj3i")
+text = "What... what were those things? The bartender... he just..."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_jfj3i"]
+script = ExtResource("1_f4ort")
+speaker_name = "Jackal"
+portrait = ExtResource("3_45po7")
+text = "Exploded?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_45po7"]
+script = ExtResource("1_f4ort")
+speaker_name = "Daisy"
+portrait = ExtResource("2_jfj3i")
+text = "Yes! That! He exploded! And then he... he..."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_3st3c"]
+script = ExtResource("1_f4ort")
+speaker_name = "Jackal"
+portrait = ExtResource("3_45po7")
+text = "Attacked you?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_htbrs"]
+script = ExtResource("1_f4ort")
+speaker_name = "Daisy"
+portrait = ExtResource("2_jfj3i")
+text = "Yes! That!"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_l72t4"]
+script = ExtResource("1_f4ort")
+speaker_name = "Mel"
+portrait = ExtResource("4_3st3c")
+text = "Not helping, Jackal."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_t1ii7"]
+script = ExtResource("1_f4ort")
+speaker_name = "Mel"
+portrait = ExtResource("4_3st3c")
+text = "Listen. Sorry to tell you this, but what the bartender said to you is true."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_2hjlb"]
+script = ExtResource("1_f4ort")
+speaker_name = "Mel"
+portrait = ExtResource("4_3st3c")
+text = "You can't leave this town. "
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_73c7k"]
+script = ExtResource("1_f4ort")
+speaker_name = "Mel"
+portrait = ExtResource("4_3st3c")
+text = "No one can. Not until that tower is dealt with."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_a567b"]
+script = ExtResource("1_f4ort")
+speaker_name = "Mel"
+portrait = ExtResource("4_3st3c")
+text = "There's a demonic power draining this town, turning townsfolk into what you just saw."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_bykrc"]
+script = ExtResource("1_f4ort")
+speaker_name = "Mel"
+portrait = ExtResource("4_3st3c")
+text = "That's what Jackal and I came here to take care of."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_xcns3"]
+script = ExtResource("1_f4ort")
+speaker_name = "Jackal"
+portrait = ExtResource("3_45po7")
+text = "And protect you in our spare time, of course."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_w5r8r"]
+script = ExtResource("1_f4ort")
+speaker_name = "Daisy"
+portrait = ExtResource("2_jfj3i")
+text = "Hey! I held my own back there! Way better than I thought I could."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_wfa5u"]
+script = ExtResource("1_f4ort")
+speaker_name = "Jackal"
+portrait = ExtResource("3_45po7")
+text = "Heh... That you did. I stand corrected, kid."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_e8ww0"]
+script = ExtResource("1_f4ort")
+speaker_name = "Mel"
+portrait = ExtResource("4_3st3c")
+text = "Wow. Don't think I've ever heard him admit to being wrong before."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_00veq"]
+script = ExtResource("1_f4ort")
+speaker_name = "Mel"
+portrait = ExtResource("4_3st3c")
+text = "Anyways... You better stick with us. It's not safe out here. More of those things could come in."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_l36wg"]
+script = ExtResource("1_f4ort")
+speaker_name = "Daisy"
+portrait = ExtResource("2_jfj3i")
+text = "But... Where are we going?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_xvbc2"]
+script = ExtResource("1_f4ort")
+speaker_name = "Jackal"
+portrait = ExtResource("3_45po7")
+text = "All the way to the bitter end, baby!"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_5bcrg"]
+script = ExtResource("1_f4ort")
+speaker_name = "Jackal"
+portrait = ExtResource("3_45po7")
+text = "We're going to make our way to the tower and defeat whatever's in there."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_nc8cf"]
+script = ExtResource("1_f4ort")
+speaker_name = "Mel"
+portrait = ExtResource("4_3st3c")
+text = "And check for any survivors along the way. Come on. Let's head out to the town."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_hxxjt")
+lines = Array[ExtResource("1_f4ort")]([SubResource("Resource_ce6ch"), SubResource("Resource_jfj3i"), SubResource("Resource_45po7"), SubResource("Resource_3st3c"), SubResource("Resource_htbrs"), SubResource("Resource_l72t4"), SubResource("Resource_t1ii7"), SubResource("Resource_2hjlb"), SubResource("Resource_73c7k"), SubResource("Resource_a567b"), SubResource("Resource_bykrc"), SubResource("Resource_xcns3"), SubResource("Resource_w5r8r"), SubResource("Resource_wfa5u"), SubResource("Resource_e8ww0"), SubResource("Resource_00veq"), SubResource("Resource_l36wg"), SubResource("Resource_xvbc2"), SubResource("Resource_5bcrg"), SubResource("Resource_nc8cf")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

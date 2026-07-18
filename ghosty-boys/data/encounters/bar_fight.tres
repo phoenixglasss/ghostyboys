@@ -3,14 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://csjj5u7bqwx6k" path="res://battle/ui/backgrounds/placeholder_battle_background.webp" id="1_k66cy"]
 [ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="1_tkjg1"]
 [ext_resource type="Script" uid="uid://bvffv678mkbsd" path="res://battle/classes/encounter_data.gd" id="2_3f84x"]
-[ext_resource type="Resource" uid="uid://cxjyqudg4d2ax" path="res://data/enemies/bar/bar_drunkard.tres" id="2_k66cy"]
+[ext_resource type="Resource" uid="uid://ceilgxrh084s6" path="res://dialogue/bar/bartender_husk.tres" id="3_jl1ah"]
 [ext_resource type="Resource" uid="uid://hw6f4x3lmw3l" path="res://dialogue/battle/tutorial_intro.tres" id="4_04bip"]
+[ext_resource type="Resource" uid="uid://dm6wfq5g0xxwd" path="res://data/enemies/bar/patron_husk.tres" id="4_br5lu"]
 
 [resource]
 script = ExtResource("2_3f84x")
 encounter_name = "Bar Fight"
-enemies = Array[ExtResource("1_tkjg1")]([ExtResource("2_k66cy"), ExtResource("2_k66cy")])
+enemies = Array[ExtResource("1_tkjg1")]([ExtResource("3_jl1ah"), ExtResource("4_br5lu"), ExtResource("4_br5lu")])
 background = ExtResource("1_k66cy")
 intro_conversation = ExtResource("4_04bip")
 allow_destroy = false
+is_tutorial_fight = true
 metadata/_custom_type_script = "uid://bvffv678mkbsd"

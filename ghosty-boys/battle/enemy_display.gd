@@ -2,14 +2,21 @@ extends Node2D
 class_name EnemyDisplay
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var placeholder: Sprite2D = $Placeholder
 var conductor : Conductor
 var bounce_curve : Curve = preload("res://rhythm_game/bounce.tres")
 
 
 func setup(enemy_data: EnemyData) -> void:
 	if enemy_data.sprite_frames:
+		placeholder.visible = false
+		sprite.visible = true
 		sprite.sprite_frames = enemy_data.sprite_frames
-	sprite.play("idle")
+		if sprite.sprite_frames.has_animation("idle"):
+			sprite.play("idle")
+		else:
+			placeholder.visible = true
+			sprite.visible = false
 	
 	var current_texture: Texture2D = sprite.sprite_frames.get_frame_texture(sprite.animation, 0)
 	var texture_height: float = current_texture.get_size().y

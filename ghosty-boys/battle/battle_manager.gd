@@ -33,6 +33,7 @@ var enemy_instances: Array[Dictionary] = []
 var pending_target: Dictionary
 var allow_destroy: bool = true
 var intro_conversation: DialogueConversation
+var is_tutorial_fight: bool = false
 
 func _ready() -> void:
 	action_menu.action_chosen.connect(_on_action_chosen)
@@ -44,6 +45,9 @@ func _ready() -> void:
 	if GameState.pending_encounter:
 		enemies = GameState.pending_encounter.enemies
 		# _set_background(GameState.pending_encounter.background)
+		allow_destroy = GameState.pending_encounter.allow_destroy
+		intro_conversation = GameState.pending_encounter.intro_conversation
+		is_tutorial_fight = GameState.pending_encounter.is_tutorial_fight
 		GameState.pending_encounter = null
 	
 	if conductor:
@@ -55,7 +59,6 @@ func _ready() -> void:
 	_setup_enemies()
 	_spawn_combatants()
 	hud.setup(party)
-	_enter_state(State.INTRO)
 	
 	if intro_conversation:
 		DialogueBox.start_conversation(intro_conversation)
@@ -98,14 +101,16 @@ func _enter_state(state: State) -> void:
 		State.CHECK_END:
 			_check_battle_end()
 		State.VICTORY:
-			print("Victory!")
+			print("Victory, wooooh!")
 			if GameState.pending_trigger_id != "":
 				GameState.mark_trigger_cleared(GameState.pending_trigger_id)
 				GameState.pending_trigger_id = ""
+			if is_tutorial_fight:
+				GameState.tutorial_fight_won = true
 			await get_tree().create_timer(1.0).timeout
 			SceneTransition.return_to_overworld()
 		State.DEFEAT:
-			print("Defeat...")
+			print("Defeat... So sad.")
 
 func _setup_enemies() -> void:
 	for i in enemies.size():
