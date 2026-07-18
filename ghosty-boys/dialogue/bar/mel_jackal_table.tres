@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://cmygyngpcn5bb"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_lsaqv"]
+[ext_resource type="Texture2D" uid="uid://85bxmm11fx8a" path="res://art/portraits/jackal_portrait.png" id="2_ajggm"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_cfd7m"]
+[ext_resource type="Texture2D" uid="uid://c0nwmag75d5b4" path="res://art/portraits/mel_portrait.png" id="3_om85c"]
+[ext_resource type="Texture2D" uid="uid://ba4r0h2itoay6" path="res://art/portraits/daisy_portrait.png" id="4_r71or"]
+
+[sub_resource type="Resource" id="Resource_dlew5"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Jackal"
+portrait = ExtResource("2_ajggm")
+text = "Whatcha staring at?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_ajggm"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Mel"
+portrait = ExtResource("3_om85c")
+text = "Jackal, don't be a jerk."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_om85c"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Jackal"
+portrait = ExtResource("2_ajggm")
+text = "What? I just asked a question."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_r71or"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Daisy"
+portrait = ExtResource("4_r71or")
+text = "Um, my car broke down."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_0iino"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Daisy"
+portrait = ExtResource("4_r71or")
+text = "I'm looking for someone to help me out."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_rfopm"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Mel"
+portrait = ExtResource("3_om85c")
+text = "Oh boy. You're not even from here, are you?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_t0386"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Jackal"
+portrait = ExtResource("2_ajggm")
+text = "Man, you must have some bad luck, huh kid?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_ht80b"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Jackal"
+portrait = ExtResource("2_ajggm")
+text = "Here of all places, tonight of all nights."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_p85gj"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Mel"
+portrait = ExtResource("3_om85c")
+text = "One of these days, Jackal, someone's gonna punch you for talking to them the way you do..."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_h8iub"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Mel"
+portrait = ExtResource("3_om85c")
+text = "And I'm just gonna say \"I told you so\"."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_r000x"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Daisy"
+portrait = ExtResource("4_r71or")
+text = "Erm... so, is that a 'no' to helping me?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_un20b"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Mel"
+portrait = ExtResource("3_om85c")
+text = "Talk to the bartender. Bartenders always know stuff."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_omqk2"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Jackal"
+portrait = ExtResource("2_ajggm")
+text = "Not that it's gonna help right now, of course."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_oaoa2"]
+script = ExtResource("1_lsaqv")
+speaker_name = "Mel"
+portrait = ExtResource("3_om85c")
+text = "I'm about to be the one to punch you, dude."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_cfd7m")
+lines = Array[ExtResource("1_lsaqv")]([SubResource("Resource_dlew5"), SubResource("Resource_ajggm"), SubResource("Resource_om85c"), SubResource("Resource_r71or"), SubResource("Resource_0iino"), SubResource("Resource_rfopm"), SubResource("Resource_t0386"), SubResource("Resource_ht80b"), SubResource("Resource_p85gj"), SubResource("Resource_h8iub"), SubResource("Resource_r000x"), SubResource("Resource_un20b"), SubResource("Resource_omqk2"), SubResource("Resource_oaoa2")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

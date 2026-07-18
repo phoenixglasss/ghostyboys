@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://4qhtg0mol6ua"]
+
+[ext_resource type="Script" uid="uid://cnc5586kp86i2" path="res://overworld/npc/npc_data.gd" id="1_ij6kv"]
+[ext_resource type="SpriteFrames" uid="uid://clgytlidkeafr" path="res://art/characters/overworld/jackal/jackal_overworld.tres" id="2_djbbb"]
+
+[resource]
+script = ExtResource("1_ij6kv")
+npc_name = "Jackal"
+sprite_frames = ExtResource("2_djbbb")
+metadata/_custom_type_script = "uid://cnc5586kp86i2"

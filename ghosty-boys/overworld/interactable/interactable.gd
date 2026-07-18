@@ -3,16 +3,12 @@ class_name Interactable
 
 @export var conversations: Array[DialogueConversation]
 @export var interactable_id: String
-@export var npc_data: NPCData
-@onready var npc_display: NPCDisplay = $NPCDisplay
 
 var player_in_range: Node2D
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	if npc_data:
-		npc_display.setup(npc_data)
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
