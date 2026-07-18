@@ -5,6 +5,7 @@ var defeated_enemies: Array[Dictionary] = []
 var pending_encounter: EncounterData
 var return_scene_path: String
 var return_position: Vector2
+var apply_return_position: bool = false
 var cleared_triggers: Array[String] = []
 var pending_trigger_id: String = ""
 var interaction_counts: Dictionary = {}

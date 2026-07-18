@@ -11,19 +11,16 @@ func go_to_battle(encounter: EncounterData) -> void:
 	var player := get_tree().get_first_node_in_group("player")
 	if player:
 		GameState.return_position = player.global_position
-		
+		GameState.apply_return_position = true
+
 	await _fade_to(1.0)
 	get_tree().change_scene_to_file(BATTLE_SCENE_PATH)
 	await _fade_to(0.0)
-	
+
+
 func return_to_overworld() -> void:
-	print("Returning to: ", GameState.return_scene_path)
 	await _fade_to(1.0)
 	get_tree().change_scene_to_file(GameState.return_scene_path)
-	await get_tree().process_frame
-	var player := get_tree().get_first_node_in_group("player")
-	if player:
-		player.global_position = GameState.return_position
 	await _fade_to(0.0)
 	
 func fade_to_scene(scene_path: String) -> void:
