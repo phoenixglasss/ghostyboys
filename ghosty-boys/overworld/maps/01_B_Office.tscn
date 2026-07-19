@@ -19,6 +19,7 @@
 [ext_resource type="SpriteFrames" uid="uid://co3awxm35i2ti" path="res://art/characters/overworld/dover/dover.tres" id="17_hm53j"]
 [ext_resource type="SpriteFrames" uid="uid://cd5h3o3yfj8qb" path="res://art/characters/overworld/misc_npc/npc1_overworld.tres" id="18_ebkg1"]
 [ext_resource type="PackedScene" uid="uid://dfn1hlmf434fo" path="res://overworld/interactable/interactable.tscn" id="18_l1nk6"]
+[ext_resource type="PackedScene" uid="uid://b5np5hny6jeeu" path="res://overworld/office_exit.tscn" id="20_ou7h3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llwnh"]
 size = Vector2(28, 9)
@@ -253,3 +254,8 @@ shape = SubResource("CapsuleShape2D_3xs8e")
 
 [node name="Interactable" parent="OfficeNPC1" unique_id=573232114 instance=ExtResource("18_l1nk6")]
 position = Vector2(1, 8)
+
+[node name="OfficeDoor" parent="." unique_id=806618376 instance=ExtResource("20_ou7h3")]
+position = Vector2(152, 298.00003)
+scale = Vector2(2.9397984, 0.6785612)
+destination_scene = "res://overworld/maps/01_0_Town.tscn"

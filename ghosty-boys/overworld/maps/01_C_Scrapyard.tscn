@@ -156,8 +156,9 @@ leader = NodePath("../Mel")
 [node name="Player" parent="." unique_id=594011378 groups=["player"] instance=ExtResource("12_xsrly")]
 position = Vector2(126, 98)
 
-[node name="StoryTriggers" type="Node" parent="." unique_id=1095393877]
+[node name="StoryTriggers" type="Node" parent="." unique_id=1095393877 node_paths=PackedStringArray("player")]
 script = ExtResource("11_5o38f")
+player = NodePath("../Player")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=929112407 node_paths=PackedStringArray("player")]
 limit_left = 0

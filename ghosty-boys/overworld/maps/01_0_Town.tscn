@@ -20,6 +20,10 @@
 [ext_resource type="Resource" uid="uid://ceilgxrh084s6" path="res://data/enemies/melty_caster.tres" id="18_ix1oe"]
 [ext_resource type="PackedScene" uid="uid://dog83l13ls4li" path="res://overworld/office_door.tscn" id="19_ix1oe"]
 [ext_resource type="Resource" uid="uid://3jiikyv53l27" path="res://data/encounters/town_wander_three.tres" id="20_e638j"]
+[ext_resource type="Resource" uid="uid://q68j5e0hh27d" path="res://dialogue/town/dave_banter.tres" id="21_7j2a3"]
+[ext_resource type="Script" uid="uid://c4a08rfjumee0" path="res://overworld/scrapyard_gate.gd" id="21_a5a6v"]
+[ext_resource type="Resource" uid="uid://cyfef4r8ym3nq" path="res://dialogue/town/not_ready_for_scrapyard.tres" id="22_n7ymk"]
+[ext_resource type="Resource" uid="uid://bpaqmh6b3ycoj" path="res://data/encounters/dave_and_bodyguards.tres" id="23_wjsdn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(14, 4)
@@ -257,7 +261,11 @@ trigger_id = "town_wander_3"
 
 [node name="ScrapyardGate" parent="." unique_id=333913439 instance=ExtResource("19_ix1oe")]
 position = Vector2(160, 15)
+script = ExtResource("21_a5a6v")
 destination_scene = "res://overworld/maps/01_C_Scrapyard.tscn"
+banter_conversation = ExtResource("21_7j2a3")
+not_ready_conversation = ExtResource("22_n7ymk")
+gate_encounter = ExtResource("23_wjsdn")
 
 [node name="CollisionShape2D" parent="ScrapyardGate" index="0" unique_id=1834864937]
 scale = Vector2(4.4800014, 2.7999997)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EncounterData" format=3 uid="uid://bpaqmh6b3ycoj"]
+
+[ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="1_kbvk3"]
+[ext_resource type="Script" uid="uid://bvffv678mkbsd" path="res://battle/classes/encounter_data.gd" id="2_0400n"]
+[ext_resource type="Resource" uid="uid://bei6p86dmheb5" path="res://data/enemies/scrapyard/bodyguard_1.tres" id="2_mbo35"]
+[ext_resource type="Resource" uid="uid://emwsul2x5xvs" path="res://data/enemies/scrapyard/dave.tres" id="3_3w4gg"]
+[ext_resource type="Resource" uid="uid://cthcqmkjdll50" path="res://data/enemies/scrapyard/bodyguard_2.tres" id="4_kahwc"]
+
+[resource]
+script = ExtResource("2_0400n")
+encounter_name = "Dave and Bodyguards"
+enemies = Array[ExtResource("1_kbvk3")]([ExtResource("2_mbo35"), ExtResource("3_3w4gg"), ExtResource("4_kahwc")])
+unlocks_scrapyard_gate = true
+victory_destination_scene = "res://overworld/maps/01_C_Scrapyard.tscn"
+metadata/_custom_type_script = "uid://bvffv678mkbsd"
