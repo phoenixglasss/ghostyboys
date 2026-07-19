@@ -42,6 +42,9 @@ func _ready() -> void:
 	action_menu.destroy_chosen.connect(_on_destroy_chosen)
 	target_menu.target_chosen.connect(_on_target_chosen)
 	
+	action_menu.clear()
+	target_menu.clear()
+	
 	party = GameState.party
 	
 	if GameState.pending_encounter:
