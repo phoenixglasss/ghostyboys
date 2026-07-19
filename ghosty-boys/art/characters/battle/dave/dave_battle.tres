@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b26ru344lc5q1"]
+
+[ext_resource type="Texture2D" uid="uid://dsullytyp57fp" path="res://art/characters/battle/dave/dave_battle_stomp.png" id="1_4p0wv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf2n1"]
+atlas = ExtResource("1_4p0wv")
+region = Rect2(0, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkxh5"]
+atlas = ExtResource("1_4p0wv")
+region = Rect2(20, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr87h"]
+atlas = ExtResource("1_4p0wv")
+region = Rect2(40, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsarv"]
+atlas = ExtResource("1_4p0wv")
+region = Rect2(60, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5qpp"]
+atlas = ExtResource("1_4p0wv")
+region = Rect2(0, 0, 20, 28)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf2n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkxh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr87h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsarv")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5qpp")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]

@@ -3,14 +3,43 @@
 [ext_resource type="Texture2D" uid="uid://csjj5u7bqwx6k" path="res://battle/ui/backgrounds/placeholder_battle_background.webp" id="1_k66cy"]
 [ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="1_tkjg1"]
 [ext_resource type="Script" uid="uid://bvffv678mkbsd" path="res://battle/classes/encounter_data.gd" id="2_3f84x"]
-[ext_resource type="Resource" uid="uid://ceilgxrh084s6" path="res://data/enemies/bar/bartender_husk.tres" id="3_jl1ah"]
+[ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="3_mi12m"]
 [ext_resource type="Resource" uid="uid://hw6f4x3lmw3l" path="res://dialogue/battle/tutorial_intro.tres" id="4_04bip"]
-[ext_resource type="Resource" uid="uid://dm6wfq5g0xxwd" path="res://data/enemies/bar/patron_husk.tres" id="4_br5lu"]
+[ext_resource type="Resource" uid="uid://bs78kl3mxn62n" path="res://data/attacks/punch.tres" id="4_6b54u"]
+[ext_resource type="SpriteFrames" uid="uid://o586dfuk1q3a" path="res://art/characters/battle/melty_caster/melty_caster.tres" id="5_d8xcj"]
+[ext_resource type="SpriteFrames" uid="uid://b5hf2be0eelj1" path="res://art/characters/battle/melty_man/melty_man_battle.tres" id="6_o374c"]
+
+[sub_resource type="Resource" id="Resource_4e4dr"]
+script = ExtResource("1_tkjg1")
+enemy_name = "Bartender???"
+max_hp = 15
+zone_theme = "bar"
+moveset = Array[ExtResource("3_mi12m")]([ExtResource("4_6b54u")])
+sprite_frames = ExtResource("5_d8xcj")
+metadata/_custom_type_script = "uid://c8l3sswhp6clc"
+
+[sub_resource type="Resource" id="Resource_2fcdy"]
+script = ExtResource("1_tkjg1")
+enemy_name = "Bar Patron???"
+max_hp = 10
+zone_theme = "bar"
+moveset = Array[ExtResource("3_mi12m")]([ExtResource("4_6b54u")])
+sprite_frames = ExtResource("6_o374c")
+metadata/_custom_type_script = "uid://c8l3sswhp6clc"
+
+[sub_resource type="Resource" id="Resource_ajek1"]
+script = ExtResource("1_tkjg1")
+enemy_name = "Bar Patron???"
+max_hp = 10
+zone_theme = "bar"
+moveset = Array[ExtResource("3_mi12m")]([ExtResource("4_6b54u")])
+sprite_frames = ExtResource("6_o374c")
+metadata/_custom_type_script = "uid://c8l3sswhp6clc"
 
 [resource]
 script = ExtResource("2_3f84x")
 encounter_name = "Bar Fight"
-enemies = Array[ExtResource("1_tkjg1")]([ExtResource("3_jl1ah"), ExtResource("4_br5lu"), ExtResource("4_br5lu")])
+enemies = Array[ExtResource("1_tkjg1")]([SubResource("Resource_4e4dr"), SubResource("Resource_2fcdy"), SubResource("Resource_ajek1")])
 background = ExtResource("1_k66cy")
 intro_conversation = ExtResource("4_04bip")
 allow_destroy = false
