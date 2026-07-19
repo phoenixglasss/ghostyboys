@@ -42,7 +42,6 @@ func _ready() -> void:
 		var earliest : float = conductor.get_song_position() + minimum_lead_beats
 		start_beat = ceil(earliest / 4.0) * 4.0
 	
-	
 
 	# set the initial scroll offset BEFORE notes exist
 	notes_container.position.y = (conductor.get_song_position() - start_beat) * note_spacing
