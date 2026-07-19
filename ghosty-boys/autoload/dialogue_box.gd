@@ -6,6 +6,7 @@ signal conversation_finished
 @onready var speaker_label: Label = $MainPanel/HBoxContainer/VBoxContainer/SpeakerLabel
 @onready var dialogue_label: Label = $MainPanel/HBoxContainer/VBoxContainer/DialogueLabel
 @onready var typewriter_timer: Timer = $TypewriterTimer
+@onready var talk_sound_player : AudioStreamPlayer = $TalkSoundPlayer
 
 var current_conversation: DialogueConversation
 var current_line_index: int = 0
@@ -40,6 +41,7 @@ func _on_typewriter_timeout() -> void:
 	if char_index < full_text.length():
 		dialogue_label.text += full_text[char_index]
 		char_index += 1
+		talk_sound_player.play()
 	else:
 		typewriter_timer.stop()
 		is_typing = false
