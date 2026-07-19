@@ -11,7 +11,7 @@ func display_targets(living_targets: Array) -> void:
 	for target in living_targets:
 		var button := Button.new()
 		button.text = target.member_name if target is PartyMember else target.data.enemy_name
-		button.add_theme_font_size_override("font_size", 8)
+		button.add_theme_font_size_override("font_size", 7)
 		button.pressed.connect(_on_target_button_pressed.bind(target))
 		add_child(button)
 		
