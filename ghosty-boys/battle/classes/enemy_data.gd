@@ -7,3 +7,4 @@ class_name EnemyData
 @export var zone_theme: String
 @export var moveset: Array[AttackData]
 @export var sprite_frames: SpriteFrames
+@export var overworld_sprite_frames: SpriteFrames

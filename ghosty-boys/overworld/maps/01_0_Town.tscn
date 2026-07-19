@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="5_vb587"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="7_jnrag"]
 [ext_resource type="Script" uid="uid://bw6idhw8ds4ax" path="res://overworld/town_story_triggers.gd" id="13_2c6k4"]
+[ext_resource type="PackedScene" uid="uid://kc7vim4w7wcx" path="res://overworld/encounter_trigger.tscn" id="14_sk2bq"]
+[ext_resource type="Resource" uid="uid://c386u4hwoyllt" path="res://data/encounters/town_wandering_1.tres" id="15_xw8xf"]
+[ext_resource type="Resource" uid="uid://dm6wfq5g0xxwd" path="res://data/enemies/melty_man.tres" id="16_b07qm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(14, 4)
@@ -217,3 +220,10 @@ flip_h = true
 [node name="StoryTriggers" type="Node" parent="." unique_id=106706015 node_paths=PackedStringArray("player")]
 script = ExtResource("13_2c6k4")
 player = NodePath("../Node2D/Player")
+
+[node name="EncounterTrigger" parent="." unique_id=617777993 instance=ExtResource("14_sk2bq")]
+y_sort_enabled = true
+position = Vector2(137, 416)
+encounter = ExtResource("15_xw8xf")
+display_data = ExtResource("16_b07qm")
+trigger_id = "town_wander_1"
