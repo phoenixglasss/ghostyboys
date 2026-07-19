@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cu38lbyx1463m"]
 
 [ext_resource type="Script" uid="uid://07bdqpqg3ape" path="res://overworld/overworld_map.gd" id="1_xc7r7"]
-[ext_resource type="AudioStream" uid="uid://dflaecpbcc33c" path="res://audio/music/overworld/bar.mp3" id="2_3dquu"]
+[ext_resource type="AudioStream" uid="uid://bfa0u86mpxf8o" path="res://audio/music/overworld/Tower_Final_135.ogg" id="2_3dquu"]
 [ext_resource type="TileSet" uid="uid://bpjtxpkqexj30" path="res://art/environment/tilesets/tower/tower_floor.tres" id="3_0rp03"]
 [ext_resource type="TileSet" uid="uid://byw0cesdpyqyl" path="res://art/environment/tilesets/tower/tower_floor_mask.tres" id="3_cdbvq"]
 [ext_resource type="TileSet" uid="uid://g2m7tvf36mbe" path="res://art/environment/tilesets/_utility/shadow_tiles.tres" id="4_v7s68"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://07bdqpqg3ape" path="res://overworld/overworld_map.gd" id="1_lkitk"]
 [ext_resource type="TileSet" uid="uid://u8byqkju8h28" path="res://art/environment/tilesets/bar/bar_wood_floor.tres" id="1_x8o4u"]
-[ext_resource type="AudioStream" uid="uid://dflaecpbcc33c" path="res://audio/music/overworld/bar.mp3" id="2_er5qq"]
+[ext_resource type="AudioStream" uid="uid://cnxkibl1pv44p" path="res://audio/music/overworld/Bar_FINAL.ogg" id="2_5md5n"]
 [ext_resource type="TileSet" uid="uid://g2m7tvf36mbe" path="res://art/environment/tilesets/_utility/shadow_tiles.tres" id="2_m3qxa"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="3_h3gxi"]
 [ext_resource type="Texture2D" uid="uid://b4ktvoqoyim2b" path="res://art/environment/tilesets/bar/table.png" id="6_e6pda"]
@@ -57,7 +57,7 @@ radius = 7.0
 [node name="01ABar3" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
 script = ExtResource("1_lkitk")
-bgm = ExtResource("2_er5qq")
+bgm = ExtResource("2_5md5n")
 
 [node name="Environment" type="Node2D" parent="." unique_id=1401514982]
 y_sort_enabled = true
