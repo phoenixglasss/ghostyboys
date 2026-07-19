@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cwgpoh0gtcn0y"]
+
+[ext_resource type="Texture2D" uid="uid://dcwf0ex7vbgqm" path="res://art/characters/battle/vanity/vanity_attack.png" id="1_oa8t0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0sar"]
+atlas = ExtResource("1_oa8t0")
+region = Rect2(0, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nauhn"]
+atlas = ExtResource("1_oa8t0")
+region = Rect2(20, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aefxb"]
+atlas = ExtResource("1_oa8t0")
+region = Rect2(40, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_874ey"]
+atlas = ExtResource("1_oa8t0")
+region = Rect2(60, 0, 20, 28)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0sar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nauhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aefxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_874ey")
+}],
+"loop": 1,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0sar")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
