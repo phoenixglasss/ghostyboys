@@ -34,6 +34,8 @@ var enemy_instances: Array[Dictionary] = []
 var pending_target
 var intro_conversation: DialogueConversation
 var is_tutorial_fight: bool = false
+var unlocks_scrapyard_gate: bool = false
+var victory_destination_scene: String = ""
 
 func _ready() -> void:
 	action_menu.action_chosen.connect(_on_action_chosen)
@@ -50,6 +52,8 @@ func _ready() -> void:
 		intro_conversation = GameState.pending_encounter.intro_conversation
 		is_tutorial_fight = GameState.pending_encounter.is_tutorial_fight
 		post_battle_position = GameState.pending_encounter.post_battle_position
+		unlocks_scrapyard_gate = GameState.pending_encounter.unlocks_scrapyard_gate
+		victory_destination_scene = GameState.pending_encounter.victory_destination_scene
 		GameState.pending_encounter = null
 	
 	if conductor:
@@ -117,8 +121,13 @@ func _enter_state(state: State) -> void:
 			if is_tutorial_fight:
 				GameState.tutorial_fight_won = true
 				GameState.return_position = post_battle_position
+			if unlocks_scrapyard_gate:
+				GameState.scrapyard_gate_won = true
 			await get_tree().create_timer(1.0).timeout
-			SceneTransition.return_to_overworld()
+			if victory_destination_scene != "":
+				SceneTransition.fade_to_scene(victory_destination_scene)
+			else:
+				SceneTransition.return_to_overworld()
 		State.DEFEAT:
 			print("Defeat... So sad.")
 

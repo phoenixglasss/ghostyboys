@@ -1,0 +1,141 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://q68j5e0hh27d"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_4d81l"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_0fpry"]
+[ext_resource type="Texture2D" uid="uid://ba4r0h2itoay6" path="res://art/portraits/daisy_portrait.png" id="2_c3khn"]
+[ext_resource type="Texture2D" uid="uid://dvs8wgs0fa4te" path="res://art/portraits/bodyguard_1_portrait.png" id="3_8ptgw"]
+[ext_resource type="Texture2D" uid="uid://85bxmm11fx8a" path="res://art/portraits/jackal_portrait.png" id="4_eeaw2"]
+[ext_resource type="Texture2D" uid="uid://cp1ux7waje02m" path="res://art/portraits/bodyguard_2_portrait.png" id="5_37t3c"]
+[ext_resource type="Texture2D" uid="uid://c0nwmag75d5b4" path="res://art/portraits/mel_portrait.png" id="6_o6dma"]
+[ext_resource type="Texture2D" uid="uid://rday5h64wl8k" path="res://art/portraits/dave_portrait.png" id="7_4g6bb"]
+
+[sub_resource type="Resource" id="Resource_4d81l"]
+script = ExtResource("1_4d81l")
+speaker_name = "Daisy"
+portrait = ExtResource("2_c3khn")
+text = "Hello? Anyone still home?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_0fpry"]
+script = ExtResource("1_4d81l")
+speaker_name = "Bodyguard 1"
+portrait = ExtResource("3_8ptgw")
+text = "Oh hey! It's you guys again. Didn't we tell ya to buzz off?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_qpc6n"]
+script = ExtResource("1_4d81l")
+speaker_name = "Jackal"
+portrait = ExtResource("4_eeaw2")
+text = "Oh, that's right! Silly us to forget. Hey, before we buzz off though, can you tell Dave that Jackal says hello?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_1q0ge"]
+script = ExtResource("1_4d81l")
+speaker_name = "Bodyguard 2"
+portrait = ExtResource("5_37t3c")
+text = "How do you know the boss man?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_nqrvh"]
+script = ExtResource("1_4d81l")
+speaker_name = "Jackal"
+portrait = ExtResource("4_eeaw2")
+text = "Oh, we go WAY back. He'd be real disappointed if he found out you guys didn't let him know I'd dropped in to say hi."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_xg2u0"]
+script = ExtResource("1_4d81l")
+speaker_name = "Bodyguard 1 "
+portrait = ExtResource("3_8ptgw")
+text = "Oh, man... I don't wanna upset the boss. We'll be right back."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_c3khn"]
+script = ExtResource("1_4d81l")
+speaker_name = "Jackal"
+portrait = ExtResource("4_eeaw2")
+text = "Get ready, you two."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_8ptgw"]
+script = ExtResource("1_4d81l")
+speaker_name = "Mel"
+portrait = ExtResource("6_o6dma")
+text = "I'm going to kill you. You know that? It's happening one day."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_eeaw2"]
+script = ExtResource("1_4d81l")
+speaker_name = "Daisy"
+portrait = ExtResource("2_c3khn")
+text = "Get ready for what? What's he saying?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_37t3c"]
+script = ExtResource("1_4d81l")
+speaker_name = "Dave"
+portrait = ExtResource("7_4g6bb")
+text = "JACKAL? Is your scrawny ass really out there right now?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_o6dma"]
+script = ExtResource("1_4d81l")
+speaker_name = "Jackal"
+portrait = ExtResource("4_eeaw2")
+text = "Wow, Dave. You almost sound like you've grown a spine since the last time I saw you."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_4g6bb"]
+script = ExtResource("1_4d81l")
+speaker_name = "Dave"
+portrait = ExtResource("7_4g6bb")
+text = "Screw you, Jack! You may have beat me the last time--"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_ehtl8"]
+script = ExtResource("1_4d81l")
+speaker_name = "Jackal"
+portrait = ExtResource("4_eeaw2")
+text = "Good times."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_x5pxl"]
+script = ExtResource("1_4d81l")
+speaker_name = "Dave"
+portrait = ExtResource("7_4g6bb")
+text = "But THIS time, I have BACKUP!! "
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_1cony"]
+script = ExtResource("1_4d81l")
+speaker_name = "Jackal"
+portrait = ExtResource("4_eeaw2")
+text = "You think that will make a difference? Come out here and show me, then."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_v5phh"]
+script = ExtResource("1_4d81l")
+speaker_name = "Dave"
+portrait = ExtResource("7_4g6bb")
+text = "You asked for it, buddy! Your puny human friend against my BIG human bodyguards!!"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_3kcat"]
+script = ExtResource("1_4d81l")
+speaker_name = "Mel"
+portrait = ExtResource("6_o6dma")
+text = "Puny?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_bfscf"]
+script = ExtResource("1_4d81l")
+speaker_name = "Daisy"
+portrait = ExtResource("2_c3khn")
+text = "Hey, don't forget about the robot!"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_0fpry")
+lines = Array[ExtResource("1_4d81l")]([SubResource("Resource_4d81l"), SubResource("Resource_0fpry"), SubResource("Resource_qpc6n"), SubResource("Resource_1q0ge"), SubResource("Resource_nqrvh"), SubResource("Resource_xg2u0"), SubResource("Resource_c3khn"), SubResource("Resource_8ptgw"), SubResource("Resource_eeaw2"), SubResource("Resource_37t3c"), SubResource("Resource_o6dma"), SubResource("Resource_4g6bb"), SubResource("Resource_ehtl8"), SubResource("Resource_x5pxl"), SubResource("Resource_1cony"), SubResource("Resource_v5phh"), SubResource("Resource_3kcat"), SubResource("Resource_bfscf")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

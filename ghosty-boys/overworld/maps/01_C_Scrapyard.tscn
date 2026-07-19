@@ -8,10 +8,10 @@
 [ext_resource type="TileSet" uid="uid://g2m7tvf36mbe" path="res://art/environment/tilesets/_utility/shadow_tiles.tres" id="7_ntfb2"]
 [ext_resource type="Texture2D" uid="uid://cklr657oghsls" path="res://art/environment/tilesets/scrapyard/scrap_heap_1.png" id="9_quqt2"]
 [ext_resource type="PackedScene" uid="uid://ohffeehc7ds7" path="res://overworld/party/mel.tscn" id="10_i1ums"]
+[ext_resource type="Script" uid="uid://b3pr5ul7712ya" path="res://overworld/scrapyard_story_triggers.gd" id="11_5o38f"]
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="11_uh8qr"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="12_5o38f"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="12_xsrly"]
-[ext_resource type="Script" path="res://overworld/maps/story_triggers.gd" id="14_kac7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quqt2"]
 size = Vector2(52, 21)
@@ -157,7 +157,7 @@ leader = NodePath("../Mel")
 position = Vector2(126, 98)
 
 [node name="StoryTriggers" type="Node" parent="." unique_id=1095393877]
-script = ExtResource("14_kac7g")
+script = ExtResource("11_5o38f")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=929112407 node_paths=PackedStringArray("player")]
 limit_left = 0

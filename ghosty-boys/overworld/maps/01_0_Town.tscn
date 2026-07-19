@@ -254,3 +254,12 @@ position = Vector2(56, 473)
 encounter = ExtResource("20_e638j")
 display_data = ExtResource("18_ix1oe")
 trigger_id = "town_wander_3"
+
+[node name="ScrapyardGate" parent="." unique_id=333913439 instance=ExtResource("19_ix1oe")]
+position = Vector2(160, 15)
+destination_scene = "res://overworld/maps/01_C_Scrapyard.tscn"
+
+[node name="CollisionShape2D" parent="ScrapyardGate" index="0" unique_id=1834864937]
+scale = Vector2(4.4800014, 2.7999997)
+
+[editable path="ScrapyardGate"]
