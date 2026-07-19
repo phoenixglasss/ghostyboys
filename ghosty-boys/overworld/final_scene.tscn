@@ -1,3 +1,49 @@
 [gd_scene format=3 uid="uid://cbnt7s3sndr70"]
 
+[ext_resource type="AudioStream" uid="uid://jib23bgo7b7m" path="res://audio/music/battle/BasicBattle_Final_137bpm.ogg" id="1_d4cwn"]
+[ext_resource type="SpriteFrames" uid="uid://ctjh4kactj115" path="res://art/characters/overworld/mel/mel_overworld.tres" id="2_2ndfr"]
+[ext_resource type="Script" uid="uid://bdbmkf4kkcm6e" path="res://overworld/ending_sprite.gd" id="3_2suej"]
+[ext_resource type="SpriteFrames" uid="uid://hbw6ek0tmv56" path="res://art/characters/overworld/daisy/daisy_overworld.tres" id="4_3o8jf"]
+[ext_resource type="SpriteFrames" uid="uid://clgytlidkeafr" path="res://art/characters/overworld/jackal/jackal_overworld.tres" id="5_3o8jf"]
+
 [node name="FinalScene" type="Node2D" unique_id=1463601303]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=667323612]
+stream = ExtResource("1_d4cwn")
+volume_db = -2.0
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1706584905]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2059210311]
+position = Vector2(160, 90)
+sprite_frames = ExtResource("2_2ndfr")
+animation = &"walk_down"
+script = ExtResource("3_2suej")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=508143908]
+position = Vector2(143, 90)
+sprite_frames = ExtResource("4_3o8jf")
+animation = &"walk_down"
+script = ExtResource("3_2suej")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1197078394]
+position = Vector2(180, 90)
+sprite_frames = ExtResource("5_3o8jf")
+animation = &"walk_down"
+script = ExtResource("3_2suej")
+
+[node name="Label" type="Label" parent="." unique_id=1189409188]
+offset_left = 119.0
+offset_top = 34.0
+offset_right = 203.0
+offset_bottom = 62.0
+text = "YOU WIN!!!"
