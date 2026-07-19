@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://b6kta32g4o15r"]
 
 [ext_resource type="Script" uid="uid://cnc5586kp86i2" path="res://overworld/npc/npc_data.gd" id="1_tbwtb"]
-[ext_resource type="SpriteFrames" uid="uid://dhjxf06jhu08t" path="res://art/characters/battle/enemy_placeholder/enemy_placeholder.tres" id="2_j0cpe"]
+[ext_resource type="SpriteFrames" uid="uid://fygk6srjq5jy" path="res://art/characters/overworld/misc_npc/bartender.tres" id="2_j0cpe"]
 
 [resource]
 script = ExtResource("1_tbwtb")

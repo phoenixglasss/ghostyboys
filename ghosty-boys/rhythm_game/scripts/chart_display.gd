@@ -4,7 +4,7 @@ class_name ChartDisplay
 @export var conductor : Conductor
 @export var lanes : Array[Node2D]
 var notes : Array[NoteData]
-var note_spacing : float = 48
+var note_spacing : float = 64
 @export var my_chart : Chart
 @onready var hit_line : Node2D = $ChartContainer/HitLine
 @onready var notes_container : Node2D = $ChartContainer/HitLine/Notes
@@ -20,7 +20,7 @@ var note_item = preload("res://rhythm_game/scenes/note_item.tscn")
 @export var is_finale : bool = false
 @export var start_beat_override : float = -1.0
 
-
+signal note_resolved(rating : int)
 
 var rating_total : int
 var potential_total : int
@@ -52,7 +52,6 @@ func _ready() -> void:
 		lane_data.append([])
 	_load_chart(my_chart)
 
-
 func _process(_delta: float) -> void:
 	notes_container.position.x = (start_beat - conductor.get_song_position()) * note_spacing
 
@@ -69,7 +68,6 @@ func _process(_delta: float) -> void:
 		if lane_data[0].is_empty() and lane_data[1].is_empty() \
 		and lane_data[2].is_empty() and lane_data[3].is_empty():
 			_complete_chart()
-
 
 func _input(event: InputEvent) -> void:
 	if autoplay:
@@ -91,6 +89,8 @@ func _judge_note(judge_lane : int):
 		if judge_note.rated:
 			# print(judge_note.rating)
 			rating_total += judge_note.rating
+			note_resolved.emit(judge_note.rating)
+			
 			match judge_note.rating:
 				2:
 					lanes[judge_lane].get_node("AnimatedSprite2D").play("good")
@@ -112,21 +112,18 @@ func _load_chart(chart : Chart):
 		lane_data[note.lane].append(new_note_item)
 		notes_container.add_child(new_note_item)
 
-
 func _on_note_despawner_area_entered(area: Area2D) -> void:
 	if area is NoteItem:
 		var kill_spot = lane_data[area.lane].find(area)
 		if kill_spot > -1:
 			lane_data[area.lane].pop_at(kill_spot)
-
+			note_resolved.emit(0)
 
 func _on_beat_hit() -> void:
 	pass
 
-
 func _on_measure_hit() -> void:
 	pass #idk if i'll even use this one, we'll see
-
 
 func _play_my_audio() -> void:
 	var overshoot_beats : float = conductor.get_song_position() - start_beat

@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cudqx3h6qto8b"]
+
+[ext_resource type="Texture2D" uid="uid://cwqfw047m02jx" path="res://art/characters/overworld/misc_npc/skelebro_overworld.png" id="1_ra615"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_makjl"]
+atlas = ExtResource("1_ra615")
+region = Rect2(48, 0, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pwkf"]
+atlas = ExtResource("1_ra615")
+region = Rect2(0, 0, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y33yq"]
+atlas = ExtResource("1_ra615")
+region = Rect2(32, 0, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlxha"]
+atlas = ExtResource("1_ra615")
+region = Rect2(16, 0, 16, 28)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_makjl")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pwkf")
+}],
+"loop": 1,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y33yq")
+}],
+"loop": 1,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlxha")
+}],
+"loop": 1,
+"name": &"idle_up",
+"speed": 5.0
+}]

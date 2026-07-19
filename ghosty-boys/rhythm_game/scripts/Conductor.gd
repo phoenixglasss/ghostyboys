@@ -31,6 +31,14 @@ signal beat_hit
 const FINALE_PLAYER_SLOT := Vector2(0, 0)
 const FINALE_ENEMY_SLOT := Vector2(0, 72)
 
+@export var finale_max_health : float = 100.0
+@export var finale_damage : float = 2.0   # d
+@export var finale_heal : float = 3.0      # h
+var finale_health : float = 0.0
+
+signal finale_health_changed(current : float, max_health : float)
+signal finale_player_died
+
 
 func _ready() -> void:
 	loop_length = _get_song_length_in_beats(audio_player.stream)
@@ -118,6 +126,10 @@ func play_finale(chart : Chart) -> void:
 	chart_layer.add_child(p)
 	p.z_index += 100
 	p.chart_completed.connect(_chart_completed)   # only the player scores
+	
+	finale_health = finale_max_health
+	p.note_resolved.connect(_on_finale_note_resolved)
+	finale_health_changed.emit(finale_health, finale_max_health)
 
 	var e : ChartDisplay = chart_display.instantiate()
 	e.my_chart = chart
@@ -128,3 +140,17 @@ func play_finale(chart : Chart) -> void:
 	e.position = FINALE_ENEMY_SLOT
 	chart_layer.add_child(e)
 	e.z_index += 100
+
+func _on_finale_note_resolved(rating : int) -> void:
+	match rating:
+		0:
+			finale_health -= finale_damage
+		2:
+			finale_health += finale_heal
+		3:
+			finale_health += finale_heal * 2.0
+		# rating 1 falls through = no change
+	finale_health = clampf(finale_health, 0.0, finale_max_health)
+	finale_health_changed.emit(finale_health, finale_max_health)
+	if finale_health <= 0.0:
+		finale_player_died.emit()

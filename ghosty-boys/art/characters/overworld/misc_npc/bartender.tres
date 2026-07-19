@@ -1,0 +1,38 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://fygk6srjq5jy"]
+
+[ext_resource type="Texture2D" uid="uid://b5jfobofo1drv" path="res://art/characters/overworld/misc_npc/Bartender.png" id="1_whfbb"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_whfbb")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_whfbb")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_whfbb")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_whfbb")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
