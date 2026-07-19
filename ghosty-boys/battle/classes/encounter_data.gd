@@ -5,6 +5,5 @@ class_name EncounterData
 @export var enemies: Array[EnemyData]
 @export var background: Texture2D
 @export var intro_conversation: DialogueConversation
-@export var allow_destroy: bool = true
 @export var is_tutorial_fight: bool = false
 @export var post_battle_position: Vector2

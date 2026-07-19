@@ -14,7 +14,6 @@ const FIRST_ROW_Y: float = 20.0
 
 var party_displays: Array[PartyMemberDisplay] = []
 var post_battle_position: Vector2
-var is_destroy_action: bool = false
 
 @export var enemies: Array[EnemyData]
 
@@ -33,13 +32,11 @@ var pending_attack: AttackData
 var pending_result: float
 var enemy_instances: Array[Dictionary] = []
 var pending_target
-var allow_destroy: bool = true
 var intro_conversation: DialogueConversation
 var is_tutorial_fight: bool = false
 
 func _ready() -> void:
 	action_menu.action_chosen.connect(_on_action_chosen)
-	action_menu.destroy_chosen.connect(_on_destroy_chosen)
 	target_menu.target_chosen.connect(_on_target_chosen)
 	
 	action_menu.clear()
@@ -50,7 +47,6 @@ func _ready() -> void:
 	if GameState.pending_encounter:
 		enemies = GameState.pending_encounter.enemies
 		# _set_background(GameState.pending_encounter.background)
-		allow_destroy = GameState.pending_encounter.allow_destroy
 		intro_conversation = GameState.pending_encounter.intro_conversation
 		is_tutorial_fight = GameState.pending_encounter.is_tutorial_fight
 		post_battle_position = GameState.pending_encounter.post_battle_position
@@ -76,7 +72,6 @@ func _ready() -> void:
 func _on_action_chosen(attack: AttackData) -> void:
 	action_menu.clear()
 	pending_attack = attack
-	is_destroy_action = false
 	if attack.target_type in ["all_enemies", "all_allies"]:
 		_enter_state(State.RHYTHM_CHALLENGE)
 	else:
@@ -90,19 +85,17 @@ func _enter_state(state: State) -> void:
 			_enter_state(State.PLAYER_MENU)
 			# until it has an intro animation to play, it just hands off to next state
 		State.PLAYER_MENU:
-			action_menu.display_moves(party[acting_member_index].moveset, _is_destroy_available())
+			action_menu.display_moves(party[acting_member_index].moveset)
 		State.TARGET_SELECT:
 			var candidates: Array
-			if is_destroy_action:
-				candidates = _get_eligible_destroy_targets()
-			elif pending_attack.target_type == "single_ally":
+			if pending_attack.target_type == "single_ally":
 				candidates = party.filter(func(member): return member.current_hp > 0)
 			else:
 				candidates = enemy_instances.filter(func(enemy): return enemy.current_hp > 0)
 			
 			if candidates.size() == 1:
 				pending_target = candidates[0]
-				_on_target_locked_in()
+				_enter_state(State.RHYTHM_CHALLENGE)
 			else:
 				target_menu.display_targets(candidates)
 		State.RHYTHM_CHALLENGE:
@@ -205,46 +198,8 @@ func _check_battle_end() -> void:
 func _on_target_chosen(target) -> void:
 	target_menu.clear()
 	pending_target = target
-	_on_target_locked_in()
-
-
-
-func _finish_enemy() -> void:
-	GameState.log_defeat(pending_target.data.enemy_name, "destroy", pending_target.data.zone_theme)
-	pending_target.current_hp = 0
-	print(pending_target.data.enemy_name, " was Destroyed!")
-	pending_target.display.visible = false
-	hud.refresh(party)
-	_after_resolve()
-
-func _is_destroy_available() -> bool:
-	if not allow_destroy:
-		return false
-	for enemy in enemy_instances:
-		if enemy.current_hp <= 0:
-			continue
-		var data: EnemyData = enemy.data
-		var ratio := float(enemy.current_hp) / data.max_hp
-		if ratio <= data.destroy_threshold:
-			return true
-	return false
+	_enter_state(State.RHYTHM_CHALLENGE)
 	
-func _get_eligible_destroy_targets() -> Array:
-	var eligible: Array = []
-	for enemy in enemy_instances:
-		if enemy.current_hp <= 0:
-			continue
-		var data: EnemyData = enemy.data
-		var ratio := float(enemy.current_hp) / data.max_hp
-		if ratio <= data.destroy_threshold:
-			eligible.append(enemy)
-	return eligible
-
-
-func _on_destroy_chosen() -> void:
-	action_menu.clear()
-	is_destroy_action = true
-	_enter_state(State.TARGET_SELECT)
 
 func _find_next_living_member(start_index: int) -> int:
 	var index := start_index
@@ -271,13 +226,6 @@ func _spawn_combatants() -> void:
 		display.setup(enemy_instances[i].data)
 		display.conductor = conductor
 		enemy_instances[i]["display"] = display
-
-func _is_destroy_available_for(enemy: Dictionary) -> bool:
-	if not allow_destroy:
-		return false
-	var data: EnemyData = enemy.data
-	var ratio := float(enemy.current_hp) / data.max_hp
-	return ratio <= data.destroy_threshold
 	
 func _set_background(texture: Texture2D) -> void:
 	pass
@@ -299,9 +247,3 @@ func _apply_damage_to_all_enemies(amount: int) -> void:
 		if enemy.current_hp <= 0:
 			continue
 		_apply_damage_to_target(enemy, amount)
-
-func _on_target_locked_in() -> void:
-	if is_destroy_action:
-		_finish_enemy()
-	else:
-		_enter_state(State.RHYTHM_CHALLENGE)
