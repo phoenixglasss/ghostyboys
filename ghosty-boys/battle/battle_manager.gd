@@ -135,9 +135,12 @@ func _resolve_action() -> void:
 	var amount := roundi(pending_attack.base_power * pending_result)
 	
 	if pending_attack.is_healing:
-		var target := pending_target as PartyMember
-		target.current_hp = min(target.current_hp + amount, target.max_hp)
-		print(target.member_name, " healed for ", amount, " -> ", target.current_hp, "/", target.max_hp)
+		if pending_attack.target_type == "all_allies":
+			_apply_healing_to_all_allies(amount)
+		else:
+			var target := pending_target as PartyMember
+			target.current_hp = min(target.current_hp + amount, target.max_hp)
+			print(target.member_name, " healed for ", amount, " -> ", target.current_hp, "/", target.max_hp)
 	elif pending_attack.target_type == "all_enemies":
 		_apply_damage_to_all_enemies(amount)
 	else:
@@ -247,3 +250,10 @@ func _apply_damage_to_all_enemies(amount: int) -> void:
 		if enemy.current_hp <= 0:
 			continue
 		_apply_damage_to_target(enemy, amount)
+
+func _apply_healing_to_all_allies(amount: int) -> void:
+	for member in party:
+		if member.current_hp <= 0:
+			continue
+		member.current_hp = min(member.current_hp + amount, member.max_hp)
+		print(member.member_name, " healed for ", amount, " -> ", member.current_hp, "/", member.max_hp)
