@@ -1,7 +1,7 @@
 extends Node2D
 class_name BattleManager
 
-enum State { INTRO, PLAYER_MENU, TARGET_SELECT, RHYTHM_CHALLENGE, RESOLVE, ENEMY_TURN, CHECK_END, VICTORY, DEFEAT }
+enum State { INTRO, PLAYER_MENU, TARGET_SELECT, RHYTHM_CHALLENGE, RESOLVE, ENEMY_TURN, CHECK_END, FINALE_CHALLENGE, VICTORY, DEFEAT }
 var current_state: State = State.INTRO
 
 const PartyMemberDisplayScene := preload("res://battle/party_member_display.tscn")
@@ -14,6 +14,9 @@ const FIRST_ROW_Y: float = 20.0
 
 var party_displays: Array[PartyMemberDisplay] = []
 var post_battle_position: Vector2
+var finale_triggered: bool = false
+var pending_finale_target: Dictionary
+var is_final_boss_victory: bool = false
 
 @export var enemies: Array[EnemyData]
 
@@ -56,6 +59,7 @@ func _ready() -> void:
 		post_battle_position = GameState.pending_encounter.post_battle_position
 		unlocks_scrapyard_gate = GameState.pending_encounter.unlocks_scrapyard_gate
 		victory_destination_scene = GameState.pending_encounter.victory_destination_scene
+		is_final_boss_victory = GameState.pending_encounter.is_final_boss_victory
 		GameState.pending_encounter = null
 	
 	if conductor:
@@ -125,13 +129,21 @@ func _enter_state(state: State) -> void:
 				GameState.return_position = post_battle_position
 			if unlocks_scrapyard_gate:
 				GameState.scrapyard_gate_won = true
+			if is_final_boss_victory:
+				GameState.final_boss_defeated = true
 			await get_tree().create_timer(1.0).timeout
 			if victory_destination_scene != "":
 				SceneTransition.fade_to_scene(victory_destination_scene)
 			else:
 				SceneTransition.return_to_overworld()
+		State.FINALE_CHALLENGE:
+			_run_finale()
 		State.DEFEAT:
 			print("Defeat... So sad.")
+			_reset_party_hp()
+			GameState.pending_trigger_id = ""
+			await get_tree().create_timer(1.0).timeout
+			SceneTransition.return_to_overworld()
 
 func _setup_enemies() -> void:
 	for i in enemies.size():
@@ -160,10 +172,14 @@ func _resolve_action() -> void:
 	hud.refresh(party)
 	
 func _after_resolve() -> void:
+	if finale_triggered:
+		_enter_state(State.FINALE_CHALLENGE)
+		return
+
 	if enemy_instances.all(func(enemy): return enemy.current_hp <= 0):
 		_enter_state(State.CHECK_END)
 		return
-	
+
 	var next_index := _find_next_living_member(acting_member_index + 1)
 	if next_index != -1:
 		acting_member_index = next_index
@@ -247,20 +263,23 @@ func _set_background(texture: Texture2D) -> void:
 		# background.texture = texture
 		# background.scale = Vector2(320.0 / texture.get_width(), 180.0 / texture.get_height())
 
-func _apply_damage_to_target(target:Dictionary, amount: int) -> void:
+func _apply_damage_to_target(target: Dictionary, amount: int) -> void:
+	if finale_triggered:
+		return
+	var data: EnemyData = target.data
 	target.current_hp = max(target.current_hp - amount, 0)
-	print(target.data.enemy_name, " took ", amount, " damage -> ", target.current_hp, "/", target.data.max_hp)
-	
+	print(data.enemy_name, " took ", amount, " damage -> ", target.current_hp, "/", data.max_hp)
+
+	if data.finale_threshold > 0 and not finale_triggered and target.current_hp <= data.finale_threshold:
+		finale_triggered = true
+		target.current_hp = data.finale_threshold
+		pending_finale_target = target
+		return
+
 	if target.current_hp <= 0:
-		GameState.log_defeat(target.data.enemy_name, "banish", target.data.zone_theme)
-		print(target.data.enemy_name, " was Banished!")
+		GameState.log_defeat(data.enemy_name, "banish", data.zone_theme)
+		print(data.enemy_name, " was Banished!")
 		target.display.visible = false
-		
-func _apply_damage_to_all_enemies(amount: int) -> void:
-	for enemy in enemy_instances:
-		if enemy.current_hp <= 0:
-			continue
-		_apply_damage_to_target(enemy, amount)
 
 func _apply_healing_to_all_allies(amount: int) -> void:
 	for member in party:
@@ -268,3 +287,29 @@ func _apply_healing_to_all_allies(amount: int) -> void:
 			continue
 		member.current_hp = min(member.current_hp + amount, member.max_hp)
 		print(member.member_name, " healed for ", amount, " -> ", member.current_hp, "/", member.max_hp)
+
+func _run_finale() -> void:
+	var target: Dictionary = pending_finale_target
+	var data: EnemyData = target.data
+
+	conductor.play_finale(data.finale_chart)
+	var finale_score: float = await conductor.chart_completed
+
+	if finale_score > 0.0:
+		_finish_finale_target(target)
+	else:
+		_enter_state(State.DEFEAT)
+
+
+func _finish_finale_target(target: Dictionary) -> void:
+	var data: EnemyData = target.data
+	target.current_hp = 0
+	GameState.log_defeat(data.enemy_name, "banish", data.zone_theme)
+	print(data.enemy_name, " was Banished!")
+	target.display.visible = false
+	hud.refresh(party)
+	_enter_state(State.CHECK_END)
+	
+func _reset_party_hp() -> void:
+	for member in party:
+		member.current_hp = member.max_hp

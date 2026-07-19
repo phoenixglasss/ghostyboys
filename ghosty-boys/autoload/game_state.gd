@@ -19,6 +19,8 @@ var dover_intro_played: bool = false
 var dave_banter_played: bool = false
 var scrapyard_gate_won: bool = false
 var tower_arrival_played: bool = false
+var boss_intro_played: bool = false
+var final_boss_defeated: bool = false
 
 func _ready() -> void:
 	party = [

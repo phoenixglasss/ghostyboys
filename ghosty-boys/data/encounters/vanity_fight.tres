@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EncounterData" format=3 uid="uid://be13e5qvhu41k"]
+
+[ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="1_rd35v"]
+[ext_resource type="Resource" uid="uid://dnvc4x2yf6ij8" path="res://data/enemies/tower/vanity.tres" id="2_6djnw"]
+[ext_resource type="Script" uid="uid://bvffv678mkbsd" path="res://battle/classes/encounter_data.gd" id="2_qvkgc"]
+
+[resource]
+script = ExtResource("2_qvkgc")
+encounter_name = "VanityFinal"
+enemies = Array[ExtResource("1_rd35v")]([ExtResource("2_6djnw")])
+is_final_boss_victory = true
+metadata/_custom_type_script = "uid://bvffv678mkbsd"

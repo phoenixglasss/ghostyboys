@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dnep2m58fwu8d"]
+
+[ext_resource type="Script" uid="uid://dpxnf848ye5h8" path="res://overworld/vanity_room_trigger.gd" id="1_va1bj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a5au"]
+size = Vector2(78, 20)
+
+[node name="VanityRoomTrigger" type="Area2D" unique_id=1385610787]
+script = ExtResource("1_va1bj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=532757564]
+position = Vector2(29, 0)
+shape = SubResource("RectangleShape2D_6a5au")

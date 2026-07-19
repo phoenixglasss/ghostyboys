@@ -9,3 +9,4 @@ class_name EncounterData
 @export var post_battle_position: Vector2
 @export var unlocks_scrapyard_gate: bool = false
 @export var victory_destination_scene: String = ""
+@export var is_final_boss_victory: bool = false

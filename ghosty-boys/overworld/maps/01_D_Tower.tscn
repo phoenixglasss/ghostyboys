@@ -21,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://kc7vim4w7wcx" path="res://overworld/encounter_trigger.tscn" id="19_l74aq"]
 [ext_resource type="Resource" uid="uid://tlfl71dkqftb" path="res://data/encounters/harpy_encounter.tres" id="20_mnahv"]
 [ext_resource type="Resource" uid="uid://dqhfa04y3xcjl" path="res://data/enemies/tower/harpy.tres" id="21_xm4po"]
+[ext_resource type="SpriteFrames" uid="uid://dh6v8awdoduet" path="res://art/characters/overworld/vanity/vanity_overworld.tres" id="22_xm4po"]
+[ext_resource type="PackedScene" uid="uid://dnep2m58fwu8d" path="res://overworld/vanity_room_trigger.tscn" id="23_fvaiv"]
+[ext_resource type="Resource" uid="uid://qyishnb2yps0" path="res://dialogue/tower/vanity_intro.tres" id="24_jyra0"]
+[ext_resource type="Resource" uid="uid://be13e5qvhu41k" path="res://data/encounters/vanity_fight.tres" id="25_esqev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc7r7"]
 size = Vector2(28.195, 24.41)
@@ -36,6 +40,8 @@ size = Vector2(16.385, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jsb8"]
 radius = 24.083189
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6a5au"]
 
 [node name="Tower" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
@@ -215,16 +221,16 @@ shape = SubResource("CircleShape2D_1jsb8")
 
 [node name="Mel" parent="." unique_id=2027066497 node_paths=PackedStringArray("leader") instance=ExtResource("12_jyra0")]
 y_sort_enabled = true
-position = Vector2(273, 557)
+position = Vector2(424, 214)
 leader = NodePath("../Player")
 
 [node name="Jackal" parent="." unique_id=384938334 node_paths=PackedStringArray("leader") instance=ExtResource("13_esqev")]
 y_sort_enabled = true
-position = Vector2(252, 557)
+position = Vector2(403, 214)
 leader = NodePath("../Mel")
 
 [node name="Player" parent="." unique_id=594011378 groups=["player"] instance=ExtResource("14_jxpvr")]
-position = Vector2(293, 556)
+position = Vector2(444, 213)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1418221472 node_paths=PackedStringArray("player")]
 limit_left = 0
@@ -269,3 +275,19 @@ position = Vector2(142, 398)
 encounter = ExtResource("20_mnahv")
 display_data = ExtResource("21_xm4po")
 trigger_id = "harpy_4"
+
+[node name="VanityOverworld" type="AnimatedSprite2D" parent="." unique_id=2016332758]
+position = Vector2(342, 124)
+sprite_frames = ExtResource("22_xm4po")
+animation = &"idle_down"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="VanityOverworld" unique_id=583678032]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VanityOverworld/StaticBody2D" unique_id=2032656660]
+position = Vector2(-2, 0)
+shape = SubResource("CapsuleShape2D_6a5au")
+
+[node name="VanityRoomTrigger" parent="." unique_id=1385610787 instance=ExtResource("23_fvaiv")]
+position = Vector2(390, 120)
+intro_conversation = ExtResource("24_jyra0")
+boss_encounter = ExtResource("25_esqev")
