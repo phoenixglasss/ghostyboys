@@ -13,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="5_vb587"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="7_jnrag"]
 [ext_resource type="Script" uid="uid://bw6idhw8ds4ax" path="res://overworld/town_story_triggers.gd" id="13_2c6k4"]
+[ext_resource type="PackedScene" uid="uid://kc7vim4w7wcx" path="res://overworld/encounter_trigger.tscn" id="14_sk2bq"]
+[ext_resource type="Resource" uid="uid://c386u4hwoyllt" path="res://data/encounters/town_wandering_1.tres" id="15_xw8xf"]
+[ext_resource type="Resource" uid="uid://dm6wfq5g0xxwd" path="res://data/enemies/melty_man.tres" id="16_b07qm"]
+[ext_resource type="Resource" uid="uid://cowrfp11gime0" path="res://data/encounters/town_wandering_dos.tres" id="17_b07qm"]
+[ext_resource type="Resource" uid="uid://ceilgxrh084s6" path="res://data/enemies/melty_caster.tres" id="18_ix1oe"]
+[ext_resource type="PackedScene" uid="uid://dog83l13ls4li" path="res://overworld/office_door.tscn" id="19_ix1oe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(14, 4)
@@ -87,13 +93,16 @@ color = Color(0.84, 0.84, 0.84, 0.6431373)
 texture = ExtResource("4_vb587")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Environment" unique_id=150264470]
+y_sort_enabled = true
 position = Vector2(208, 424)
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D" unique_id=948800224]
+y_sort_enabled = true
 position = Vector2(0, -37)
 texture = ExtResource("3_hg5lp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D" unique_id=1585384901]
+y_sort_enabled = true
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_1jsb8")
 
@@ -105,13 +114,16 @@ texture = ExtResource("4_vb587")
 [node name="Sprite2D2" type="Sprite2D" parent="Environment/StaticBody2D" unique_id=1089659143]
 modulate = Color(1, 1, 1, 0.52156866)
 z_index = -1
+y_sort_enabled = true
 position = Vector2(0, -2.940155)
 texture = ExtResource("5_2khfc")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Environment" unique_id=861418664]
+y_sort_enabled = true
 position = Vector2(112, 448)
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D2" unique_id=1088431438]
+y_sort_enabled = true
 position = Vector2(0, -37)
 texture = ExtResource("3_hg5lp")
 
@@ -127,6 +139,7 @@ texture = ExtResource("4_vb587")
 [node name="Sprite2D2" type="Sprite2D" parent="Environment/StaticBody2D2" unique_id=265904005]
 modulate = Color(1, 1, 1, 0.52156866)
 z_index = -1
+y_sort_enabled = true
 position = Vector2(0, -2.940155)
 texture = ExtResource("5_2khfc")
 
@@ -217,3 +230,20 @@ flip_h = true
 [node name="StoryTriggers" type="Node" parent="." unique_id=106706015 node_paths=PackedStringArray("player")]
 script = ExtResource("13_2c6k4")
 player = NodePath("../Node2D/Player")
+
+[node name="EncounterTrigger" parent="." unique_id=617777993 instance=ExtResource("14_sk2bq")]
+y_sort_enabled = true
+position = Vector2(137, 416)
+encounter = ExtResource("15_xw8xf")
+display_data = ExtResource("16_b07qm")
+trigger_id = "town_wander_1"
+
+[node name="EncounterTrigger2" parent="." unique_id=172930791 instance=ExtResource("14_sk2bq")]
+position = Vector2(205, 288)
+encounter = ExtResource("17_b07qm")
+display_data = ExtResource("18_ix1oe")
+trigger_id = "town_wandering_dos"
+
+[node name="OfficeDoor" parent="." unique_id=806618376 instance=ExtResource("19_ix1oe")]
+position = Vector2(56, 369)
+destination_scene = "res://overworld/maps/01_B_Office.tscn"

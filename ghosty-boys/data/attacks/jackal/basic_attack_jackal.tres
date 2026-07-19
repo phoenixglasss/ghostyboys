@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://bpwu3wng28ypa"]
 
 [ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_h2ljv"]
+[ext_resource type="Resource" uid="uid://iyklrojkktvn" path="res://rhythm_game/charts/attack.tres" id="1_qfcpg"]
 
 [resource]
 script = ExtResource("1_h2ljv")
 attack_name = "Attack"
 base_power = 10
 target_type = "single_enemy"
+chart = ExtResource("1_qfcpg")
 metadata/_custom_type_script = "uid://cmvjae453yh3n"

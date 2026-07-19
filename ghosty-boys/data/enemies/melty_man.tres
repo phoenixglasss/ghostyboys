@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_lo3q1"]
 [ext_resource type="Resource" uid="uid://bs78kl3mxn62n" path="res://data/attacks/punch.tres" id="2_ch0up"]
 [ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="3_7122p"]
+[ext_resource type="SpriteFrames" uid="uid://d2t3lq5dadv3x" path="res://art/characters/overworld/melty_man/melty_man_overworld.tres" id="3_ch0up"]
 [ext_resource type="SpriteFrames" uid="uid://b5hf2be0eelj1" path="res://art/characters/battle/melty_man/melty_man_battle.tres" id="4_lo3q1"]
 
 [resource]
@@ -12,4 +13,5 @@ max_hp = 10
 zone_theme = "bar"
 moveset = Array[ExtResource("1_lo3q1")]([ExtResource("2_ch0up")])
 sprite_frames = ExtResource("4_lo3q1")
+overworld_sprite_frames = ExtResource("3_ch0up")
 metadata/_custom_type_script = "uid://c8l3sswhp6clc"
