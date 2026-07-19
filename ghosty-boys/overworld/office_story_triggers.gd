@@ -11,7 +11,14 @@ func _ready() -> void:
 		player.global_position = GameState.return_position
 		GameState.apply_return_position = false
 
+	_check_story_dialogue()
 	_check_party_followers()
+
+
+func _check_story_dialogue() -> void:
+	if not GameState.dover_intro_played:
+		DialogueBox.start_conversation(load("res://dialogue/office/dover_intro.tres"))
+		GameState.dover_intro_played = true
 
 
 func _check_party_followers() -> void:

@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="12_7l8uh"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="13_qf4sj"]
 [ext_resource type="Script" uid="uid://de3gtcty74lcp" path="res://overworld/office_story_triggers.gd" id="16_wjp0t"]
+[ext_resource type="SpriteFrames" uid="uid://co3awxm35i2ti" path="res://art/characters/overworld/dover/dover.tres" id="17_hm53j"]
+[ext_resource type="SpriteFrames" uid="uid://cd5h3o3yfj8qb" path="res://art/characters/overworld/misc_npc/npc1_overworld.tres" id="18_ebkg1"]
+[ext_resource type="PackedScene" uid="uid://dfn1hlmf434fo" path="res://overworld/interactable/interactable.tscn" id="18_l1nk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llwnh"]
 size = Vector2(28, 9)
@@ -31,6 +34,10 @@ size = Vector2(14, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qf4sj"]
 size = Vector2(32, 12)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6a5au"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3xs8e"]
 
 [node name="01ABar" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
@@ -212,3 +219,37 @@ player = NodePath("../Player")
 [node name="OfficeStoryTriggers" type="Node" parent="." unique_id=847640130 node_paths=PackedStringArray("player")]
 script = ExtResource("16_wjp0t")
 player = NodePath("../Player")
+
+[node name="Dover" type="AnimatedSprite2D" parent="." unique_id=472931299]
+y_sort_enabled = true
+position = Vector2(152, 198)
+sprite_frames = ExtResource("17_hm53j")
+animation = &"idle_down"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Dover" unique_id=141402964]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dover/StaticBody2D" unique_id=622277545]
+y_sort_enabled = true
+position = Vector2(0, 8.999999)
+scale = Vector2(1, 0.7199975)
+shape = SubResource("CapsuleShape2D_6a5au")
+
+[node name="Interactable" parent="Dover" unique_id=1231168211 instance=ExtResource("18_l1nk6")]
+position = Vector2(0, 9)
+
+[node name="OfficeNPC1" type="AnimatedSprite2D" parent="." unique_id=1527568793]
+y_sort_enabled = true
+position = Vector2(82, 171)
+sprite_frames = ExtResource("18_ebkg1")
+animation = &"idle_down"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OfficeNPC1" unique_id=816268214]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeNPC1" unique_id=1953708313]
+position = Vector2(0, 4)
+scale = Vector2(0.56, 0.32)
+shape = SubResource("CapsuleShape2D_3xs8e")
+
+[node name="Interactable" parent="OfficeNPC1" unique_id=573232114 instance=ExtResource("18_l1nk6")]
+position = Vector2(1, 8)
