@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="11_puvi8"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="12_7l8uh"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="13_qf4sj"]
+[ext_resource type="Script" uid="uid://de3gtcty74lcp" path="res://overworld/office_story_triggers.gd" id="16_wjp0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llwnh"]
 size = Vector2(28, 9)
@@ -206,4 +207,8 @@ limit_top = 0
 limit_right = 320
 limit_bottom = 320
 script = ExtResource("13_qf4sj")
+player = NodePath("../Player")
+
+[node name="OfficeStoryTriggers" type="Node" parent="." unique_id=847640130 node_paths=PackedStringArray("player")]
+script = ExtResource("16_wjp0t")
 player = NodePath("../Player")

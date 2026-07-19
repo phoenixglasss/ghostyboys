@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dog83l13ls4li"]
+
+[ext_resource type="Script" uid="uid://dhmpe16nb6gsw" path="res://overworld/office_door.gd" id="1_wthym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a5au"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xs8e"]
+
+[node name="OfficeDoor" type="Area2D" unique_id=806618376]
+script = ExtResource("1_wthym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1834864937]
+scale = Vector2(1.6000011, 1.8399991)
+shape = SubResource("RectangleShape2D_6a5au")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=296308869]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=298846617]
+shape = SubResource("RectangleShape2D_3xs8e")
