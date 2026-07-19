@@ -18,6 +18,7 @@ var mel_survivors_suggestion_played: bool = false
 var dover_intro_played: bool = false
 var dave_banter_played: bool = false
 var scrapyard_gate_won: bool = false
+var tower_arrival_played: bool = false
 
 func _ready() -> void:
 	party = [

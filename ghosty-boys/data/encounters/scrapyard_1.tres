@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EncounterData" format=3 uid="uid://bbwar6t8ckkv"]
+
+[ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="1_4e5ug"]
+[ext_resource type="Script" uid="uid://bvffv678mkbsd" path="res://battle/classes/encounter_data.gd" id="2_4qwk5"]
+[ext_resource type="Resource" uid="uid://ceilgxrh084s6" path="res://data/enemies/melty_caster.tres" id="2_yekky"]
+[ext_resource type="Resource" uid="uid://dm6wfq5g0xxwd" path="res://data/enemies/melty_man.tres" id="3_h3wus"]
+
+[resource]
+script = ExtResource("2_4qwk5")
+encounter_name = "Scrapyard 1"
+enemies = Array[ExtResource("1_4e5ug")]([ExtResource("2_yekky"), ExtResource("3_h3wus")])
+metadata/_custom_type_script = "uid://bvffv678mkbsd"
