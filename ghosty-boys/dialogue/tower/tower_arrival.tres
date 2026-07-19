@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://cjmkq74kvnssf"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_lefj1"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_h8yw0"]
+[ext_resource type="Texture2D" uid="uid://ba4r0h2itoay6" path="res://art/portraits/daisy_portrait.png" id="2_o8m14"]
+[ext_resource type="Texture2D" uid="uid://85bxmm11fx8a" path="res://art/portraits/jackal_portrait.png" id="3_vcf6d"]
+[ext_resource type="Texture2D" uid="uid://c0nwmag75d5b4" path="res://art/portraits/mel_portrait.png" id="4_cmvt6"]
+
+[sub_resource type="Resource" id="Resource_ghxvw"]
+script = ExtResource("1_lefj1")
+speaker_name = "Daisy"
+portrait = ExtResource("2_o8m14")
+text = "We made it. This is the tower."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_ntfb2"]
+script = ExtResource("1_lefj1")
+speaker_name = "Jackal"
+portrait = ExtResource("3_vcf6d")
+text = "Nice digs. I wonder if this demon is looking for a roommate. "
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_lq2cg"]
+script = ExtResource("1_lefj1")
+speaker_name = "Mel"
+portrait = ExtResource("4_cmvt6")
+text = "Something tells me you wouldn't be the right fit."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_a111w"]
+script = ExtResource("1_lefj1")
+speaker_name = "Jackal"
+portrait = ExtResource("3_vcf6d")
+text = "Yeah, you're probably right. I mean, look at those carpets!"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_i1ums"]
+script = ExtResource("1_lefj1")
+speaker_name = "Jackal"
+portrait = ExtResource("3_vcf6d")
+text = "She'd probably be the type to make me take my muddy shoes off before I come inside."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_uh8qr"]
+script = ExtResource("1_lefj1")
+speaker_name = "Jackal"
+portrait = ExtResource("3_vcf6d")
+text = "I simply cannot abide by that."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_xsrly"]
+script = ExtResource("1_lefj1")
+speaker_name = "Mel"
+portrait = ExtResource("4_cmvt6")
+text = "Roommate plans canceled, then. You ready for this?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_o8m14"]
+script = ExtResource("1_lefj1")
+speaker_name = "Daisy"
+portrait = ExtResource("2_o8m14")
+text = "I'm a bit nervous, actually. This place feels weird."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_vcf6d"]
+script = ExtResource("1_lefj1")
+speaker_name = "Mel"
+portrait = ExtResource("4_cmvt6")
+text = "It's been sucking this town of life energy. What you're feeling is that wrongness."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_cmvt6"]
+script = ExtResource("1_lefj1")
+speaker_name = "Jackal"
+portrait = ExtResource("3_vcf6d")
+text = "You're gonna do just fine, kid."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_4pgcf"]
+script = ExtResource("1_lefj1")
+speaker_name = "Jackal"
+portrait = ExtResource("3_vcf6d")
+text = "Hell, you haven't died yet, right?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_6pe23"]
+script = ExtResource("1_lefj1")
+speaker_name = "Daisy"
+portrait = ExtResource("2_o8m14")
+text = "Thanks for the... pep... talk?"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_fchpy"]
+script = ExtResource("1_lefj1")
+speaker_name = "Jackal"
+portrait = ExtResource("3_vcf6d")
+text = "I'm a fantastic cheerleader, if I do say so myself!"
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_n6u7j"]
+script = ExtResource("1_lefj1")
+speaker_name = "Mel"
+portrait = ExtResource("4_cmvt6")
+text = "We're going to run into actual demons here. Her servants and guards will be running around."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_h8yw0")
+lines = Array[ExtResource("1_lefj1")]([SubResource("Resource_ghxvw"), SubResource("Resource_ntfb2"), SubResource("Resource_lq2cg"), SubResource("Resource_a111w"), SubResource("Resource_i1ums"), SubResource("Resource_uh8qr"), SubResource("Resource_xsrly"), SubResource("Resource_o8m14"), SubResource("Resource_vcf6d"), SubResource("Resource_cmvt6"), SubResource("Resource_4pgcf"), SubResource("Resource_6pe23"), SubResource("Resource_fchpy"), SubResource("Resource_n6u7j")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

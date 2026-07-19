@@ -20,6 +20,8 @@ var note_item = preload("res://rhythm_game/scenes/note_item.tscn")
 @export var is_finale : bool = false
 @export var start_beat_override : float = -1.0
 
+@export var attack_name : String = ""
+
 signal note_resolved(rating : int)
 
 var rating_total : int
@@ -41,7 +43,6 @@ func _ready() -> void:
 	else:
 		var earliest : float = conductor.get_song_position() + minimum_lead_beats
 		start_beat = ceil(earliest / 4.0) * 4.0
-	
 	
 
 	# set the initial scroll offset BEFORE notes exist
@@ -133,7 +134,7 @@ func _play_my_audio() -> void:
 		conductor.finale_player.play(overshoot_sec)   # seek in, don't start at 0
 		conductor.audio_player.volume_db = -80.0
 	else:
-		conductor.action_player.stream = my_chart.audio
+		conductor.action_player.stream = conductor.get_attack_sound(attack_name)
 		conductor.action_player.play(overshoot_sec)
 	
 func _complete_chart() -> void:

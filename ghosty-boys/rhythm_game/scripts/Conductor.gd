@@ -19,6 +19,8 @@ var raw_beat : float = 0.0
 @export var battle_manager : BattleManager
 var chart_layer : CanvasLayer
 
+@export var current_bgm : BGM
+
 var chart_display : PackedScene = preload("res://rhythm_game/scenes/chart_display.tscn")
 
 signal chart_completed(score : float)
@@ -94,9 +96,10 @@ func _get_song_length_in_beats(stream : AudioStream) -> int:
 		push_warning("Loop isn't a whole number of beats (%.3f) — trim the audio file." % beats)
 	return rounded
 	
-func play_chart(chart_to_play : Chart) -> void:
+func play_chart(attack : AttackData) -> void:
 	var new_chart_display : ChartDisplay = chart_display.instantiate()
-	new_chart_display.my_chart = chart_to_play
+	new_chart_display.my_chart = attack.chart
+	new_chart_display.attack_name = attack.attack_name
 	new_chart_display.position.y = 0
 	chart_layer.add_child(new_chart_display)
 	new_chart_display.z_index += 100
@@ -154,3 +157,9 @@ func _on_finale_note_resolved(rating : int) -> void:
 	finale_health_changed.emit(finale_health, finale_max_health)
 	if finale_health <= 0.0:
 		finale_player_died.emit()
+		
+func get_attack_sound(attack_name : String) -> AudioStream:
+	if current_bgm and current_bgm.attack_sounds.has(attack_name):
+		return current_bgm.attack_sounds[attack_name]
+	push_warning("No attack sound for '%s' on current BGM" % attack_name)
+	return null

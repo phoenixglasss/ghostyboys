@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Chart" format=3 uid="uid://dfb3ne6ga5d5a"]
+
+[ext_resource type="AudioStream" uid="uid://bngsioa33f5uv" path="res://audio/battle_sounds/basic_battle/basic_battle_lightning_storm.ogg" id="1_07tss"]
+[ext_resource type="Script" uid="uid://b50ngybjhb1ux" path="res://rhythm_game/scripts/note_data.gd" id="1_7xp6d"]
+[ext_resource type="Script" uid="uid://0q7tw24newak" path="res://rhythm_game/scripts/Chart.gd" id="2_07tss"]
+
+[sub_resource type="Resource" id="Resource_emx4i"]
+script = ExtResource("1_7xp6d")
+
+[sub_resource type="Resource" id="Resource_6xslr"]
+script = ExtResource("1_7xp6d")
+beat = 0.5
+lane = 2
+
+[sub_resource type="Resource" id="Resource_k3o6g"]
+script = ExtResource("1_7xp6d")
+beat = 1.0
+lane = 1
+
+[sub_resource type="Resource" id="Resource_0dvl1"]
+script = ExtResource("1_7xp6d")
+beat = 1.5
+lane = 2
+
+[sub_resource type="Resource" id="Resource_kygj5"]
+script = ExtResource("1_7xp6d")
+beat = 2.0
+lane = 3
+
+[sub_resource type="Resource" id="Resource_j8y4k"]
+script = ExtResource("1_7xp6d")
+beat = 2.5
+lane = 2
+
+[sub_resource type="Resource" id="Resource_g4inr"]
+script = ExtResource("1_7xp6d")
+beat = 3.0
+lane = 1
+
+[sub_resource type="Resource" id="Resource_uhow5"]
+script = ExtResource("1_7xp6d")
+beat = 3.5
+lane = 2
+
+[resource]
+script = ExtResource("2_07tss")
+parser_string = "1000
+0010
+0100
+0010
+0001
+0010
+0100
+0010"
+audio = ExtResource("1_07tss")
+notes = Array[ExtResource("1_7xp6d")]([SubResource("Resource_emx4i"), SubResource("Resource_6xslr"), SubResource("Resource_k3o6g"), SubResource("Resource_0dvl1"), SubResource("Resource_kygj5"), SubResource("Resource_j8y4k"), SubResource("Resource_g4inr"), SubResource("Resource_uhow5")])
+metadata/_custom_type_script = "uid://0q7tw24newak"

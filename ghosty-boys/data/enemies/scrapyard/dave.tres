@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_v1e7i"]
 [ext_resource type="Resource" uid="uid://d2wovpvg38pbc" path="res://data/attacks/enemies/powerful_enemy_attack.tres" id="2_djhow"]
 [ext_resource type="Script" uid="uid://c8l3sswhp6clc" path="res://battle/classes/enemy_data.gd" id="2_klrsg"]
+[ext_resource type="SpriteFrames" uid="uid://buhh5ha8mfvwo" path="res://art/characters/overworld/dave/dave_overworld.tres" id="3_djhow"]
+[ext_resource type="SpriteFrames" uid="uid://b26ru344lc5q1" path="res://art/characters/battle/dave/dave_battle.tres" id="5_of41h"]
 
 [resource]
 script = ExtResource("2_klrsg")
@@ -10,4 +12,6 @@ enemy_name = "Dave"
 max_hp = 67
 zone_theme = "scrapyard"
 moveset = Array[ExtResource("1_v1e7i")]([ExtResource("2_djhow")])
+sprite_frames = ExtResource("5_of41h")
+overworld_sprite_frames = ExtResource("3_djhow")
 metadata/_custom_type_script = "uid://c8l3sswhp6clc"

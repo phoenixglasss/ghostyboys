@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Chart" format=3 uid="uid://bnb3tkmq4wo23"]
+
+[ext_resource type="AudioStream" uid="uid://cc0u11mchwv6h" path="res://audio/battle_sounds/basic_battle/basic_battle_flurry_of_fists.ogg" id="1_3f2o6"]
+[ext_resource type="Script" uid="uid://b50ngybjhb1ux" path="res://rhythm_game/scripts/note_data.gd" id="1_ynoym"]
+[ext_resource type="Script" uid="uid://0q7tw24newak" path="res://rhythm_game/scripts/Chart.gd" id="2_3f2o6"]
+
+[sub_resource type="Resource" id="Resource_ynoym"]
+script = ExtResource("1_ynoym")
+lane = 3
+
+[sub_resource type="Resource" id="Resource_3f2o6"]
+script = ExtResource("1_ynoym")
+beat = 0.5
+
+[sub_resource type="Resource" id="Resource_ldpif"]
+script = ExtResource("1_ynoym")
+beat = 1.0
+lane = 3
+
+[sub_resource type="Resource" id="Resource_1fqy2"]
+script = ExtResource("1_ynoym")
+beat = 1.25
+lane = 2
+
+[sub_resource type="Resource" id="Resource_yy53s"]
+script = ExtResource("1_ynoym")
+beat = 1.75
+lane = 1
+
+[resource]
+script = ExtResource("2_3f2o6")
+parser_string = "0001
+0000
+1000
+0000
+0001
+0010
+0000
+0100
+0000
+0000
+0000
+0000
+0000
+0000
+0000
+0000"
+audio = ExtResource("1_3f2o6")
+notes = Array[ExtResource("1_ynoym")]([SubResource("Resource_ynoym"), SubResource("Resource_3f2o6"), SubResource("Resource_ldpif"), SubResource("Resource_1fqy2"), SubResource("Resource_yy53s")])
+metadata/_custom_type_script = "uid://0q7tw24newak"
