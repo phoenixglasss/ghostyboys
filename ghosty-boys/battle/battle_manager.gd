@@ -46,6 +46,8 @@ func _ready() -> void:
 	
 	party = GameState.party
 	
+	conductor.current_bgm = bgm
+	
 	if GameState.pending_encounter:
 		enemies = GameState.pending_encounter.enemies
 		# _set_background(GameState.pending_encounter.background)
@@ -103,7 +105,7 @@ func _enter_state(state: State) -> void:
 			else:
 				target_menu.display_targets(candidates)
 		State.RHYTHM_CHALLENGE:
-			conductor.play_chart(pending_attack.chart)
+			conductor.play_chart(pending_attack)
 			pending_result = await conductor.chart_completed
 			_enter_state(State.RESOLVE)
 		State.RESOLVE:

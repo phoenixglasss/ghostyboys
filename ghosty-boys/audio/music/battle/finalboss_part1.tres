@@ -1,10 +1,26 @@
 [gd_resource type="Resource" script_class="BGM" format=3 uid="uid://dwg4iiyced5ok"]
 
+[ext_resource type="AudioStream" uid="uid://xswbp50wnbr7" path="res://audio/battle_sounds/vanity/vanity_basic_attack.ogg" id="1_hunsa"]
 [ext_resource type="AudioStream" uid="uid://bubodlqtm58vf" path="res://audio/music/battle/finalboss_part1.ogg" id="1_px18v"]
+[ext_resource type="AudioStream" uid="uid://b7eojcm7vp24u" path="res://audio/battle_sounds/vanity/vanity_lightning_storm.ogg" id="2_1gdu4"]
 [ext_resource type="Script" uid="uid://dia02j37xesfm" path="res://rhythm_game/scripts/bgm.gd" id="2_kf78f"]
+[ext_resource type="AudioStream" uid="uid://bkpw5xcfu10si" path="res://audio/battle_sounds/vanity/vanity_zap_attack.ogg" id="3_yxux5"]
+[ext_resource type="AudioStream" uid="uid://dwhw6gloeyrj" path="res://audio/battle_sounds/vanity/vanity_get_well_soon.ogg" id="4_xmhul"]
+[ext_resource type="AudioStream" uid="uid://clk8wd6hm2aqi" path="res://audio/battle_sounds/vanity/vanity_group_heal.ogg" id="5_odhkk"]
+[ext_resource type="AudioStream" uid="uid://c0ddytklvivc2" path="res://audio/battle_sounds/vanity/vanity_flurry_of_fists.ogg" id="6_5eymx"]
+[ext_resource type="AudioStream" uid="uid://dk15a0fse14p6" path="res://audio/battle_sounds/vanity/vanity_demon_punch.ogg" id="7_3e7qo"]
 
 [resource]
 script = ExtResource("2_kf78f")
 audio = ExtResource("1_px18v")
 bpm = 195.0
+attack_sounds = Dictionary[String, AudioStream]({
+"Attack": ExtResource("1_hunsa"),
+"Flurry of Fists": ExtResource("6_5eymx"),
+"Get Well Soon": ExtResource("4_xmhul"),
+"Group Heal": ExtResource("5_odhkk"),
+"Lightning Storm": ExtResource("2_1gdu4"),
+"Unholy Punch": ExtResource("7_3e7qo"),
+"Zap": ExtResource("3_yxux5")
+})
 metadata/_custom_type_script = "uid://dia02j37xesfm"

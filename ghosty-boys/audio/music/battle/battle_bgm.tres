@@ -1,9 +1,24 @@
 [gd_resource type="Resource" script_class="BGM" format=3 uid="uid://buf55hg20quf"]
 
+[ext_resource type="AudioStream" uid="uid://diy3xp4yeljwd" path="res://audio/battle_sounds/basic_battle/basic_battle_attack.ogg" id="1_txvda"]
 [ext_resource type="AudioStream" uid="uid://cy4yalu7svj6o" path="res://audio/music/battle/battle_bgm.ogg" id="1_y8iev"]
 [ext_resource type="Script" uid="uid://dia02j37xesfm" path="res://rhythm_game/scripts/bgm.gd" id="2_8aaek"]
+[ext_resource type="AudioStream" uid="uid://bngsioa33f5uv" path="res://audio/battle_sounds/basic_battle/basic_battle_lightning_storm.ogg" id="2_nkib5"]
+[ext_resource type="AudioStream" uid="uid://il4tehpb38o3" path="res://audio/battle_sounds/basic_battle/basic_battle_zap_attack.ogg" id="3_kh62g"]
+[ext_resource type="AudioStream" uid="uid://c6mfy4ogxypot" path="res://audio/battle_sounds/basic_battle/basic_battle_get_well_soon.ogg" id="4_m55bd"]
+[ext_resource type="AudioStream" uid="uid://dm7yqrkbr5if6" path="res://audio/battle_sounds/basic_battle/basic_battle_group_heal.ogg" id="5_nrqrh"]
+[ext_resource type="AudioStream" uid="uid://cc0u11mchwv6h" path="res://audio/battle_sounds/basic_battle/basic_battle_flurry_of_fists.ogg" id="6_m55bd"]
+[ext_resource type="AudioStream" uid="uid://bt87f7vard2n5" path="res://audio/battle_sounds/basic_battle/basic_battle_demon_punch.ogg" id="7_nrqrh"]
 
 [resource]
 script = ExtResource("2_8aaek")
-bpm = 137.0
+attack_sounds = Dictionary[String, AudioStream]({
+"Attack": ExtResource("1_txvda"),
+"Flurry of Fists": ExtResource("6_m55bd"),
+"Get Well Soon": ExtResource("4_m55bd"),
+"Group Heal": ExtResource("5_nrqrh"),
+"Lightning Storm": ExtResource("2_nkib5"),
+"Unholy Punch": ExtResource("7_nrqrh"),
+"Zap": ExtResource("3_kh62g")
+})
 metadata/_custom_type_script = "uid://dia02j37xesfm"
