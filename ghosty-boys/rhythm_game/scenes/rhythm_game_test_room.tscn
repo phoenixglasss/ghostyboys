@@ -5,9 +5,9 @@
 [ext_resource type="Resource" uid="uid://dwg4iiyced5ok" path="res://audio/music/battle/finalboss_part1.tres" id="2_fjlxg"]
 [ext_resource type="AudioStream" uid="uid://bubodlqtm58vf" path="res://audio/music/battle/finalboss_part1.ogg" id="2_qnuma"]
 [ext_resource type="Script" uid="uid://1unjoemnyvgb" path="res://rhythm_game/scripts/chart_debug_button.gd" id="4_hw0jn"]
-[ext_resource type="Resource" uid="uid://iyklrojkktvn" path="res://rhythm_game/charts/battle_charts/attack.tres" id="4_qnuma"]
-[ext_resource type="Resource" uid="uid://umdv83j48ki5" path="res://rhythm_game/charts/4_note.tres" id="4_yyu3g"]
-[ext_resource type="Resource" uid="uid://g0tuablnhd3k" path="res://rhythm_game/charts/2_note_hold.tres" id="5_qnuma"]
+[ext_resource type="Resource" uid="uid://c28t3bixxmcb2" path="res://data/attacks/daisy/basic_attack.tres" id="6_u1hdt"]
+[ext_resource type="Resource" uid="uid://cupip64hmxa6u" path="res://data/attacks/jackal/get_well_soon.tres" id="7_ftqnf"]
+[ext_resource type="Resource" uid="uid://cfd5iqik0ky4p" path="res://data/attacks/mel/fist_flurry.tres" id="8_nm75u"]
 [ext_resource type="Script" uid="uid://oleyyqmuufoh" path="res://rhythm_game/scripts/finale_debug_button.gd" id="9_n16sm"]
 [ext_resource type="Resource" uid="uid://qauoshdw7xjh" path="res://rhythm_game/charts/vanity_finale.tres" id="10_ftqnf"]
 [ext_resource type="Resource" uid="uid://ncwh8u8rpjrj" path="res://audio/music/battle/finalboss_part2.tres" id="11_nm75u"]
@@ -16,6 +16,8 @@
 [sub_resource type="Theme" id="Theme_o2s18"]
 default_font_size = 7
 
+[sub_resource type="Theme" id="Theme_nm75u"]
+
 [node name="Node2D" type="Node2D" unique_id=2046574851]
 script = ExtResource("1_o2s18")
 bgm = ExtResource("2_fjlxg")
@@ -23,6 +25,7 @@ bgm = ExtResource("2_fjlxg")
 [node name="Conductor" parent="." unique_id=579423608 instance=ExtResource("1_yyu3g")]
 bpm = 195.0
 bgm_file = ExtResource("2_qnuma")
+current_bgm = ExtResource("2_fjlxg")
 
 [node name="UI Nodes" type="CanvasLayer" parent="." unique_id=428757032]
 
@@ -47,7 +50,7 @@ offset_bottom = -8.0
 grow_vertical = 0
 text = "Attack"
 script = ExtResource("4_hw0jn")
-chart = ExtResource("4_qnuma")
+attack = ExtResource("6_u1hdt")
 conductor = NodePath("../../../Conductor")
 
 [node name="Button2" type="Button" parent="UI Nodes/Debug UI" unique_id=2074592713 node_paths=PackedStringArray("conductor")]
@@ -60,9 +63,9 @@ offset_top = -27.0
 offset_right = 144.0
 offset_bottom = -8.0
 grow_vertical = 0
-text = "2 Note Hold"
+text = "Get Well Soon"
 script = ExtResource("4_hw0jn")
-chart = ExtResource("5_qnuma")
+attack = ExtResource("7_ftqnf")
 conductor = NodePath("../../../Conductor")
 
 [node name="Button3" type="Button" parent="UI Nodes/Debug UI" unique_id=1427917813 node_paths=PackedStringArray("conductor")]
@@ -75,9 +78,9 @@ offset_top = -27.0
 offset_right = 217.0
 offset_bottom = -8.0
 grow_vertical = 0
-text = "4 Note Sequence"
+text = "Fist Flurry"
 script = ExtResource("4_hw0jn")
-chart = ExtResource("4_yyu3g")
+attack = ExtResource("8_nm75u")
 conductor = NodePath("../../../Conductor")
 
 [node name="Button4" type="Button" parent="UI Nodes/Debug UI" unique_id=1824810020 node_paths=PackedStringArray("conductor")]
@@ -100,17 +103,19 @@ conductor = NodePath("../../../Conductor")
 layer = 5
 
 [node name="FinaleHealthBar" type="ProgressBar" parent="ChartLayer" unique_id=1611390827 node_paths=PackedStringArray("conductor")]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -9.0
-offset_right = 80.0
-offset_bottom = 7.0
+offset_left = -152.0
+offset_top = -174.0
+offset_right = -91.740005
+offset_bottom = -170.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = SubResource("Theme_nm75u")
 value = 100.0
 show_percentage = false
 script = ExtResource("12_nm75u")

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dik17376qvwpm"]
 
 [ext_resource type="Script" uid="uid://beuxwuxiqaxb2" path="res://title_screen.gd" id="1_v6p8y"]
+[ext_resource type="Texture2D" uid="uid://ckihrotqsvbuw" path="res://art/ui/witchsong_logo.png" id="2_ak2if"]
+[ext_resource type="AudioStream" uid="uid://r0pmbhs7o2l3" path="res://audio/music/overworld/TitleTheme_FINAL.ogg" id="3_ig5kc"]
 
 [node name="TitleScreen" type="Control" unique_id=309086067]
 layout_mode = 3
@@ -20,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="." unique_id=997806008]
+visible = false
 layout_mode = 0
 offset_left = 59.0
 offset_top = 33.0
@@ -36,3 +39,14 @@ offset_top = 79.0
 offset_right = 209.0
 offset_bottom = 115.0
 text = "Play Game"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=432278068]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_ak2if")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2101945826]
+stream = ExtResource("3_ig5kc")
+autoplay = true
