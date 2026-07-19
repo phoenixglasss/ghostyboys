@@ -1,14 +1,10 @@
 [gd_scene format=4 uid="uid://cif7pw37l0p5t"]
 
-[ext_resource type="Script" uid="uid://07bdqpqg3ape" path="res://overworld/overworld_map.gd" id="1_ihsv1"]
-[ext_resource type="AudioStream" uid="uid://dflaecpbcc33c" path="res://audio/music/overworld/bar.mp3" id="2_3u3wq"]
 [ext_resource type="TileSet" uid="uid://u8byqkju8h28" path="res://art/environment/tilesets/bar/bar_wood_floor.tres" id="3_hbkh0"]
 [ext_resource type="TileSet" uid="uid://g2m7tvf36mbe" path="res://art/environment/tilesets/_utility/shadow_tiles.tres" id="4_4qds3"]
 
 [node name="01ABar" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
-script = ExtResource("1_ihsv1")
-bgm = ExtResource("2_3u3wq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1605471520]
 z_index = -100
