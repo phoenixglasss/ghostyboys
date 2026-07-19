@@ -14,6 +14,7 @@ const FIRST_ROW_Y: float = 20.0
 
 var party_displays: Array[PartyMemberDisplay] = []
 var post_battle_position: Vector2
+var is_destroy_action: bool = false
 
 @export var enemies: Array[EnemyData]
 
@@ -31,7 +32,7 @@ var acting_member_index: int = 0
 var pending_attack: AttackData
 var pending_result: float
 var enemy_instances: Array[Dictionary] = []
-var pending_target: Dictionary
+var pending_target
 var allow_destroy: bool = true
 var intro_conversation: DialogueConversation
 var is_tutorial_fight: bool = false
@@ -72,25 +73,35 @@ func _ready() -> void:
 func _on_action_chosen(attack: AttackData) -> void:
 	action_menu.clear()
 	pending_attack = attack
-	_enter_state(State.RHYTHM_CHALLENGE)
+	is_destroy_action = false
+	if attack.target_type in ["all_enemies", "all_allies"]:
+		_enter_state(State.RHYTHM_CHALLENGE)
+	else:
+		_enter_state(State.TARGET_SELECT)
 	
 func _enter_state(state: State) -> void:
 	current_state = state
 	print("Entering state: ", State.keys()[state])
 	match state:
 		State.INTRO:
-			_enter_state(State.TARGET_SELECT)
+			_enter_state(State.PLAYER_MENU)
 			# until it has an intro animation to play, it just hands off to next state
 		State.PLAYER_MENU:
-			print("Now acting: ", party[acting_member_index].member_name)
 			action_menu.display_moves(party[acting_member_index].moveset, _is_destroy_available_for(pending_target))
 		State.TARGET_SELECT:
-			var living_enemies := enemy_instances.filter(func(enemy): return enemy.current_hp > 0)
-			if living_enemies.size() == 1:
-				pending_target = living_enemies[0]
-				_enter_state(State.PLAYER_MENU)
+			var candidates: Array
+			if is_destroy_action:
+				candidates = _get_eligible_destroy_targets()
+			elif pending_attack.target_type == "single_ally":
+				candidates = party.filter(func(member): return member.current_hp > 0)
 			else:
-				target_menu.display_targets(living_enemies)
+				candidates = enemy_instances.filter(func(enemy): return enemy.current_hp > 0)
+			
+			if candidates.size() == 1:
+				pending_target = candidates[0]
+				_on_target_locked_in()
+			else:
+				target_menu.display_targets(candidates)
 		State.RHYTHM_CHALLENGE:
 			conductor.play_chart(pending_attack.chart)
 			pending_result = await conductor.chart_completed
@@ -128,17 +139,13 @@ func _resolve_action() -> void:
 	var amount := roundi(pending_attack.base_power * pending_result)
 	
 	if pending_attack.is_healing:
-		var target: PartyMember = party[acting_member_index]
+		var target := pending_target as PartyMember
 		target.current_hp = min(target.current_hp + amount, target.max_hp)
 		print(target.member_name, " healed for ", amount, " -> ", target.current_hp, "/", target.max_hp)
+	elif pending_attack.target_type == "all_enemies":
+		_apply_damage_to_all_enemies(amount)
 	else:
-		pending_target.current_hp = max(pending_target.current_hp - amount, 0)
-		print(pending_target.data.enemy_name, " took ", amount, " damage -> ", pending_target.current_hp, "/", pending_target.data.max_hp)
-		
-		if pending_target.current_hp <= 0:
-			GameState.log_defeat(pending_target.data.enemy_name, "banish", pending_target.data.zone_theme)
-			print(pending_target.data.enemy_name, " was Banished!")
-			pending_target.display.visible = false
+		_apply_damage_to_target(pending_target, amount)
 	
 	hud.refresh(party)
 	
@@ -150,7 +157,7 @@ func _after_resolve() -> void:
 	var next_index := _find_next_living_member(acting_member_index + 1)
 	if next_index != -1:
 		acting_member_index = next_index
-		_enter_state(State.TARGET_SELECT)
+		_enter_state(State.PLAYER_MENU)
 	else:
 		acting_member_index = 0
 		_enter_state(State.ENEMY_TURN)
@@ -190,12 +197,12 @@ func _check_battle_end() -> void:
 		
 	var next_index := _find_next_living_member(0)
 	acting_member_index = next_index
-	_enter_state(State.TARGET_SELECT)
-	
-func _on_target_chosen(enemy: Dictionary) -> void:
-	target_menu.clear()
-	pending_target = enemy
 	_enter_state(State.PLAYER_MENU)
+	
+func _on_target_chosen(target) -> void:
+	target_menu.clear()
+	pending_target = target
+	_on_target_locked_in()
 
 
 
@@ -207,9 +214,34 @@ func _finish_enemy() -> void:
 	hud.refresh(party)
 	_after_resolve()
 
+func _is_destroy_available() -> bool:
+	if not allow_destroy:
+		return false
+	for enemy in enemy_instances:
+		if enemy.current_hp <= 0:
+			continue
+		var data: EnemyData = enemy.data
+		var ratio := float(enemy.current_hp) / data.max_hp
+		if ratio <= data.destroy_threshold:
+			return true
+	return false
+	
+func _get_eligible_destroy_targets() -> Array:
+	var eligible: Array = []
+	for enemy in enemy_instances:
+		if enemy.current_hp <= 0:
+			continue
+		var data: EnemyData = enemy.data
+		var ratio := float(enemy.current_hp) / data.max_hp
+		if ratio <= data.destroy_threshold:
+			eligible.append(enemy)
+	return eligible
+
+
 func _on_destroy_chosen() -> void:
 	action_menu.clear()
-	_finish_enemy()
+	is_destroy_action = true
+	_enter_state(State.TARGET_SELECT)
 
 func _find_next_living_member(start_index: int) -> int:
 	var index := start_index
@@ -249,3 +281,24 @@ func _set_background(texture: Texture2D) -> void:
 	# if texture:
 		# background.texture = texture
 		# background.scale = Vector2(320.0 / texture.get_width(), 180.0 / texture.get_height())
+
+func _apply_damage_to_target(target:Dictionary, amount: int) -> void:
+	target.current_hp = max(target.current_hp - amount, 0)
+	print(target.data.enemy_name, " took ", amount, " damage -> ", target.current_hp, "/", target.data.max_hp)
+	
+	if target.current_hp <= 0:
+		GameState.log_defeat(target.data.enemy_name, "banish", target.data.zone_theme)
+		print(target.data.enemy_name, " was Banished!")
+		target.display.visible = false
+		
+func _apply_damage_to_all_enemies(amount: int) -> void:
+	for enemy in enemy_instances:
+		if enemy.current_hp <= 0:
+			continue
+		_apply_damage_to_target(enemy, amount)
+
+func _on_target_locked_in() -> void:
+	if is_destroy_action:
+		_finish_enemy()
+	else:
+		_enter_state(State.RHYTHM_CHALLENGE)

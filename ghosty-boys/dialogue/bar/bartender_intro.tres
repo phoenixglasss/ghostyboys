@@ -16,14 +16,14 @@ metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 script = ExtResource("1_qv1x3")
 speaker_name = "Bartender"
 portrait = ExtResource("3_vdxg3")
-text = "Huh... Hello. You picked a hell of a time to visit our little town."
+text = "You picked a hell of a time to visit our little town."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_kacvf"]
 script = ExtResource("1_qv1x3")
 speaker_name = "Daisy"
 portrait = ExtResource("2_agnu6")
-text = "Well, I didn't intend to... My car broke down just on the town border."
+text = "Oh, uh... I didn't intend to. My car broke down just on the town border."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_t07ka"]
@@ -65,7 +65,7 @@ metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 script = ExtResource("1_qv1x3")
 speaker_name = "Bartender"
 portrait = ExtResource("3_vdxg3")
-text = "Only reason this town isn't completely abandoned is because no one can leave with that tower over there trapping us in."
+text = "Only reason this town isn't completely abandoned is because that tower over there is still trapping us in."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_b5scq"]
@@ -93,7 +93,7 @@ metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 script = ExtResource("1_qv1x3")
 speaker_name = "Bartender"
 portrait = ExtResource("3_vdxg3")
-text = "Keeping us trapped, and it's changing folks."
+text = "And it's changing folks."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_hb8wr"]
@@ -114,7 +114,7 @@ metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 script = ExtResource("1_qv1x3")
 speaker_name = "Bartender"
 portrait = ExtResource("3_vdxg3")
-text = "Well, not so sure, but uh... You get used to it. "
+text = "It's a bit hard to explain, but uh... You get used to it. "
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [resource]
