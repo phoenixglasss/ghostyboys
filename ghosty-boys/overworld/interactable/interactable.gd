@@ -7,10 +7,15 @@ signal interaction_conversation_finished
 @export var interactable_id: String
 
 var player_in_range: Node2D
+var interaction_cooldown: float = 0.0
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+	
+func _process(delta: float) -> void:
+	if interaction_cooldown > 0.0:
+		interaction_cooldown -= delta
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -21,6 +26,8 @@ func _on_body_exited(body: Node2D) -> void:
 		player_in_range = null
 
 func _unhandled_input(event: InputEvent) -> void:
+	if interaction_cooldown > 0.0:
+		return
 	if DialogueBox.visible:
 		return
 	if not player_in_range:
@@ -37,7 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	GameState.increment_interaction_count(interactable_id)
 	await DialogueBox.conversation_finished
 	interaction_conversation_finished.emit()
-
+	interaction_cooldown = 2.3
 func _get_current_conversation() -> DialogueConversation:
 	if conversations.is_empty():
 		return null

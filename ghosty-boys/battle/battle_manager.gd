@@ -87,7 +87,7 @@ func _enter_state(state: State) -> void:
 			_enter_state(State.PLAYER_MENU)
 			# until it has an intro animation to play, it just hands off to next state
 		State.PLAYER_MENU:
-			action_menu.display_moves(party[acting_member_index].moveset, _is_destroy_available_for(pending_target))
+			action_menu.display_moves(party[acting_member_index].moveset, _is_destroy_available())
 		State.TARGET_SELECT:
 			var candidates: Array
 			if is_destroy_action:
