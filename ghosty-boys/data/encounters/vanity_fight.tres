@@ -8,5 +8,6 @@
 script = ExtResource("2_qvkgc")
 encounter_name = "VanityFinal"
 enemies = Array[ExtResource("1_rd35v")]([ExtResource("2_6djnw")])
+victory_destination_scene = "res://overworld/final_scene.tscn"
 is_final_boss_victory = true
 metadata/_custom_type_script = "uid://bvffv678mkbsd"

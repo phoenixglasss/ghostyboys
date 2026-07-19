@@ -299,12 +299,9 @@ func _run_finale() -> void:
 	var data: EnemyData = target.data
 
 	conductor.play_finale(data.finale_chart)
-	var finale_score: float = await conductor.chart_completed
+	await conductor.chart_completed
 
-	if finale_score > 0.0:
-		_finish_finale_target(target)
-	else:
-		_enter_state(State.DEFEAT)
+	_finish_finale_target(target)
 
 
 func _finish_finale_target(target: Dictionary) -> void:
