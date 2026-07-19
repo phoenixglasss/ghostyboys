@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b6rmtvvjy280y"]
+
+[ext_resource type="Texture2D" uid="uid://b35arpu840c8c" path="res://art/characters/overworld/misc_npc/sodybee.png" id="1_0m6yp"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0m6yp")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}]

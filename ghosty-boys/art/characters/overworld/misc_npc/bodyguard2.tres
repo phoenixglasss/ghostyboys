@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://daxrtlpbowgxf"]
+
+[ext_resource type="Texture2D" uid="uid://dmripcdo5srth" path="res://art/characters/overworld/misc_npc/bodyguard2.png" id="1_yo6py"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yo6py")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}]

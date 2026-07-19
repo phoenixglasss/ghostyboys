@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://3qgb0b72bjob"]
+
+[ext_resource type="Texture2D" uid="uid://nyw0va0a4un" path="res://art/characters/overworld/misc_npc/ferris.png" id="1_hp8mq"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hp8mq")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}]

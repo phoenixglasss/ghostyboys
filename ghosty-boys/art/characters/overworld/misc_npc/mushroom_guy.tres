@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c5p47klscy4fr"]
+
+[ext_resource type="Texture2D" uid="uid://do4viq1udr11u" path="res://art/characters/overworld/misc_npc/mushroom_guy.png" id="1_o3118"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o3118")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}]
