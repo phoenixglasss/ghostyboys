@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://kbenvauvvpw8"]
 
 [ext_resource type="Script" uid="uid://07bdqpqg3ape" path="res://overworld/overworld_map.gd" id="1_4eesg"]
-[ext_resource type="AudioStream" uid="uid://dflaecpbcc33c" path="res://audio/music/overworld/bar.mp3" id="2_cnfhr"]
+[ext_resource type="AudioStream" uid="uid://d2x3gjnj2tsnc" path="res://audio/music/overworld/Scrapyard_FINAL_95.ogg" id="2_5o38f"]
 [ext_resource type="TileSet" uid="uid://yyp4wbq8lp8s" path="res://art/environment/tilesets/scrapyard/scrapyard_floor.tres" id="3_pehme"]
 [ext_resource type="Texture2D" uid="uid://dp53hwn5d5ijt" path="res://art/environment/tilesets/scrapyard/scrap_heap_2.png" id="6_dbhup"]
 [ext_resource type="Texture2D" uid="uid://djoe733i1x4xw" path="res://art/environment/tilesets/scrapyard/scrap_heap_3.png" id="7_5o38f"]
@@ -19,7 +19,7 @@ size = Vector2(52, 21)
 [node name="01ABar2" type="Node2D" unique_id=1499958377]
 y_sort_enabled = true
 script = ExtResource("1_4eesg")
-bgm = ExtResource("2_cnfhr")
+bgm = ExtResource("2_5o38f")
 
 [node name="Environment" type="Node2D" parent="." unique_id=1401514982]
 y_sort_enabled = true
