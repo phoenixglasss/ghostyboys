@@ -3,32 +3,24 @@ extends Node
 const MelScene := preload("res://overworld/party/mel.tscn")
 const JackalScene := preload("res://overworld/party/jackal.tscn")
 
-var mel_survivors_suggestion_played: bool = false
-
 @export var player: Node2D
-@export var exit_door: ExitDoor
 
 
 func _ready() -> void:
 	if GameState.apply_return_position:
 		player.global_position = GameState.return_position
 		GameState.apply_return_position = false
-	
+
 	_check_story_dialogue()
 	_check_party_followers()
-	
+
+
 func _check_story_dialogue() -> void:
-	if not GameState.intro_dialogue_played:
-		DialogueBox.start_conversation(load("res://dialogue/bar/daisy_arrival.tres"))
-		GameState.intro_dialogue_played = true
-	elif GameState.tutorial_fight_won and not GameState.closing_dialogue_played:
-		GameState.party_has_mel_and_jackal = true
-		_check_party_followers()
-		DialogueBox.start_conversation(load("res://dialogue/bar/mel_jackal_closing.tres"))
-		await DialogueBox.conversation_finished
-		GameState.closing_dialogue_played = true
-		exit_door.unlock()
-		
+	if not GameState.mel_survivors_suggestion_played:
+		DialogueBox.start_conversation(load("res://dialogue/town/first_town_entrance.tres"))
+		GameState.mel_survivors_suggestion_played = true
+
+
 func _check_party_followers() -> void:
 	if not GameState.party_has_mel_and_jackal:
 		return

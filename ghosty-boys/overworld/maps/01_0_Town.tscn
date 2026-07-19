@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cscg81d07mtqm" path="res://art/characters/overworld/shadow_circle.png" id="5_2khfc"]
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="5_vb587"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="7_jnrag"]
+[ext_resource type="Script" uid="uid://bw6idhw8ds4ax" path="res://overworld/town_story_triggers.gd" id="13_2c6k4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(14, 4)
@@ -212,3 +213,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_hg5lp")
 flip_h = true
+
+[node name="StoryTriggers" type="Node" parent="." unique_id=106706015 node_paths=PackedStringArray("player")]
+script = ExtResource("13_2c6k4")
+player = NodePath("../Node2D/Player")
