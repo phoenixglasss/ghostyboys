@@ -1,0 +1,82 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dniujbmj4i1rj"]
+
+[ext_resource type="Texture2D" uid="uid://br3fx0dju4qon" path="res://art/characters/overworld/harpy/harpy_overworld.png" id="1_urdph"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a13t1"]
+atlas = ExtResource("1_urdph")
+region = Rect2(76, 38, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibrjq"]
+atlas = ExtResource("1_urdph")
+region = Rect2(114, 38, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8na78"]
+atlas = ExtResource("1_urdph")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fms1r"]
+atlas = ExtResource("1_urdph")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijd1n"]
+atlas = ExtResource("1_urdph")
+region = Rect2(0, 38, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xeuj"]
+atlas = ExtResource("1_urdph")
+region = Rect2(38, 38, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25u1y"]
+atlas = ExtResource("1_urdph")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k2fx"]
+atlas = ExtResource("1_urdph")
+region = Rect2(114, 0, 38, 38)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a13t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibrjq")
+}],
+"loop": 1,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8na78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fms1r")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijd1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xeuj")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25u1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k2fx")
+}],
+"loop": 1,
+"name": &"walk_up",
+"speed": 5.0
+}]
