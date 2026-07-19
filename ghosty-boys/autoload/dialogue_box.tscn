@@ -3,6 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://b8gd7en6sk83c" path="res://dialogue/dialogue_box_style.tres" id="1_ttnpm"]
 [ext_resource type="Script" uid="uid://cqxebhtv2ffe8" path="res://autoload/dialogue_box.gd" id="1_vl7lk"]
 [ext_resource type="StyleBox" uid="uid://clrnlw64idjhx" path="res://dialogue/dialogue_portrait_style.tres" id="2_7h1r8"]
+[ext_resource type="AudioStream" uid="uid://beesfeq045c1k" path="res://audio/sfx/talk_sounds/dialogue_beep.ogg" id="4_hx0sy"]
 
 [node name="DialogueBox" type="CanvasLayer" unique_id=1448988751]
 process_mode = 3
@@ -46,3 +47,6 @@ autowrap_mode = 2
 
 [node name="TypewriterTimer" type="Timer" parent="." unique_id=1343159857]
 wait_time = 0.03
+
+[node name="TalkSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=810051464]
+stream = ExtResource("4_hx0sy")

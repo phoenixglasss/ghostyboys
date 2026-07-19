@@ -10,6 +10,8 @@ extends Node
 @export var mel_display: NPCDisplay
 @export var jackal_display: NPCDisplay
 
+var melty_sprites : SpriteFrames = preload("res://art/characters/overworld/melty_man/melty_man_overworld.tres")
+
 func _ready() -> void:
 	if GameState.tutorial_fight_won:
 		return
@@ -17,16 +19,22 @@ func _ready() -> void:
 	
 func _on_bartender_done() -> void:
 	await get_tree().create_timer(0.6).timeout
-	# to do. swap for explodey animation.
-	patron_1_display.visible = false
+	# patron_1_display.visible = false
+	patron_1_display.sprite.sprite_frames = melty_sprites
+	patron_1_display.sprite.play("splode")
+	$AudioStreamPlayer.play()
 	await get_tree().create_timer(0.6).timeout
 	# also swap for explodey
-	patron_2_display.visible = false
+	patron_2_display.sprite.sprite_frames = melty_sprites
+	patron_2_display.sprite.play("splode")
+	$AudioStreamPlayer.play()
 	await get_tree().create_timer(0.6).timeout
 	DialogueBox.start_conversation(bartender_repeat_line)
 	await DialogueBox.conversation_finished
 	# swap swap swap
-	bartender_display.visible = false
+	bartender_display.sprite.sprite_frames = melty_sprites
+	bartender_display.sprite.play("caster_splode")
+	$AudioStreamPlayer.play()
 	await get_tree().create_timer(0.6).timeout
 	
 	var player := get_tree().get_first_node_in_group("player")

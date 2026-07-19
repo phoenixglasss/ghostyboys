@@ -34,6 +34,8 @@
 [ext_resource type="Resource" uid="uid://dcjmv1s0qgnd4" path="res://dialogue/bar/mel_jackal_reveal.tres" id="28_3rj1h"]
 [ext_resource type="Resource" uid="uid://by4yumk8l612l" path="res://data/encounters/bar_fight.tres" id="29_6htja"]
 [ext_resource type="SpriteFrames" uid="uid://fygk6srjq5jy" path="res://art/characters/overworld/misc_npc/bartender.tres" id="29_dbiy7"]
+[ext_resource type="AudioStream" uid="uid://c702560peiai6" path="res://audio/sfx/misc/sploot.ogg" id="35_3xsmo"]
+[ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="36_5md5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(128, 16)
@@ -67,7 +69,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 320.0
-offset_bottom = 180.0
+offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -308,6 +310,18 @@ mel_jackal_reveal_line = ExtResource("28_3rj1h")
 tutorial_encounter = ExtResource("29_6htja")
 mel_display = NodePath("../TutorialNPCs/MelNPC")
 jackal_display = NodePath("../TutorialNPCs/JackalNPC")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="IntroCutscene" unique_id=941691373]
+stream = ExtResource("35_3xsmo")
+volume_db = -10.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=973152182 node_paths=PackedStringArray("player")]
+limit_left = 0
+limit_top = 0
+limit_right = 320
+limit_bottom = 320
+script = ExtResource("36_5md5n")
+player = NodePath("../Player")
 
 [editable path="TutorialNPCs/BarPatron2"]
 [editable path="TutorialNPCs/BarPatron1"]

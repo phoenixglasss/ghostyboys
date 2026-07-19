@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_qv1x3"]
 [ext_resource type="Texture2D" uid="uid://ba4r0h2itoay6" path="res://art/portraits/daisy_portrait.png" id="2_agnu6"]
 [ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_t6khw"]
+[ext_resource type="AudioStream" uid="uid://crrka78e73of2" path="res://audio/sfx/talk_sounds/daisy_voice.ogg" id="3_qgpf5"]
 [ext_resource type="Texture2D" uid="uid://ctugkjd8780ko" path="res://art/portraits/bartender_portrait.png" id="3_vdxg3"]
 
 [sub_resource type="Resource" id="Resource_dlket"]
@@ -10,6 +11,7 @@ script = ExtResource("1_qv1x3")
 speaker_name = "Daisy"
 portrait = ExtResource("2_agnu6")
 text = "Um, excuse me... Mr. Bartender?"
+talk_sound = ExtResource("3_qgpf5")
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_kxtva"]
@@ -24,6 +26,7 @@ script = ExtResource("1_qv1x3")
 speaker_name = "Daisy"
 portrait = ExtResource("2_agnu6")
 text = "Oh, uh... I didn't intend to. My car broke down just on the town border."
+talk_sound = ExtResource("3_qgpf5")
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_t07ka"]
@@ -31,6 +34,7 @@ script = ExtResource("1_qv1x3")
 speaker_name = "Daisy"
 portrait = ExtResource("2_agnu6")
 text = "I tried the mechanic's shop, but it's all dark. "
+talk_sound = ExtResource("3_qgpf5")
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_dh0uk"]
@@ -38,6 +42,7 @@ script = ExtResource("1_qv1x3")
 speaker_name = "Daisy"
 portrait = ExtResource("2_agnu6")
 text = "Actually, almost everything in this town seems dark."
+talk_sound = ExtResource("3_qgpf5")
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_2c0vq"]
