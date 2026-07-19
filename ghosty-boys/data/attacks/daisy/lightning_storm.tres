@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://u6jkatwtrqc"]
+
+[ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_xn1f4"]
+
+[resource]
+script = ExtResource("1_xn1f4")
+attack_name = "Lightning Storm"
+base_power = 10
+target_type = "all_enemies"
+metadata/_custom_type_script = "uid://cmvjae453yh3n"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://bu0d846jjvbr3"]
+
+[ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_ixl56"]
+
+[resource]
+script = ExtResource("1_ixl56")
+attack_name = "Group Heal"
+base_power = 11
+target_type = "all_allies"
+is_healing = true
+metadata/_custom_type_script = "uid://cmvjae453yh3n"

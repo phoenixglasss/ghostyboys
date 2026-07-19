@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="PartyMember" format=3 uid="uid://bljm83akghxen"]
 
 [ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_sowji"]
-[ext_resource type="Resource" uid="uid://bs78kl3mxn62n" path="res://data/attacks/punch.tres" id="2_84ogf"]
+[ext_resource type="Resource" uid="uid://c28t3bixxmcb2" path="res://data/attacks/daisy/basic_attack.tres" id="2_7t0gl"]
+[ext_resource type="Resource" uid="uid://ckusdauhicngc" path="res://data/attacks/daisy/zap_attack.tres" id="3_5sytw"]
 [ext_resource type="Script" uid="uid://828whruuqql1" path="res://battle/classes/party_member.gd" id="3_7x623"]
 [ext_resource type="SpriteFrames" uid="uid://beqscow35be53" path="res://art/characters/battle/daisy/daisy_battle.tres" id="4_84ogf"]
+[ext_resource type="Resource" uid="uid://u6jkatwtrqc" path="res://data/attacks/daisy/lightning_storm.tres" id="4_npd3v"]
 
 [resource]
 script = ExtResource("3_7x623")
 member_name = "Daisy"
 max_hp = 100
 current_hp = 100
-moveset = Array[ExtResource("1_sowji")]([ExtResource("2_84ogf")])
+moveset = Array[ExtResource("1_sowji")]([ExtResource("2_7t0gl"), ExtResource("3_5sytw"), ExtResource("4_npd3v")])
 sprite_frames = ExtResource("4_84ogf")
 metadata/_custom_type_script = "uid://828whruuqql1"

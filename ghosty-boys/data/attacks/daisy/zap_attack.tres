@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://ckusdauhicngc"]
+
+[ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_ley3y"]
+
+[resource]
+script = ExtResource("1_ley3y")
+attack_name = "Zap"
+base_power = 10
+target_type = "single_enemy"
+metadata/_custom_type_script = "uid://cmvjae453yh3n"

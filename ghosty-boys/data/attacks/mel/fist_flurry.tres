@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://cfd5iqik0ky4p"]
+
+[ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_ypdte"]
+
+[resource]
+script = ExtResource("1_ypdte")
+attack_name = "Flurry of Fists"
+base_power = 12
+target_type = "all_enemies"
+metadata/_custom_type_script = "uid://cmvjae453yh3n"

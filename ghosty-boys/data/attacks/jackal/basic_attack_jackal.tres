@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://bpwu3wng28ypa"]
+
+[ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_h2ljv"]
+
+[resource]
+script = ExtResource("1_h2ljv")
+attack_name = "Attack"
+base_power = 10
+target_type = "single_enemy"
+metadata/_custom_type_script = "uid://cmvjae453yh3n"

@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="PartyMember" format=3 uid="uid://b1enytqyvsdrc"]
 
 [ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_73pnj"]
-[ext_resource type="Resource" uid="uid://bs78kl3mxn62n" path="res://data/attacks/punch.tres" id="2_1ju8u"]
 [ext_resource type="Script" uid="uid://828whruuqql1" path="res://battle/classes/party_member.gd" id="2_s0vjy"]
+[ext_resource type="Resource" uid="uid://bvjg8onn44qum" path="res://data/attacks/mel/basic_attack_mel.tres" id="2_su121"]
+[ext_resource type="Resource" uid="uid://40o2y5wijjh8" path="res://data/attacks/mel/unholy_punch.tres" id="3_4ybta"]
 [ext_resource type="SpriteFrames" uid="uid://b6vbhu7yjaspx" path="res://art/characters/battle/mel/mel_battle.tres" id="4_1ju8u"]
+[ext_resource type="Resource" uid="uid://cfd5iqik0ky4p" path="res://data/attacks/mel/fist_flurry.tres" id="4_aa625"]
 
 [resource]
 script = ExtResource("2_s0vjy")
 member_name = "Mel"
 max_hp = 100
 current_hp = 100
-moveset = Array[ExtResource("1_73pnj")]([ExtResource("2_1ju8u")])
+moveset = Array[ExtResource("1_73pnj")]([ExtResource("2_su121"), ExtResource("3_4ybta"), ExtResource("4_aa625")])
 sprite_frames = ExtResource("4_1ju8u")
 metadata/_custom_type_script = "uid://828whruuqql1"
