@@ -9,4 +9,7 @@ script = ExtResource("1_mnomc")
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1504277517]
 stream = ExtResource("2_esvws")
 
+[node name="FinalePlayer" type="AudioStreamPlayer" parent="." unique_id=134674726]
+stream = ExtResource("2_esvws")
+
 [node name="ActionMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1663700339]

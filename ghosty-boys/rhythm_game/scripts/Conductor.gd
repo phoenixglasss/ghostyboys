@@ -26,6 +26,11 @@ signal chart_completed(score : float)
 signal measure_hit
 signal beat_hit
 
+@onready var finale_player : AudioStreamPlayer = $FinalePlayer
+
+const FINALE_PLAYER_SLOT := Vector2(0, 0)
+const FINALE_ENEMY_SLOT := Vector2(0, 72)
+
 
 func _ready() -> void:
 	loop_length = _get_song_length_in_beats(audio_player.stream)
@@ -41,7 +46,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if (battle_manager and !chart_layer): 
 		chart_layer = battle_manager.get_node("ChartLayer")
-	
+	elif (!chart_layer):
+		chart_layer = $"../ChartLayer"
+		
 	raw_beat = _get_raw_beat()
 
 	if raw_beat < _last_raw_beat - (loop_length * 0.5):
@@ -89,3 +96,35 @@ func play_chart(chart_to_play : Chart) -> void:
 
 func _chart_completed(score : float) -> void:
 	chart_completed.emit(score)
+	
+func play_finale(chart : Chart) -> void:
+	if !chart_layer:
+		chart_layer = $"../ChartLayer"  # or battle_manager path, match your _process logic
+
+	# warm the stream so the first .play() has no load hitch
+	finale_player.stream = chart.audio
+
+	# one shared, bar-aligned start for BOTH displays
+	var earliest : float = get_song_position() + 1.5
+	var sb : float = ceil(earliest / 4.0) * 4.0
+
+	var p : ChartDisplay = chart_display.instantiate()
+	p.my_chart = chart
+	p.side = 0
+	p.plays_audio = true
+	p.is_finale = true          # routes audio to finale_player + ducks BGM
+	p.start_beat_override = sb
+	p.position = FINALE_PLAYER_SLOT
+	chart_layer.add_child(p)
+	p.z_index += 100
+	p.chart_completed.connect(_chart_completed)   # only the player scores
+
+	var e : ChartDisplay = chart_display.instantiate()
+	e.my_chart = chart
+	e.side = 1
+	e.autoplay = true
+	e.plays_audio = false
+	e.start_beat_override = sb
+	e.position = FINALE_ENEMY_SLOT
+	chart_layer.add_child(e)
+	e.z_index += 100

@@ -14,6 +14,14 @@ var audio_started : bool = false
 var lane_data : Array[Array] = []
 var note_item = preload("res://rhythm_game/scenes/note_item.tscn")
 
+@export var side : int = 0
+@export var autoplay : bool = false
+@export var plays_audio : bool = true
+@export var is_finale : bool = false
+@export var start_beat_override : float = -1.0
+
+
+
 var rating_total : int
 var potential_total : int
 
@@ -28,9 +36,13 @@ func _ready() -> void:
 	conductor.measure_hit.connect(_on_measure_hit)
 	$AnimationPlayer.play("fly_in")
 
-	# Grace first, THEN round up to the next bar.
-	var earliest : float = conductor.get_song_position() + minimum_lead_beats
-	start_beat = ceil(earliest / 4.0) * 4.0
+	if start_beat_override >= 0.0:
+		start_beat = start_beat_override
+	else:
+		var earliest : float = conductor.get_song_position() + minimum_lead_beats
+		start_beat = ceil(earliest / 4.0) * 4.0
+	
+	
 
 	# set the initial scroll offset BEFORE notes exist
 	notes_container.position.x = (start_beat - conductor.get_song_position()) * note_spacing
@@ -45,8 +57,12 @@ func _process(_delta: float) -> void:
 	notes_container.position.x = (start_beat - conductor.get_song_position()) * note_spacing
 
 	if not audio_started and conductor.get_song_position() >= start_beat:
-		_play_my_audio()
+		if plays_audio:
+			_play_my_audio()
 		audio_started = true
+	if autoplay and audio_started:
+		for l in 4:
+			_judge_note(l)
 
 	# Only allow self-destruct once the pattern has actually begun.
 	if audio_started:
@@ -56,6 +72,8 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if autoplay:
+		return
 	if Input.is_action_just_pressed("move_left"):
 		_judge_note(0)
 	if Input.is_action_just_pressed("move_down"):
@@ -83,7 +101,7 @@ func _judge_note(judge_lane : int):
 
 
 func _load_chart(chart : Chart):
-	notes = chart.notes
+	notes = chart.notes_for_side(side)
 	potential_total = notes.size() * 3
 
 	for note : NoteData in notes:
@@ -111,13 +129,21 @@ func _on_measure_hit() -> void:
 
 
 func _play_my_audio() -> void:
-	conductor.action_player.stream = my_chart.audio
-	conductor.action_player.play()
+	var overshoot_beats : float = conductor.get_song_position() - start_beat
+	var overshoot_sec : float = overshoot_beats * (60.0 / conductor.bpm)
+	if is_finale:
+		conductor.finale_player.stream = my_chart.audio
+		conductor.finale_player.play(overshoot_sec)   # seek in, don't start at 0
+		conductor.audio_player.volume_db = -80.0
+	else:
+		conductor.action_player.stream = my_chart.audio
+		conductor.action_player.play(overshoot_sec)
 	
 func _complete_chart() -> void:
 	var my_score : float = float(rating_total) / float(potential_total)
-	# print(my_score)
 	chart_completed.emit(my_score)
+	if is_finale:
+		conductor.audio_player.volume_db = 0.0
 	$AnimationPlayer.play("fly_out")
 	await $AnimationPlayer.animation_finished
 	queue_free()
