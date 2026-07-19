@@ -280,6 +280,12 @@ func _apply_damage_to_target(target: Dictionary, amount: int) -> void:
 		GameState.log_defeat(data.enemy_name, "banish", data.zone_theme)
 		print(data.enemy_name, " was Banished!")
 		target.display.visible = false
+		
+func _apply_damage_to_all_enemies(amount: int) -> void:
+	for enemy in enemy_instances:
+		if enemy.current_hp <= 0:
+			continue
+		_apply_damage_to_target(enemy, amount)
 
 func _apply_healing_to_all_allies(amount: int) -> void:
 	for member in party:
