@@ -45,16 +45,16 @@ func _ready() -> void:
 	
 
 	# set the initial scroll offset BEFORE notes exist
-	notes_container.position.x = (start_beat - conductor.get_song_position()) * note_spacing
-
+	notes_container.position.y = (conductor.get_song_position() - start_beat) * note_spacing
+	
 	lane_data.clear()
 	for i in 4:
 		lane_data.append([])
 	_load_chart(my_chart)
 
 func _process(_delta: float) -> void:
-	notes_container.position.x = (start_beat - conductor.get_song_position()) * note_spacing
-
+	notes_container.position.y = (conductor.get_song_position() - start_beat) * note_spacing
+	
 	if not audio_started and conductor.get_song_position() >= start_beat:
 		if plays_audio:
 			_play_my_audio()
@@ -106,8 +106,8 @@ func _load_chart(chart : Chart):
 
 	for note : NoteData in notes:
 		var new_note_item = note_item.instantiate()
-		new_note_item.position.y = lanes[note.lane].position.y
-		new_note_item.position.x = note.beat * note_spacing
+		new_note_item.position.x = lanes[note.lane].position.x
+		new_note_item.position.y = -note.beat * note_spacing
 		new_note_item.lane = note.lane
 		lane_data[note.lane].append(new_note_item)
 		notes_container.add_child(new_note_item)

@@ -97,7 +97,7 @@ func _get_song_length_in_beats(stream : AudioStream) -> int:
 func play_chart(chart_to_play : Chart) -> void:
 	var new_chart_display : ChartDisplay = chart_display.instantiate()
 	new_chart_display.my_chart = chart_to_play
-	new_chart_display.position.y = 102
+	new_chart_display.position.y = 0
 	chart_layer.add_child(new_chart_display)
 	new_chart_display.z_index += 100
 	new_chart_display.chart_completed.connect(_chart_completed)
