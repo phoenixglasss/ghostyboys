@@ -30,8 +30,8 @@ signal beat_hit
 
 @onready var finale_player : AudioStreamPlayer = $FinalePlayer
 
-const FINALE_PLAYER_SLOT := Vector2(0, 0)
-const FINALE_ENEMY_SLOT := Vector2(0, 72)
+const FINALE_PLAYER_SLOT := Vector2(-36, 0)
+const FINALE_ENEMY_SLOT := Vector2(36, 0)
 
 @export var finale_max_health : float = 100.0
 @export var finale_damage : float = 2.0   # d
@@ -141,6 +141,7 @@ func play_finale(chart : Chart) -> void:
 	e.plays_audio = false
 	e.start_beat_override = sb
 	e.position = FINALE_ENEMY_SLOT
+	e.modulate = Color8(255,60,60,180)
 	chart_layer.add_child(e)
 	e.z_index += 100
 

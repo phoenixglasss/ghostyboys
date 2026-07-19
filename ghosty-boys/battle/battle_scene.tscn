@@ -13,6 +13,7 @@
 [ext_resource type="Curve" uid="uid://du75o42h1qrik" path="res://rhythm_game/background_curve.tres" id="8_7jdo1"]
 [ext_resource type="PackedScene" uid="uid://d12tlh28e3ui" path="res://rhythm_game/scenes/conductor.tscn" id="9_dkrhh"]
 [ext_resource type="PackedScene" uid="uid://iix62evixrq" path="res://battle/ui/battle_hud.tscn" id="10_ubjmj"]
+[ext_resource type="Script" uid="uid://d05wc53ksfo0c" path="res://rhythm_game/scripts/finale_health_bar.gd" id="14_68prx"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yjq6l"]
 frequency = 1.0
@@ -49,6 +50,8 @@ shader_parameter/lens_strength = 0.2000000095
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_coff1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ui5s"]
+
+[sub_resource type="Theme" id="Theme_yjpr8"]
 
 [node name="BattleManager" type="Node2D" unique_id=1977351399]
 script = ExtResource("1_u2cu5")
@@ -108,5 +111,24 @@ texture = ExtResource("6_coff1")
 
 [node name="ChartLayer" type="CanvasLayer" parent="." unique_id=1614373971]
 layer = 5
+
+[node name="FinaleHealthBar" type="ProgressBar" parent="ChartLayer" unique_id=1778135759 node_paths=PackedStringArray("conductor")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -174.0
+offset_right = -91.740005
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_yjpr8")
+value = 100.0
+show_percentage = false
+script = ExtResource("14_68prx")
+conductor = NodePath("")
 
 [editable path="UI/BattleHUD"]
