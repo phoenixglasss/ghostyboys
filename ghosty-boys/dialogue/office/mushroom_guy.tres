@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://csyjmcgxyviyh"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_ueum6"]
+[ext_resource type="Texture2D" uid="uid://cyioendrnhx7a" path="res://art/portraits/mushroom_guy_portrait.png" id="2_2qh4w"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_psxco"]
+
+[sub_resource type="Resource" id="Resource_2qh4w"]
+script = ExtResource("1_ueum6")
+speaker_name = "Mushroom Guy"
+portrait = ExtResource("2_2qh4w")
+text = "It was really nice of Mr. Manager to let met start working here."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_kc0lu"]
+script = ExtResource("1_ueum6")
+speaker_name = "Mushroom Guy"
+portrait = ExtResource("2_2qh4w")
+text = "I don't technically have hands, though? So I'm mostly here for moral support."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_psxco")
+lines = Array[ExtResource("1_ueum6")]([SubResource("Resource_2qh4w"), SubResource("Resource_kc0lu")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="DialogueConversation" format=3 uid="uid://dh42dtvk0uydr"]
+
+[ext_resource type="Script" uid="uid://dvr4dfli4tbxn" path="res://battle/classes/dialogue_line.gd" id="1_7c5ad"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="2_ar0mv"]
+
+[sub_resource type="Resource" id="Resource_ce4mh"]
+script = ExtResource("1_7c5ad")
+speaker_name = "Water Cooler Guy"
+text = "I don't actually work here. I'm just hiding out until this crazy stuff blows over."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[sub_resource type="Resource" id="Resource_j7ptp"]
+script = ExtResource("1_7c5ad")
+speaker_name = "Water Cooler Guy"
+text = "In the meantime, I'm hanging out with the water coolers. They're quite nice."
+metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
+
+[resource]
+script = ExtResource("2_ar0mv")
+lines = Array[ExtResource("1_7c5ad")]([SubResource("Resource_ce4mh"), SubResource("Resource_j7ptp")])
+metadata/_custom_type_script = "uid://crsnq2fq76xma"

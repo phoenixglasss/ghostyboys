@@ -19,7 +19,14 @@
 [ext_resource type="SpriteFrames" uid="uid://co3awxm35i2ti" path="res://art/characters/overworld/dover/dover.tres" id="17_hm53j"]
 [ext_resource type="SpriteFrames" uid="uid://cd5h3o3yfj8qb" path="res://art/characters/overworld/misc_npc/npc1_overworld.tres" id="18_ebkg1"]
 [ext_resource type="PackedScene" uid="uid://dfn1hlmf434fo" path="res://overworld/interactable/interactable.tscn" id="18_l1nk6"]
+[ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="20_hje01"]
 [ext_resource type="PackedScene" uid="uid://b5np5hny6jeeu" path="res://overworld/office_exit.tscn" id="20_ou7h3"]
+[ext_resource type="Resource" uid="uid://mk8yllif1m7e" path="res://dialogue/office/NPC_dialogue.tres" id="21_puvi8"]
+[ext_resource type="SpriteFrames" uid="uid://c712pv26deggl" path="res://art/characters/overworld/misc_npc/npc3_overworld.tres" id="22_7l8uh"]
+[ext_resource type="SpriteFrames" uid="uid://c5p47klscy4fr" path="res://art/characters/overworld/misc_npc/mushroom_guy.tres" id="22_puvi8"]
+[ext_resource type="Resource" uid="uid://dh42dtvk0uydr" path="res://dialogue/office/water_cooler_dude.tres" id="23_xbu88"]
+[ext_resource type="Resource" uid="uid://1kmmkko7amqv" path="res://dialogue/items/water_cooler.tres" id="24_fu3pe"]
+[ext_resource type="Script" uid="uid://dokwruh1v5m1f" path="res://overworld/interactable/interactable.gd" id="27_fpw8t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llwnh"]
 size = Vector2(28, 9)
@@ -254,8 +261,55 @@ shape = SubResource("CapsuleShape2D_3xs8e")
 
 [node name="Interactable" parent="OfficeNPC1" unique_id=573232114 instance=ExtResource("18_l1nk6")]
 position = Vector2(1, 8)
+conversations = Array[ExtResource("20_hje01")]([ExtResource("21_puvi8")])
+interactable_id = "npc_dialogue_1"
+
+[node name="OfficeNPC3" type="AnimatedSprite2D" parent="." unique_id=2092278734]
+y_sort_enabled = true
+position = Vector2(77, 50)
+sprite_frames = ExtResource("22_7l8uh")
+animation = &"idle_down"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OfficeNPC3" unique_id=905901173]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OfficeNPC3" unique_id=1359942003]
+position = Vector2(0, 4)
+scale = Vector2(0.56, 0.32)
+shape = SubResource("CapsuleShape2D_3xs8e")
+
+[node name="Interactable" parent="OfficeNPC3" unique_id=1088969480 instance=ExtResource("18_l1nk6")]
+position = Vector2(1, 8)
+conversations = Array[ExtResource("20_hje01")]([ExtResource("23_xbu88")])
+interactable_id = "water_cooler"
+
+[node name="WaterCoolerInteractable" parent="." unique_id=492228100 instance=ExtResource("18_l1nk6")]
+position = Vector2(114.00001, 45.999992)
+scale = Vector2(0.8942182, 0.93389255)
+conversations = Array[ExtResource("20_hje01")]([ExtResource("24_fu3pe")])
+
+[node name="MushroomGuy" type="AnimatedSprite2D" parent="." unique_id=867706379]
+y_sort_enabled = true
+position = Vector2(204, 170)
+sprite_frames = ExtResource("22_puvi8")
+animation = &"idle_down"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MushroomGuy" unique_id=595162492]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomGuy" unique_id=897999948]
+position = Vector2(0, 10)
+scale = Vector2(0.76, 0.56000245)
+shape = SubResource("CapsuleShape2D_3xs8e")
+
+[node name="Interactable" parent="MushroomGuy" unique_id=1569399424 instance=ExtResource("18_l1nk6")]
+position = Vector2(1, 8)
+scale = Vector2(1.3199999, 1.28)
+interactable_id = "mushroom_dude"
 
 [node name="OfficeDoor" parent="." unique_id=806618376 instance=ExtResource("20_ou7h3")]
 position = Vector2(152, 298.00003)
 scale = Vector2(2.9397984, 0.6785612)
 destination_scene = "res://overworld/maps/01_0_Town.tscn"
+
+[node name="Interactable" type="Area2D" parent="." unique_id=1249283303]
+script = ExtResource("27_fpw8t")
+metadata/_custom_type_script = "uid://dokwruh1v5m1f"
