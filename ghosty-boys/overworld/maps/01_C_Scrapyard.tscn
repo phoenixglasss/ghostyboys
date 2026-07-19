@@ -12,6 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="11_uh8qr"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="12_5o38f"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="12_xsrly"]
+[ext_resource type="PackedScene" uid="uid://kc7vim4w7wcx" path="res://overworld/encounter_trigger.tscn" id="13_cnfhr"]
+[ext_resource type="Resource" uid="uid://bbwar6t8ckkv" path="res://data/encounters/scrapyard_1.tres" id="14_58t0e"]
+[ext_resource type="Resource" uid="uid://ceilgxrh084s6" path="res://data/enemies/melty_caster.tres" id="15_p4feo"]
+[ext_resource type="Resource" uid="uid://bt3nqdm1a3hrt" path="res://data/encounters/scrapyard_2.tres" id="16_p4feo"]
+[ext_resource type="Resource" uid="uid://dm6wfq5g0xxwd" path="res://data/enemies/melty_man.tres" id="17_jgbbi"]
+[ext_resource type="Resource" uid="uid://bxo4ch3gtcxrb" path="res://data/encounters/scrapyard_3.tres" id="18_jgbbi"]
+[ext_resource type="PackedScene" uid="uid://dog83l13ls4li" path="res://overworld/office_door.tscn" id="19_ghxvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quqt2"]
 size = Vector2(52, 21)
@@ -163,7 +170,35 @@ player = NodePath("../Player")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=929112407 node_paths=PackedStringArray("player")]
 limit_left = 0
 limit_top = 0
-limit_right = 320
+limit_right = 446
 limit_bottom = 512
 script = ExtResource("12_5o38f")
 player = NodePath("../Player")
+
+[node name="EncounterTrigger" parent="." unique_id=617777993 instance=ExtResource("13_cnfhr")]
+y_sort_enabled = true
+position = Vector2(212, 328)
+encounter = ExtResource("14_58t0e")
+display_data = ExtResource("15_p4feo")
+trigger_id = "scrapyard_1"
+
+[node name="EncounterTrigger2" parent="." unique_id=901471697 instance=ExtResource("13_cnfhr")]
+position = Vector2(55, 235)
+encounter = ExtResource("16_p4feo")
+display_data = ExtResource("17_jgbbi")
+trigger_id = "scrapyard_2"
+
+[node name="EncounterTrigger3" parent="." unique_id=1296765009 instance=ExtResource("13_cnfhr")]
+position = Vector2(367, 200)
+encounter = ExtResource("18_jgbbi")
+display_data = ExtResource("15_p4feo")
+trigger_id = "scrapyard_3"
+
+[node name="TowerEntrance" parent="." unique_id=806618376 instance=ExtResource("19_ghxvw")]
+position = Vector2(371, 19)
+destination_scene = "res://overworld/maps/01_D_Tower.tscn"
+
+[node name="CollisionShape2D" parent="TowerEntrance" index="0" unique_id=1834864937]
+scale = Vector2(5.520006, 1.8399991)
+
+[editable path="TowerEntrance"]

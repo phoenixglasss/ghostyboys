@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://hmqrvp0cnqu5"]
+
+[ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_d315h"]
+
+[resource]
+script = ExtResource("1_d315h")
+attack_name = "Harpy Attack"
+base_power = 15
+target_type = "single_enemy"
+metadata/_custom_type_script = "uid://cmvjae453yh3n"

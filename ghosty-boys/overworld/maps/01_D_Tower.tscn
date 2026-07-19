@@ -16,6 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="13_esqev"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="14_jxpvr"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="15_g7uxu"]
+[ext_resource type="Script" uid="uid://c7gkgmi43054l" path="res://overworld/tower_story_triggers.gd" id="17_lxgk5"]
+[ext_resource type="PackedScene" uid="uid://dfn1hlmf434fo" path="res://overworld/interactable/interactable.tscn" id="18_v7s68"]
+[ext_resource type="PackedScene" uid="uid://kc7vim4w7wcx" path="res://overworld/encounter_trigger.tscn" id="19_l74aq"]
+[ext_resource type="Resource" uid="uid://tlfl71dkqftb" path="res://data/encounters/harpy_encounter.tres" id="20_mnahv"]
+[ext_resource type="Resource" uid="uid://dqhfa04y3xcjl" path="res://data/enemies/tower/harpy.tres" id="21_xm4po"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xc7r7"]
 size = Vector2(28.195, 24.41)
@@ -228,3 +233,39 @@ limit_right = 480
 limit_bottom = 600
 script = ExtResource("15_g7uxu")
 player = NodePath("../Player")
+
+[node name="StoryTriggers" type="Node" parent="." unique_id=1356385346 node_paths=PackedStringArray("player")]
+script = ExtResource("17_lxgk5")
+player = NodePath("../Player")
+
+[node name="ArmorInteractable" parent="." unique_id=1231168211 instance=ExtResource("18_v7s68")]
+position = Vector2(302, 469)
+scale = Vector2(1.16, 1)
+
+[node name="ArmorInteractable2" parent="." unique_id=2133116390 instance=ExtResource("18_v7s68")]
+position = Vector2(241.00003, 467)
+scale = Vector2(1.16, 1)
+
+[node name="HarpyEncounter" parent="." unique_id=617777993 instance=ExtResource("19_l74aq")]
+position = Vector2(316, 380)
+encounter = ExtResource("20_mnahv")
+display_data = ExtResource("21_xm4po")
+trigger_id = "harpy_1"
+
+[node name="HarpyEncounter2" parent="." unique_id=1881621139 instance=ExtResource("19_l74aq")]
+position = Vector2(109, 374)
+encounter = ExtResource("20_mnahv")
+display_data = ExtResource("21_xm4po")
+trigger_id = "harpy_2"
+
+[node name="HarpyEncounter3" parent="." unique_id=382093655 instance=ExtResource("19_l74aq")]
+position = Vector2(257, 263)
+encounter = ExtResource("20_mnahv")
+display_data = ExtResource("21_xm4po")
+trigger_id = "harpy_3"
+
+[node name="HarpyEncounter4" parent="." unique_id=1538907250 instance=ExtResource("19_l74aq")]
+position = Vector2(142, 398)
+encounter = ExtResource("20_mnahv")
+display_data = ExtResource("21_xm4po")
+trigger_id = "harpy_4"
