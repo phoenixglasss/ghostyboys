@@ -32,15 +32,15 @@ func _check_party_followers() -> void:
 		return
 	if get_parent().get_node_or_null("Mel"):
 		return
-			
+
 	var mel := MelScene.instantiate()
-	get_parent().add_child(mel)
+	get_parent().add_child.call_deferred(mel)
 	mel.name = "Mel"
 	mel.global_position = player.global_position + Vector2(-8, 0)
 	mel.leader = player
-		
+
 	var jackal := JackalScene.instantiate()
-	get_parent().add_child(jackal)
+	get_parent().add_child.call_deferred(jackal)
 	jackal.name = "Jackal"
 	jackal.global_position = player.global_position + Vector2(-16, 0)
 	jackal.leader = mel
