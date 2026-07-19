@@ -382,6 +382,10 @@ texture = ExtResource("1_smw1o")
 &"type": 0
 }
 0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:4/0 = 0
+10:4/0/modulate = Color(1, 1, 1, 0)
+10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3exh6"]
 texture = ExtResource("2_ef6uw")
@@ -761,6 +765,7 @@ texture = ExtResource("2_ef6uw")
 }
 
 [resource]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_do758")
 sources/1 = SubResource("TileSetAtlasSource_3exh6")
 metadata/_better_terrain = {
