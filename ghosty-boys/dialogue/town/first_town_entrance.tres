@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 script = ExtResource("1_4vlkn")
 speaker_name = "Mel"
 portrait = ExtResource("4_qwswg")
-text = "I see some kind of office building over there. Let's go check for survivors."
+text = "Gotta head North to the Scrapyard. Tower is past that."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_qwswg"]

@@ -15,6 +15,7 @@ var tutorial_fight_won: bool = false
 var closing_dialogue_played: bool = false
 var party_has_mel_and_jackal: bool = false
 var mel_survivors_suggestion_played: bool = false
+var dover_intro_played: bool = false
 
 func _ready() -> void:
 	party = [
