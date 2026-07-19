@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://cupip64hmxa6u"]
 
 [ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_ey58r"]
-[ext_resource type="Resource" uid="uid://iyklrojkktvn" path="res://rhythm_game/charts/battle_charts/attack.tres" id="1_wxl2i"]
+[ext_resource type="Resource" uid="uid://bv6e8ne6chnot" path="res://rhythm_game/charts/battle_charts/get_well_soon.tres" id="1_wxl2i"]
 
 [resource]
 script = ExtResource("1_ey58r")

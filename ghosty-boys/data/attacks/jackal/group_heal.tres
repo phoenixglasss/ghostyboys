@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AttackData" format=3 uid="uid://bu0d846jjvbr3"]
 
-[ext_resource type="Resource" uid="uid://iyklrojkktvn" path="res://rhythm_game/charts/battle_charts/attack.tres" id="1_gkxhc"]
+[ext_resource type="Resource" uid="uid://bh2qmdobf7ixm" path="res://rhythm_game/charts/battle_charts/group_heal.tres" id="1_gkxhc"]
 [ext_resource type="Script" uid="uid://cmvjae453yh3n" path="res://battle/classes/attack_data.gd" id="1_ixl56"]
 
 [resource]
