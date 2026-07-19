@@ -50,3 +50,4 @@ wait_time = 0.03
 
 [node name="TalkSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=810051464]
 stream = ExtResource("4_hx0sy")
+volume_db = -8.0

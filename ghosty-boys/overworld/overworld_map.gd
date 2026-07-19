@@ -6,6 +6,7 @@ var bgm_player : AudioStreamPlayer
 
 func _ready() -> void:
 	bgm_player = AudioStreamPlayer.new()
+	bgm_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child.call_deferred(bgm_player)
 	await bgm_player.ready
 	if bgm:

@@ -8,14 +8,24 @@ signal conversation_finished
 @onready var typewriter_timer: Timer = $TypewriterTimer
 @onready var talk_sound_player : AudioStreamPlayer = $TalkSoundPlayer
 
+@export var talk_sounds = {
+	"Daisy" : preload("res://audio/sfx/talk_sounds/daisy_voice.ogg"),	
+	"Jackal" : preload("res://audio/sfx/talk_sounds/jackal_voice.ogg"),
+	"Mel" : preload("res://audio/sfx/talk_sounds/mel_voice.ogg"),
+	"___OTHER___" : preload("res://audio/sfx/talk_sounds/dialogue_beep.ogg")
+}
+
 var current_conversation: DialogueConversation
 var current_line_index: int = 0
 var full_text: String = ""
 var char_index: int = 0
 var is_typing: bool = false
 
+var base_wait_time: float = 0.0
+
 func _ready() -> void:
 	visible = false
+	base_wait_time = typewriter_timer.wait_time
 	typewriter_timer.timeout.connect(_on_typewriter_timeout)
 	
 func start_conversation(conversation: DialogueConversation) -> void:
@@ -28,8 +38,12 @@ func start_conversation(conversation: DialogueConversation) -> void:
 func _show_line() -> void:
 	var line: DialogueLine = current_conversation.lines[current_line_index]
 	speaker_label.text = line.speaker_name
+	if talk_sounds.has(line.speaker_name):
+		talk_sound_player.stream = talk_sounds[line.speaker_name]
+	else:
+		talk_sound_player.stream = talk_sounds["___OTHER___"]
+		
 	portrait_texture.texture = line.portrait
-	
 	full_text = line.text
 	char_index = 0
 	dialogue_label.text = ""
@@ -39,9 +53,14 @@ func _show_line() -> void:
 	
 func _on_typewriter_timeout() -> void:
 	if char_index < full_text.length():
-		dialogue_label.text += full_text[char_index]
+		var c := full_text[char_index]
+		dialogue_label.text += c
 		char_index += 1
-		talk_sound_player.play()
+		if c == " ":
+			typewriter_timer.start(base_wait_time * 1.5)
+		else:
+			talk_sound_player.play()
+			typewriter_timer.start(base_wait_time)
 	else:
 		typewriter_timer.stop()
 		is_typing = false

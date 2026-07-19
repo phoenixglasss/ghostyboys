@@ -8,7 +8,7 @@ var note_spacing : float = 64
 @export var my_chart : Chart
 @onready var hit_line : Node2D = $ChartContainer/HitLine
 @onready var notes_container : Node2D = $ChartContainer/HitLine/Notes
-@export var minimum_lead_beats : float = 1.5
+@export var minimum_lead_beats : float = 2.5
 var start_beat : float = 0.0
 var audio_started : bool = false
 var lane_data : Array[Array] = []
