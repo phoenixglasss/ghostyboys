@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://oleyyqmuufoh" path="res://rhythm_game/scripts/finale_debug_button.gd" id="9_n16sm"]
 [ext_resource type="Resource" uid="uid://qauoshdw7xjh" path="res://rhythm_game/charts/vanity_finale.tres" id="10_ftqnf"]
 [ext_resource type="Resource" uid="uid://ncwh8u8rpjrj" path="res://audio/music/battle/finalboss_part2.tres" id="11_nm75u"]
+[ext_resource type="Script" uid="uid://d05wc53ksfo0c" path="res://rhythm_game/scripts/finale_health_bar.gd" id="12_nm75u"]
 
 [sub_resource type="Theme" id="Theme_o2s18"]
 default_font_size = 7
@@ -97,3 +98,20 @@ conductor = NodePath("../../../Conductor")
 
 [node name="ChartLayer" type="CanvasLayer" parent="." unique_id=680891670]
 layer = 5
+
+[node name="FinaleHealthBar" type="ProgressBar" parent="ChartLayer" unique_id=1611390827 node_paths=PackedStringArray("conductor")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -9.0
+offset_right = 80.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+show_percentage = false
+script = ExtResource("12_nm75u")
+conductor = NodePath("../../Conductor")

@@ -1,0 +1,65 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b5hf2be0eelj1"]
+
+[ext_resource type="Texture2D" uid="uid://kucsmgcpilub" path="res://art/characters/battle/melty_man/melty_man_battle.png" id="1_n4brl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62pan"]
+atlas = ExtResource("1_n4brl")
+region = Rect2(0, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrg37"]
+atlas = ExtResource("1_n4brl")
+region = Rect2(20, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18310"]
+atlas = ExtResource("1_n4brl")
+region = Rect2(40, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubh3w"]
+atlas = ExtResource("1_n4brl")
+region = Rect2(60, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1n0c"]
+atlas = ExtResource("1_n4brl")
+region = Rect2(80, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3qqn"]
+atlas = ExtResource("1_n4brl")
+region = Rect2(100, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvthp"]
+atlas = ExtResource("1_n4brl")
+region = Rect2(0, 0, 20, 28)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62pan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrg37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18310")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubh3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1n0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3qqn")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvthp")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}]

@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cd5h3o3yfj8qb"]
+
+[ext_resource type="Texture2D" uid="uid://dfjnliithdjqo" path="res://art/characters/overworld/misc_npc/npc1_overworld.png" id="1_s3ps6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uupcr"]
+atlas = ExtResource("1_s3ps6")
+region = Rect2(48, 0, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo5yo"]
+atlas = ExtResource("1_s3ps6")
+region = Rect2(0, 0, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s82tq"]
+atlas = ExtResource("1_s3ps6")
+region = Rect2(32, 0, 16, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8g5p"]
+atlas = ExtResource("1_s3ps6")
+region = Rect2(16, 0, 16, 28)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uupcr")
+}],
+"loop": 1,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo5yo")
+}],
+"loop": 1,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s82tq")
+}],
+"loop": 1,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8g5p")
+}],
+"loop": 1,
+"name": &"idle_up",
+"speed": 5.0
+}]

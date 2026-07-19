@@ -18,20 +18,22 @@
 [ext_resource type="PackedScene" uid="uid://jx1mhp255fxu" path="res://overworld/exit_door.tscn" id="15_kacvf"]
 [ext_resource type="PackedScene" uid="uid://w75gr2me4kai" path="res://overworld/npc/npc_display.tscn" id="15_kxtva"]
 [ext_resource type="Resource" uid="uid://b6kta32g4o15r" path="res://data/npcs/bartender.tres" id="15_t07ka"]
+[ext_resource type="SpriteFrames" uid="uid://cfifgrb5qacwy" path="res://art/characters/overworld/misc_npc/npc2_overworld.tres" id="16_lmam5"]
 [ext_resource type="Resource" uid="uid://ccaclf3763pq2" path="res://dialogue/bar/door_blocked.tres" id="16_t07ka"]
 [ext_resource type="Resource" uid="uid://dcyiwudtxos7r" path="res://dialogue/bar/patron_2.tres" id="19_3i4cb"]
 [ext_resource type="Resource" uid="uid://dxtft1ue4i721" path="res://dialogue/bar/patron_1.tres" id="19_3rj1h"]
 [ext_resource type="SpriteFrames" uid="uid://ctjh4kactj115" path="res://art/characters/overworld/mel/mel_overworld.tres" id="19_qxo6v"]
 [ext_resource type="Resource" uid="uid://dy56iye1k3yxw" path="res://dialogue/bar/patron_1_follow_up.tres" id="20_6htja"]
+[ext_resource type="SpriteFrames" uid="uid://cd5h3o3yfj8qb" path="res://art/characters/overworld/misc_npc/npc1_overworld.tres" id="20_lmam5"]
 [ext_resource type="SpriteFrames" uid="uid://clgytlidkeafr" path="res://art/characters/overworld/jackal/jackal_overworld.tres" id="20_y5bx4"]
 [ext_resource type="Resource" uid="uid://cmygyngpcn5bb" path="res://dialogue/bar/mel_jackal_table.tres" id="21_b5scq"]
 [ext_resource type="Resource" uid="uid://bdxb5e87ctm8u" path="res://dialogue/bar/jackal_table_2.tres" id="22_b5scq"]
-[ext_resource type="SpriteFrames" uid="uid://c3o7vhhvd41m7" path="res://art/characters/overworld/nobody/nobody.tres" id="22_y5bx4"]
 [ext_resource type="Resource" uid="uid://dhpl8ja7dv21o" path="res://dialogue/bar/mel_table_2.tres" id="23_vsck7"]
 [ext_resource type="Script" uid="uid://dbne8ugbiuag1" path="res://overworld/bar_intro_cutscene.gd" id="26_orog1"]
 [ext_resource type="Resource" uid="uid://d06h0v1h58mp2" path="res://dialogue/bar/bartender_repeat.tres" id="27_ghty6"]
 [ext_resource type="Resource" uid="uid://dcjmv1s0qgnd4" path="res://dialogue/bar/mel_jackal_reveal.tres" id="28_3rj1h"]
 [ext_resource type="Resource" uid="uid://by4yumk8l612l" path="res://data/encounters/bar_fight.tres" id="29_6htja"]
+[ext_resource type="SpriteFrames" uid="uid://fygk6srjq5jy" path="res://art/characters/overworld/misc_npc/bartender.tres" id="29_dbiy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jsb8"]
 size = Vector2(128, 16)
@@ -190,8 +192,8 @@ y_sort_enabled = true
 [node name="AnimatedSprite2D" parent="TutorialNPCs/BarPatron2" index="0" unique_id=109997131]
 y_sort_enabled = true
 position = Vector2(249, 72)
-sprite_frames = ExtResource("22_y5bx4")
-animation = &"down"
+sprite_frames = ExtResource("16_lmam5")
+animation = &"idle_down"
 
 [node name="Interactable" parent="TutorialNPCs/BarPatron2" unique_id=1443432585 instance=ExtResource("9_e6pda")]
 position = Vector2(225, 112)
@@ -212,8 +214,8 @@ y_sort_enabled = true
 [node name="AnimatedSprite2D" parent="TutorialNPCs/BarPatron1" index="0" unique_id=109997131]
 y_sort_enabled = true
 position = Vector2(225, 112)
-sprite_frames = ExtResource("22_y5bx4")
-animation = &"down"
+sprite_frames = ExtResource("20_lmam5")
+animation = &"idle_down"
 
 [node name="Interactable" parent="TutorialNPCs/BarPatron1" unique_id=1139485935 instance=ExtResource("9_e6pda")]
 y_sort_enabled = true
@@ -285,8 +287,8 @@ npc_data = ExtResource("15_t07ka")
 
 [node name="AnimatedSprite2D" parent="TutorialNPCs/BartenderInteractable/NPCDisplay" index="0" unique_id=109997131]
 y_sort_enabled = true
-sprite_frames = ExtResource("22_y5bx4")
-animation = &"down"
+sprite_frames = ExtResource("29_dbiy7")
+animation = &"left"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TutorialNPCs/BartenderInteractable" unique_id=1510293784]
 y_sort_enabled = true
