@@ -12,6 +12,9 @@ const ENEMY_X: float = 260.0
 const ROW_SPACING: float = 35.0
 const FIRST_ROW_Y: float = 20.0
 
+const TURN_INDICATOR_OFFSET: Vector2 = Vector2(0, -16)
+const PLAYER_TURN_STATES: Array = [State.PLAYER_MENU, State.TARGET_SELECT, State.RHYTHM_CHALLENGE, State.RESOLVE]
+
 var party_displays: Array[PartyMemberDisplay] = []
 var post_battle_position: Vector2
 var finale_triggered: bool = false
@@ -24,6 +27,7 @@ var is_final_boss_victory: bool = false
 @onready var target_menu: TargetMenu = $UI/BattleHUD/BottomBar/ActionPanel/TargetMenu
 @onready var conductor: Conductor = $Conductor
 @onready var hud: BattleHUD = $UI/BattleHUD
+@onready var turn_indicator: Sprite2D = $TurnIndicator
 # @onready var background: Sprite2D = $Background
 
 
@@ -86,10 +90,18 @@ func _on_action_chosen(attack: AttackData) -> void:
 		_enter_state(State.RHYTHM_CHALLENGE)
 	else:
 		_enter_state(State.TARGET_SELECT)
+		
+func _update_turn_indicator() -> void:
+	if current_state in PLAYER_TURN_STATES and acting_member_index < party_displays.size():
+		turn_indicator.visible = true
+		turn_indicator.position = party_displays[acting_member_index].position + TURN_INDICATOR_OFFSET
+	else:
+		turn_indicator.visible = false
 	
 func _enter_state(state: State) -> void:
 	current_state = state
 	print("Entering state: ", State.keys()[state])
+	_update_turn_indicator()
 	match state:
 		State.INTRO:
 			_enter_state(State.PLAYER_MENU)

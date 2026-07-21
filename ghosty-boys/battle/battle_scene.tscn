@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d12tlh28e3ui" path="res://rhythm_game/scenes/conductor.tscn" id="9_dkrhh"]
 [ext_resource type="PackedScene" uid="uid://iix62evixrq" path="res://battle/ui/battle_hud.tscn" id="10_ubjmj"]
 [ext_resource type="Script" uid="uid://d05wc53ksfo0c" path="res://rhythm_game/scripts/finale_health_bar.gd" id="14_68prx"]
+[ext_resource type="Texture2D" uid="uid://rw0uwpotgn26" path="res://art/ui/arrow.png" id="15_yjpr8"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yjq6l"]
 frequency = 1.0
@@ -112,7 +113,7 @@ texture = ExtResource("6_coff1")
 [node name="ChartLayer" type="CanvasLayer" parent="." unique_id=1614373971]
 layer = 5
 
-[node name="FinaleHealthBar" type="ProgressBar" parent="ChartLayer" unique_id=1778135759 node_paths=PackedStringArray("conductor")]
+[node name="FinaleHealthBar" type="ProgressBar" parent="ChartLayer" unique_id=1778135759]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -129,6 +130,9 @@ theme = SubResource("Theme_yjpr8")
 value = 100.0
 show_percentage = false
 script = ExtResource("14_68prx")
-conductor = NodePath("")
+
+[node name="TurnIndicator" type="Sprite2D" parent="." unique_id=541844302]
+visible = false
+texture = ExtResource("15_yjpr8")
 
 [editable path="UI/BattleHUD"]
