@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://iix62evixrq" path="res://battle/ui/battle_hud.tscn" id="10_ubjmj"]
 [ext_resource type="Script" uid="uid://d05wc53ksfo0c" path="res://rhythm_game/scripts/finale_health_bar.gd" id="14_68prx"]
 [ext_resource type="Texture2D" uid="uid://rw0uwpotgn26" path="res://art/ui/arrow.png" id="15_yjpr8"]
+[ext_resource type="Script" uid="uid://b7q1q7m8a02hp" path="res://battle/battle_camera.gd" id="16_xeiwo"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yjq6l"]
 frequency = 1.0
@@ -60,6 +61,10 @@ enemies = Array[ExtResource("4_trk6d")]([ExtResource("5_trk6d")])
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=516746175]
 layer = -1
+
+[node name="BattleCamera" type="Camera2D" parent="Background" unique_id=1613189955]
+offset = Vector2(160, 90)
+script = ExtResource("16_xeiwo")
 
 [node name="01ABar" parent="Background" unique_id=1499958377 instance=ExtResource("4_dkrhh")]
 

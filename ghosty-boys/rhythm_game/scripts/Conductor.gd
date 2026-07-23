@@ -28,6 +28,8 @@ signal chart_completed(score : float)
 signal measure_hit
 signal beat_hit
 
+var battle_camera : BattleCamera
+
 @onready var finale_player : AudioStreamPlayer = $FinalePlayer
 
 const FINALE_PLAYER_SLOT := Vector2(-36, 0)
@@ -52,8 +54,10 @@ func _ready() -> void:
 	measure_hit.emit()
 
 
-
 func _process(_delta: float) -> void:
+	if (battle_manager and !battle_camera):
+		battle_camera = battle_manager.battle_camera
+	
 	if (battle_manager and !chart_layer): 
 		chart_layer = battle_manager.get_node("ChartLayer")
 	elif (!chart_layer):
@@ -73,6 +77,7 @@ func _process(_delta: float) -> void:
 	if current_total_beat != last_total_beat:
 		# print(str(current_total_beat) + ", (" + str(current_measure) + ": " + str(current_measure_beat) + ")")
 		beat_hit.emit()
+		battle_camera.bump_zoom(1.01,0.0,0.2)
 		if current_measure_beat == 0:
 			measure_hit.emit()
 			
