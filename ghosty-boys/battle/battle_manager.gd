@@ -64,6 +64,9 @@ func _ready() -> void:
 		unlocks_scrapyard_gate = GameState.pending_encounter.unlocks_scrapyard_gate
 		victory_destination_scene = GameState.pending_encounter.victory_destination_scene
 		is_final_boss_victory = GameState.pending_encounter.is_final_boss_victory
+		if GameState.pending_encounter.bgm:
+			bgm = GameState.pending_encounter.bgm
+			conductor.current_bgm = bgm
 		GameState.pending_encounter = null
 	
 	if conductor:
