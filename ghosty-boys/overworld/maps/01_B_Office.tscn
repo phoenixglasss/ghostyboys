@@ -28,6 +28,7 @@
 [ext_resource type="Resource" uid="uid://dh42dtvk0uydr" path="res://dialogue/office/water_cooler_dude.tres" id="23_xbu88"]
 [ext_resource type="Resource" uid="uid://1kmmkko7amqv" path="res://dialogue/items/water_cooler.tres" id="24_fu3pe"]
 [ext_resource type="Script" uid="uid://dokwruh1v5m1f" path="res://overworld/interactable/interactable.gd" id="27_fpw8t"]
+[ext_resource type="Resource" uid="uid://csyjmcgxyviyh" path="res://dialogue/office/mushroom_guy.tres" id="27_lgjis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llwnh"]
 size = Vector2(28, 9)
@@ -250,6 +251,7 @@ shape = SubResource("CapsuleShape2D_6a5au")
 
 [node name="Interactable" parent="Dover" unique_id=1231168211 instance=ExtResource("18_l1nk6")]
 position = Vector2(0, 9)
+interactable_id = "dover"
 
 [node name="OfficeNPC1" type="AnimatedSprite2D" parent="." unique_id=1527568793]
 y_sort_enabled = true
@@ -308,7 +310,11 @@ shape = SubResource("CapsuleShape2D_3xs8e")
 [node name="Interactable" parent="MushroomGuy" unique_id=1569399424 instance=ExtResource("18_l1nk6")]
 position = Vector2(1, 8)
 scale = Vector2(1.3199999, 1.28)
+conversations = Array[ExtResource("20_hje01")]([ExtResource("27_lgjis")])
 interactable_id = "mushroom_dude"
+
+[node name="CollisionShape2D" parent="MushroomGuy/Interactable" index="0" unique_id=1421851178]
+scale = Vector2(-1.7222805, 1.8691105)
 
 [node name="OfficeDoor" parent="." unique_id=806618376 instance=ExtResource("20_ou7h3")]
 position = Vector2(152, 298.00003)
@@ -318,3 +324,5 @@ destination_scene = "res://overworld/maps/01_0_Town.tscn"
 [node name="Interactable" type="Area2D" parent="." unique_id=1249283303]
 script = ExtResource("27_fpw8t")
 metadata/_custom_type_script = "uid://dokwruh1v5m1f"
+
+[editable path="MushroomGuy/Interactable"]
