@@ -27,6 +27,8 @@ signal note_resolved(rating : int)
 var rating_total : int
 var potential_total : int
 
+var battle_camera : BattleCamera
+
 signal chart_completed(chart_score : float)
 
 func _ready() -> void:
@@ -44,7 +46,8 @@ func _ready() -> void:
 		var earliest : float = conductor.get_song_position() + minimum_lead_beats
 		start_beat = ceil(earliest / 4.0) * 4.0
 	
-
+	battle_camera = conductor.battle_manager.battle_camera
+	
 	# set the initial scroll offset BEFORE notes exist
 	notes_container.position.y = (conductor.get_song_position() - start_beat) * note_spacing
 	
@@ -83,7 +86,6 @@ func _input(event: InputEvent) -> void:
 		_judge_note(2)
 	if Input.is_action_just_pressed("move_right"):
 		_judge_note(3)
-
 
 func _judge_note(judge_lane : int):
 	if !lane_data[judge_lane].is_empty():
@@ -124,10 +126,11 @@ func _on_note_despawner_area_entered(area: Area2D) -> void:
 			$MissSound.play()
 			$MissSoundTimer.start()
 			conductor.action_player.volume_db = -90
-			
+			battle_camera.shake(5,0.5)
 
 func _on_beat_hit() -> void:
 	pass
+	# battle_camera.bump_zoom(1.1,0.0,0.5)
 
 func _on_measure_hit() -> void:
 	pass #idk if i'll even use this one, we'll see

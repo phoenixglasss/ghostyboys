@@ -30,6 +30,7 @@ var is_final_boss_victory: bool = false
 @onready var turn_indicator: Sprite2D = $TurnIndicator
 # @onready var background: Sprite2D = $Background
 
+@onready var battle_camera : Camera2D = $Background/BattleCamera
 
 @export var bgm : BGM = preload("res://audio/music/battle/battle_bgm.tres")
 
@@ -84,7 +85,6 @@ func _ready() -> void:
 		await DialogueBox.conversation_finished
 		
 	_enter_state(State.INTRO)
-	
 	
 func _on_action_chosen(attack: AttackData) -> void:
 	action_menu.clear()
