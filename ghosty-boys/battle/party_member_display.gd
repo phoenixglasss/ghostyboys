@@ -24,7 +24,7 @@ func setup(member: PartyMember) -> void:
 	sprite.offset.y -= current_height
 	sprite.position.y += current_height
 	
-	
+
 
 
 func _process(delta: float) -> void:

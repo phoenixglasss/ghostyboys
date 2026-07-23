@@ -12,4 +12,6 @@ func _ready() -> void:
 	if bgm:
 		bgm_player.stream = bgm
 		bgm_player.play()
+	if $Environment/Boundary:
+		$Environment/Boundary.visible = false
 	
