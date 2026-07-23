@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_ixl56")
 attack_name = "Group Heal"
-base_power = 11
+base_power = 10
 target_type = "all_allies"
 is_healing = true
 chart = ExtResource("1_gkxhc")
+description = "Heal the group for a small amount per person."
 metadata/_custom_type_script = "uid://cmvjae453yh3n"

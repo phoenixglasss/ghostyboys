@@ -7,3 +7,4 @@ class_name AttackData
 @export var target_type: String
 @export var is_healing: bool = false
 @export var chart: Chart
+@export_multiline var description: String

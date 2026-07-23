@@ -9,4 +9,5 @@ attack_name = "Lightning Storm"
 base_power = 10
 target_type = "all_enemies"
 chart = ExtResource("1_x2fra")
+description = "Attacks all enemies. Lower damage."
 metadata/_custom_type_script = "uid://cmvjae453yh3n"

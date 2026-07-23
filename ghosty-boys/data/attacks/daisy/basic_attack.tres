@@ -9,4 +9,5 @@ attack_name = "Attack"
 base_power = 10
 target_type = "single_enemy"
 chart = ExtResource("1_i31m2")
+description = "Basic attack on one enemy."
 metadata/_custom_type_script = "uid://cmvjae453yh3n"
