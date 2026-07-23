@@ -52,6 +52,8 @@ func _ready() -> void:
 	for i in 4:
 		lane_data.append([])
 	_load_chart(my_chart)
+	
+	$MissSoundTimer.timeout.connect(_miss_sound_timer_timeout)
 
 func _process(_delta: float) -> void:
 	notes_container.position.y = (conductor.get_song_position() - start_beat) * note_spacing
@@ -119,6 +121,10 @@ func _on_note_despawner_area_entered(area: Area2D) -> void:
 		if kill_spot > -1:
 			lane_data[area.lane].pop_at(kill_spot)
 			note_resolved.emit(0)
+			$MissSound.play()
+			$MissSoundTimer.start()
+			conductor.action_player.volume_db = -90
+			
 
 func _on_beat_hit() -> void:
 	pass
@@ -145,3 +151,6 @@ func _complete_chart() -> void:
 	$AnimationPlayer.play("fly_out")
 	await $AnimationPlayer.animation_finished
 	queue_free()
+	
+func _miss_sound_timer_timeout():
+	conductor.action_player.volume_db = 0
