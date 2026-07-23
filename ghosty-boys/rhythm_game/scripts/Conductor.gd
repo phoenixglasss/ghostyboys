@@ -161,6 +161,7 @@ func _on_finale_note_resolved(rating : int) -> void:
 		
 func get_attack_sound(attack_name : String) -> AudioStream:
 	if current_bgm and current_bgm.attack_sounds.has(attack_name):
+		print(current_bgm.attack_sounds[attack_name])
 		return current_bgm.attack_sounds[attack_name]
 	push_warning("No attack sound for '%s' on current BGM" % attack_name)
 	return null
