@@ -103,7 +103,7 @@ metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 script = ExtResource("1_eva7r")
 speaker_name = "Jackal"
 portrait = ExtResource("4_x3ae4")
-text = "Looks like the way is locked down by someone though."
+text = "Looks like the way is locked down by someone."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_4k11k"]
@@ -117,14 +117,14 @@ metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 script = ExtResource("1_eva7r")
 speaker_name = "Dover"
 portrait = ExtResource("3_5acnn")
-text = "That's just Dave hiding out there, man! Got himself some muscle and holed up in there."
+text = "That's just Dave hiding out there, man! Got himself a couple of bodyguards and set up shop inside the locked gate."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_t8hi5"]
 script = ExtResource("1_eva7r")
 speaker_name = "Jackal"
 portrait = ExtResource("4_x3ae4")
-text = "Dave's here, too? Man, this place is becoming a demon hot spot."
+text = "Dave's here, too? This place is becoming a demon hot spot."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_2xk8f"]
@@ -138,14 +138,14 @@ metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 script = ExtResource("1_eva7r")
 speaker_name = "Jackal"
 portrait = ExtResource("4_x3ae4")
-text = "Daisy doesn't seem like a very robotic name. Yet there you are!"
+text = "Daisy doesn't seem like a very robotic name. Yet, there you are!"
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_jpw6a"]
 script = ExtResource("1_eva7r")
 speaker_name = "Jackal"
 portrait = ExtResource("4_x3ae4")
-text = "Anyways, now that I know this is Dave, I know what to do. Let's head back to the Scrapyard now."
+text = "Now that I know this is Dave, I know what to do. Let's head back to the Scrapyard now."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [resource]

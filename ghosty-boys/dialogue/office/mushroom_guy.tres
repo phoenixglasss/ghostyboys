@@ -8,7 +8,7 @@
 script = ExtResource("1_ueum6")
 speaker_name = "Mushroom Guy"
 portrait = ExtResource("2_2qh4w")
-text = "It was really nice of Mr. Manager to let met start working here."
+text = "It was really nice of Mr. Manager to let me start working here."
 metadata/_custom_type_script = "uid://dvr4dfli4tbxn"
 
 [sub_resource type="Resource" id="Resource_kc0lu"]
