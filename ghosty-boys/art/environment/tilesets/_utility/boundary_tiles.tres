@@ -1,0 +1,12 @@
+[gd_resource type="TileSet" format=3 uid="uid://b0vdo8xvow27g"]
+
+[ext_resource type="Texture2D" uid="uid://cvsfm8we1cfqp" path="res://art/environment/tilesets/_utility/boundary_tiles.png" id="1_gq4n4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oyn50"]
+texture = ExtResource("1_gq4n4")
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_oyn50")

@@ -1,10 +1,14 @@
 extends Node2D
 class_name PartyMemberDisplay
 
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 var conductor : Conductor
 
 var bounce_curve : Curve = preload("res://rhythm_game/bounce.tres")
+
+func _ready() -> void:
+	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate()
 
 func setup(member: PartyMember) -> void:
 	if member.sprite_frames:
@@ -20,7 +24,7 @@ func setup(member: PartyMember) -> void:
 	sprite.offset.y -= current_height
 	sprite.position.y += current_height
 	
-	
+
 
 
 func _process(delta: float) -> void:
@@ -28,3 +32,10 @@ func _process(delta: float) -> void:
 		var bounded_beat : float = fmod(conductor.raw_beat,2.0)
 		var bounce_scale_mod = bounce_curve.sample_baked(bounded_beat)
 		sprite.scale.y = 1 + bounce_scale_mod * 0.05
+		
+func set_highlight(highlight : bool):
+	var w : float = 0.0
+	if highlight:
+		w = 1.0
+	$AnimatedSprite2D.material.set_shader_parameter("width", w)
+	

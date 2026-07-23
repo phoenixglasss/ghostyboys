@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://d4nelasu1ucxl"]
 
 [ext_resource type="Script" uid="uid://8kg3sh0maskc" path="res://battle/party_member_display.gd" id="1_yy0t6"]
+[ext_resource type="Shader" uid="uid://b3yu2v3s3pl66" path="res://battle/ui/party_member_highlight.gdshader" id="2_xregb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yy0t6"]
+shader = ExtResource("2_xregb")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
 
 [node name="PartyMemberDisplay" type="Node2D" unique_id=1806403326]
 script = ExtResource("1_yy0t6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1339067003]
+material = SubResource("ShaderMaterial_yy0t6")
