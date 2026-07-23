@@ -205,6 +205,7 @@ animation = &"idle_down"
 [node name="Interactable" parent="TutorialNPCs/BarPatron2" unique_id=1443432585 instance=ExtResource("9_e6pda")]
 position = Vector2(225, 112)
 conversations = Array[ExtResource("15_dh0uk")]([ExtResource("19_3i4cb")])
+interactable_id = "patron_2"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TutorialNPCs/BarPatron2" unique_id=1605378807]
 y_sort_enabled = true
@@ -228,6 +229,7 @@ animation = &"idle_down"
 y_sort_enabled = true
 position = Vector2(250, 72)
 conversations = Array[ExtResource("15_dh0uk")]([ExtResource("19_3rj1h"), ExtResource("20_6htja")])
+interactable_id = "patron_1"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TutorialNPCs/BarPatron1" unique_id=1633992755]
 y_sort_enabled = true
@@ -260,6 +262,7 @@ y_sort_enabled = true
 position = Vector2(116.00001, 118)
 scale = Vector2(1.8399999, 1)
 conversations = Array[ExtResource("15_dh0uk")]([ExtResource("21_b5scq"), ExtResource("22_b5scq"), ExtResource("23_vsck7")])
+interactable_id = "mel_and_jackal_1"
 
 [node name="MelNPC" parent="TutorialNPCs" unique_id=1718872955 instance=ExtResource("15_kxtva")]
 y_sort_enabled = true
@@ -282,6 +285,7 @@ shape = SubResource("CapsuleShape2D_1lv5l")
 y_sort_enabled = true
 position = Vector2(162, 37)
 conversations = Array[ExtResource("15_dh0uk")]([ExtResource("10_mt7io")])
+interactable_id = "bartender_convo"
 
 [node name="CollisionShape2D" parent="TutorialNPCs/BartenderInteractable" index="0" unique_id=1421851178]
 y_sort_enabled = true
