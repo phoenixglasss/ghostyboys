@@ -15,9 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://beiar2cfacnk3" path="res://art/environment/tilesets/office/whiteboard.png" id="11_0oflw"]
 [ext_resource type="PackedScene" uid="uid://cgln0nnxd7hqt" path="res://overworld/party/jackal.tscn" id="11_puvi8"]
 [ext_resource type="PackedScene" uid="uid://poatep0dlqgv" path="res://overworld/player/player.tscn" id="12_7l8uh"]
+[ext_resource type="Resource" uid="uid://evn5p3ev3d0v" path="res://dialogue/items/filing_cabinets.tres" id="13_oqouy"]
 [ext_resource type="Script" uid="uid://dlxvo4sd861yl" path="res://overworld/overworld_camera.gd" id="13_qf4sj"]
+[ext_resource type="Resource" uid="uid://d38dm55jfq64r" path="res://dialogue/items/also_filing_cabinets.tres" id="14_epjjj"]
+[ext_resource type="Resource" uid="uid://d2lhbhd02dc0" path="res://dialogue/items/third_filing_cabinet.tres" id="15_ymifo"]
+[ext_resource type="Resource" uid="uid://cjwtkoe2uv0sj" path="res://dialogue/items/filing_obsessed.tres" id="16_h678p"]
 [ext_resource type="Script" uid="uid://de3gtcty74lcp" path="res://overworld/office_story_triggers.gd" id="16_wjp0t"]
 [ext_resource type="SpriteFrames" uid="uid://co3awxm35i2ti" path="res://art/characters/overworld/dover/dover.tres" id="17_hm53j"]
+[ext_resource type="Resource" uid="uid://t0xh2u2tngw5" path="res://dialogue/items/filing_forever.tres" id="17_xg1r1"]
 [ext_resource type="SpriteFrames" uid="uid://cd5h3o3yfj8qb" path="res://art/characters/overworld/misc_npc/npc1_overworld.tres" id="18_ebkg1"]
 [ext_resource type="PackedScene" uid="uid://dfn1hlmf434fo" path="res://overworld/interactable/interactable.tscn" id="18_l1nk6"]
 [ext_resource type="Script" uid="uid://crsnq2fq76xma" path="res://battle/classes/dialogue_conversation.gd" id="20_hje01"]
@@ -172,6 +177,12 @@ texture = ExtResource("9_eymq5")
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_0oflw")
 
+[node name="Interactable" parent="Environment/FilingCabinet" unique_id=1231168211 instance=ExtResource("18_l1nk6")]
+position = Vector2(16, -6)
+scale = Vector2(1.4399974, 1)
+conversations = Array[ExtResource("20_hje01")]([ExtResource("13_oqouy"), ExtResource("14_epjjj"), ExtResource("15_ymifo"), ExtResource("16_h678p"), ExtResource("17_xg1r1")])
+interactable_id = "filing_cabinets_convo"
+
 [node name="FilingCabinet2" type="StaticBody2D" parent="Environment" unique_id=1060642374]
 position = Vector2(164, 124)
 
@@ -249,7 +260,7 @@ position = Vector2(0, 8.999999)
 scale = Vector2(1, 0.7199975)
 shape = SubResource("CapsuleShape2D_6a5au")
 
-[node name="Interactable" parent="Dover" unique_id=1231168211 instance=ExtResource("18_l1nk6")]
+[node name="Interactable" parent="Dover" unique_id=1691843304 instance=ExtResource("18_l1nk6")]
 position = Vector2(0, 9)
 interactable_id = "dover"
 
@@ -309,7 +320,7 @@ shape = SubResource("CapsuleShape2D_3xs8e")
 
 [node name="Interactable" parent="MushroomGuy" unique_id=1569399424 instance=ExtResource("18_l1nk6")]
 position = Vector2(1, 8)
-scale = Vector2(1.3199999, 1.28)
+scale = Vector2(1.3199999, 1.2835546)
 conversations = Array[ExtResource("20_hje01")]([ExtResource("27_lgjis")])
 interactable_id = "mushroom_dude"
 
