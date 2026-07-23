@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_xqfht")
 attack_name = "Unholy Punch"
-base_power = 12
+base_power = 18
 target_type = "single_enemy"
 chart = ExtResource("1_tr0bl")
+description = "Attacks single enemy for moderate amount."
 metadata/_custom_type_script = "uid://cmvjae453yh3n"

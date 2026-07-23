@@ -9,4 +9,5 @@ attack_name = "Flurry of Fists"
 base_power = 12
 target_type = "all_enemies"
 chart = ExtResource("1_ye7nf")
+description = "Attacks all enemies for smaller amount."
 metadata/_custom_type_script = "uid://cmvjae453yh3n"

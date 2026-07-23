@@ -10,4 +10,5 @@ base_power = 20
 target_type = "single_ally"
 is_healing = true
 chart = ExtResource("1_wxl2i")
+description = "Heal one ally for a moderate amount."
 metadata/_custom_type_script = "uid://cmvjae453yh3n"
